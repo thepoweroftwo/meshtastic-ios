@@ -20,6 +20,8 @@ class tvcBLEDevices: UITableViewController
     var tableDataArray = [tableDataObject]()
     var connectedDevice: CBPeripheral!
     //var isBLEConnected = false
+    
+    
 
     struct tableDataObject
     {
