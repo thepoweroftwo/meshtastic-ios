@@ -9,12 +9,12 @@ import UIKit
 
 class cellEditText: UITableViewCell
 {
-
     
     @IBOutlet var lblCaption: UILabel!
     @IBOutlet var lblValue: UILabel!
     @IBOutlet var lblInfo: UILabel!
     
+    public var datafieldName: String = ""
     
     override func awakeFromNib()
     {

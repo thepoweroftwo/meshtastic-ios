@@ -78,7 +78,7 @@ class tvcBLEDevices: UITableViewController
         // Clear data array and refill it
         dataChangedHandler(nil)
         tableView.reloadData()
-        MasterViewController.shared.DidTriggerRefreshDeviceList()
+        MasterViewController.shared.didTriggerRefreshDeviceList()
         (sender as AnyObject).endRefreshing()
     }
         
@@ -200,7 +200,7 @@ class tvcBLEDevices: UITableViewController
         let deleteAction = UIContextualAction(style: .destructive, title: nil)
         { (_, _, completionHandler) in
             // disconnect
-            MasterViewController.shared.DidTriggerDisconnect(peripheral: self.tableDataArray[indexPath.row].peripheral)
+            MasterViewController.shared.didTriggerDisconnect(peripheral: self.tableDataArray[indexPath.row].peripheral)
             completionHandler(true)
         }
         //deleteAction.image = UIImage(systemName: "trash")

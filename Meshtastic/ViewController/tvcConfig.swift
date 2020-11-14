@@ -9,11 +9,30 @@ import UIKit
 
 class tvcConfig: UITableViewController
 {
+    @IBAction func unwindToPresentingViewController(segue:UIStoryboardSegue)
+    {
+        if segue.identifier == "SegueUnwindConfigDetail"
+        {
+            if let vcEdit = segue.destination as? vcEditText
+            {
+                
+            }
+        }
+    }
     
     private var sectionDefinitions: [(numberOfRowsAtSection: Int, text: String)] = [
         (15, "RADIO - PREFERENCES"),
         (8, "RADIO - CHANNEL SETTINGS")]
 
+    private struct cellData
+    {
+        var caption = ""
+        var value = ""
+        var info = ""
+    }
+    
+    private var currentCell: cellEditText!
+    
     
     public var radioConfig: RadioConfig_DO = RadioConfig_DO()
     public var needsReload: Bool = false
@@ -36,6 +55,7 @@ class tvcConfig: UITableViewController
                 cell.lblCaption.text = "Position Broadcast Secs"
                 cell.lblValue.text = String(self.radioConfig.preferences.positionBroadcastSecs)
                 cell.lblInfo.text = "We should send our position this often (but only if it has changed significantly)"
+                cell.datafieldName = "preferences.positionBroadcastSecs"
                 return cell
 
             case 1:
@@ -44,6 +64,7 @@ class tvcConfig: UITableViewController
                 cell.lblCaption.text = "Send Owner Interval"
                 cell.lblValue.text = String(self.radioConfig.preferences.sendOwnerInterval)
                 cell.lblInfo.text = "Send our owner info at least this often (also we always send once at boot to rejoin the mesh)"
+                cell.datafieldName = "preferences.sendOwnerInterval"
                 return cell
 
             case 2:
@@ -52,6 +73,7 @@ class tvcConfig: UITableViewController
                 cell.lblCaption.text = "Num Missed To Fail"
                 cell.lblValue.text = String(self.radioConfig.preferences.numMissedToFail)
                 cell.lblInfo.text = "If we miss this many owner messages from a node, we declare the node offline (defaults to 3 - to allow for some lost packets)"
+                cell.datafieldName = "preferences.numMissedToFail"
                 return cell
 
             case 3:
@@ -60,6 +82,7 @@ class tvcConfig: UITableViewController
                 cell.lblCaption.text = "Wait Bluetooth Secs"
                 cell.lblValue.text = String(self.radioConfig.preferences.waitBluetoothSecs)
                 cell.lblInfo.text = ""
+                cell.datafieldName = "preferences.waitBluetoothSecs"
                 return cell
 
             case 4:
@@ -68,6 +91,7 @@ class tvcConfig: UITableViewController
                 cell.lblCaption.text = "Screen On Secs"
                 cell.lblValue.text = String(self.radioConfig.preferences.screenOnSecs)
                 cell.lblInfo.text = ""
+                cell.datafieldName = "preferences.screenOnSecs"
                 return cell
 
             case 5:
@@ -76,6 +100,7 @@ class tvcConfig: UITableViewController
                 cell.lblCaption.text = "Phone Timeout Secs"
                 cell.lblValue.text = String(self.radioConfig.preferences.phoneTimeoutSecs)
                 cell.lblInfo.text = ""
+                cell.datafieldName = "preferences.phoneTimeoutSecs"
                 return cell
 
             case 6:
@@ -84,6 +109,7 @@ class tvcConfig: UITableViewController
                 cell.lblCaption.text = "Phone Sds Timeout Sec"
                 cell.lblValue.text = String(self.radioConfig.preferences.phoneSdsTimeoutSec)
                 cell.lblInfo.text = ""
+                cell.datafieldName = "preferences.phoneSdsTimeoutSec"
                 return cell
 
             case 7:
@@ -92,6 +118,7 @@ class tvcConfig: UITableViewController
                 cell.lblCaption.text = "Mesh Sds Timeout Secs"
                 cell.lblValue.text = String(self.radioConfig.preferences.meshSdsTimeoutSecs)
                 cell.lblInfo.text = ""
+                cell.datafieldName = "preferences.meshSdsTimeoutSecs"
                 return cell
 
             case 8:
@@ -100,6 +127,7 @@ class tvcConfig: UITableViewController
                 cell.lblCaption.text = "Sds Secs"
                 cell.lblValue.text = String(self.radioConfig.preferences.sdsSecs)
                 cell.lblInfo.text = ""
+                cell.datafieldName = "preferences.sdsSecs"
                 return cell
 
             case 9:
@@ -108,6 +136,7 @@ class tvcConfig: UITableViewController
                 cell.lblCaption.text = "Ls Secs"
                 cell.lblValue.text = String(self.radioConfig.preferences.lsSecs)
                 cell.lblInfo.text = ""
+                cell.datafieldName = "preferences.lsSecs"
                 return cell
 
             case 10:
@@ -116,6 +145,7 @@ class tvcConfig: UITableViewController
                 cell.lblCaption.text = "Min Wake Secs"
                 cell.lblValue.text = String(self.radioConfig.preferences.minWakeSecs)
                 cell.lblInfo.text = ""
+                cell.datafieldName = "preferences.minWakeSecs"
                 return cell
 
             case 11:
@@ -124,6 +154,7 @@ class tvcConfig: UITableViewController
                 cell.lblCaption.text = "Wifi Ssid"
                 cell.lblValue.text = String(self.radioConfig.preferences.wifiSsid)
                 cell.lblInfo.text = "If set, this node will try to join the specified wifi network and acquire an address via DHCP"
+                cell.datafieldName = "preferences.wifiSsid"
                 return cell
 
             case 12:
@@ -132,6 +163,7 @@ class tvcConfig: UITableViewController
                 cell.lblCaption.text = "Wifi Password"
                 cell.lblValue.text = String(self.radioConfig.preferences.wifiPassword)
                 cell.lblInfo.text = "If set, will be use to authenticate to the named wifi"
+                cell.datafieldName = "preferences.wifiPassword"
                 return cell
 
             case 13:
@@ -140,6 +172,7 @@ class tvcConfig: UITableViewController
                 cell.lblCaption.text = "Wifi Ap Mode"
                 cell.lblValue.text = String(self.radioConfig.preferences.wifiApMode)
                 cell.lblInfo.text = "If set, the node will operate as an AP (and DHCP server), otherwise it will be a station"
+                cell.datafieldName = "preferences.wifiApMode"
                 return cell
 
             case 14:
@@ -148,6 +181,7 @@ class tvcConfig: UITableViewController
                 cell.lblCaption.text = "Ignore Incoming"
                 cell.lblValue.text = self.radioConfig.preferences.ignoreIncoming.description
                 cell.lblInfo.text = "For testing it is useful sometimes to force a node to never listen to particular other nodes (simulating radio out of range). All nodenums listed in ignore_incoming will have packets they send droped on receive (by router.cpp)"
+                cell.datafieldName = "preferences.ignoreIncoming"
                 return cell
                                 
             default:
@@ -166,6 +200,7 @@ class tvcConfig: UITableViewController
                 cell.lblCaption.text = "Tx Power"
                 cell.lblValue.text = String(self.radioConfig.channelSettings.txPower)
                 cell.lblInfo.text = "If zero then, use default max legal continuous power (ie. something that won't burn out the radio hardware). In most cases you should use zero here."
+                cell.datafieldName = "channelSettings.txPower"
                 return cell
 
             case 1:
@@ -174,6 +209,7 @@ class tvcConfig: UITableViewController
                 cell.lblCaption.text = "Modem Config"
                 cell.lblValue.text = self.radioConfig.channelSettings.modemConfig.description
                 cell.lblInfo.text = "Note: This is the 'old' mechanism for specifying channel parameters. Either modem_config or bandwidth/spreading/coding will be specified - NOT BOTH. As a heuristic: If bandwidth is specified, do not use modem_config. Because protobufs take ZERO space when the value is zero this works out nicely."
+                cell.datafieldName = "channelSettings.modemConfig"
                 return cell
 
             case 2:
@@ -182,6 +218,7 @@ class tvcConfig: UITableViewController
                 cell.lblCaption.text = "Bandwidth"
                 cell.lblValue.text = String(self.radioConfig.channelSettings.bandwidth)
                 cell.lblInfo.text = "Bandwidth in MHz Certain bandwidth numbers are 'special' and will be converted to the appropriate floating point value: 31 -> 31.25MHz"
+                cell.datafieldName = "channelSettings.bandwidth"
                 return cell
 
             case 3:
@@ -190,6 +227,7 @@ class tvcConfig: UITableViewController
                 cell.lblCaption.text = "Spread Factor"
                 cell.lblValue.text = String(self.radioConfig.channelSettings.spreadFactor)
                 cell.lblInfo.text = "A number from 7 to 12. Indicates number of chirps per symbol as 1<<spread_factor."
+                cell.datafieldName = "channelSettings.spreadFactor"
                 return cell
 
             case 4:
@@ -198,6 +236,7 @@ class tvcConfig: UITableViewController
                 cell.lblCaption.text = "Coding Rate"
                 cell.lblValue.text = String(self.radioConfig.channelSettings.codingRate)
                 cell.lblInfo.text = "The denominator of the coding rate.  ie for 4/8, the value is 8. 5/8 the value is 5."
+                cell.datafieldName = "channelSettings.codingRate"
                 return cell
 
             case 5:
@@ -206,6 +245,7 @@ class tvcConfig: UITableViewController
                 cell.lblCaption.text = "Channel Num"
                 cell.lblValue.text = String(self.radioConfig.channelSettings.channelNum)
                 cell.lblInfo.text = "A channel number between 1 and 13 (or whatever the max is in the current region)."
+                cell.datafieldName = "channelSettings.channelNum"
                 return cell
 
             case 6:
@@ -214,6 +254,7 @@ class tvcConfig: UITableViewController
                 cell.lblCaption.text = "PSK"
                 cell.lblValue.text = self.radioConfig.channelSettings.psk.hexDescription
                 cell.lblInfo.text = "A simple preshared key for now for crypto.  Must be either 0 bytes (no crypto), 16 bytes (AES128), or 32 bytes (AES256)"
+                cell.datafieldName = "channelSettings.psk"
                 return cell
 
             case 7:
@@ -222,6 +263,7 @@ class tvcConfig: UITableViewController
                 cell.lblCaption.text = "Name"
                 cell.lblValue.text = self.radioConfig.channelSettings.name
                 cell.lblInfo.text = "A SHORT name that will be packed into the URL.  Less than 12 bytes. Something for end users to call the channel"
+                cell.datafieldName = "channelSettings.name"
                 return cell
 
                                 
@@ -335,6 +377,24 @@ class tvcConfig: UITableViewController
     }
     
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        self.currentCell = tableView.cellForRow(at: indexPath) as? cellEditText
+        self.performSegue(withIdentifier: "SegueShowConfigDetail", sender: self)
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if(segue.identifier == "SegueShowConfigDetail")
+        {
+            let vcEdit = segue.destination as! vcEditText
+            vcEdit.CellData.caption = self.currentCell.lblCaption.text!
+            vcEdit.CellData.value = self.currentCell.lblValue.text!
+            vcEdit.CellData.info = self.currentCell.lblInfo.text!
+            vcEdit.CellData.dataFieldName = self.currentCell.datafieldName
+        }
+    }
     
     
 //    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat

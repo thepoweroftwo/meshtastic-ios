@@ -177,6 +177,82 @@ class MasterDataProcessor
     }
     
     
+    /// Called by MasterViewController after the user has changed a radio-config value
+    ///
+    /// - Parameters:
+    ///     - dataFieldName: The name of the datafield whose name was changed
+    ///     - value: The new Value of the datafield
+    ///
+    public func radioConfig_setValue(dataFieldName: String, value: String)
+    {
+        
+        
+        switch dataFieldName
+        {
+            case "preferences.positionBroadcastSecs":
+                //self.preferences.positionBroadcastSecs =
+                break
+                
+            case "preferences.sendOwnerInterval":
+                break
+            case "preferences.numMissedToFail":
+                break
+            case "preferences.waitBluetoothSecs":
+                break
+            case "preferences.screenOnSecs":
+                break
+            case "preferences.phoneTimeoutSecs":
+                break
+            case "preferences.phoneSdsTimeoutSec":
+                break
+            case "preferences.meshSdsTimeoutSecs":
+                break
+            case "preferences.sdsSecs":
+                break
+            case "preferences.lsSecs":
+                break
+            case "preferences.minWakeSecs":
+                break
+            case "preferences.wifiSsid":
+                break
+            case "preferences.wifiPassword":
+                break
+            case "preferences.wifiApMode":
+                break
+            case "preferences.ignoreIncoming":
+                break
+
+            case "channelSettings.txPower":
+                break
+            case "channelSettings.modemConfig":
+                break
+            case "channelSettings.bandwidth":
+                break
+            case "channelSettings.spreadFactor":
+                break
+            case "channelSettings.codingRate":
+                break
+            case "channelSettings.channelNum":
+                break
+            case "channelSettings.psk":
+                break
+            case "channelSettings.name":
+                break
+
+        
+        
+        
+        
+            default:
+                break
+        }
+
+        
+        
+        
+        
+    }
+    
     
     
     
