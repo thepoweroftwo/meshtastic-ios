@@ -180,6 +180,8 @@ class tvcBLEDevices: UITableViewController
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
+        self.title = "Connect"
+        
         dataChangedHandler(nil)
         
         MasterViewController.shared.tvcBLEDevices = self
@@ -207,6 +209,14 @@ class tvcBLEDevices: UITableViewController
         let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
         return configuration
     }
+    
+    
+    // Create a standard header that includes the returned text.
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection
+                                section: Int) -> String? {
+       return "Nearby devices"
+    }
+    
     
         
     //---------------------------------------------------------------------------------------

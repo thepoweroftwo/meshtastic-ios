@@ -247,6 +247,8 @@ class tvcConfig: UITableViewController
     
     override func viewWillAppear(_ animated: Bool)
     {
+        self.navigationController?.visibleViewController?.title = "Device Settings"
+        
         if (self.needsReload)
         {
             self.tableView.reloadData()

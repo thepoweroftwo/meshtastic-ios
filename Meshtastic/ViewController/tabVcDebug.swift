@@ -28,7 +28,7 @@ class tabVcDebug: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
+        
         // call the 'keyboardWillShow' function when the view controller receive notification that keyboard is going to be shown
         NotificationCenter.default.addObserver(self, selector: #selector(tabVcDebug.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         
@@ -58,6 +58,8 @@ class tabVcDebug: UIViewController
     
     override func viewWillAppear(_ animated: Bool)
     {
+        self.navigationController?.visibleViewController?.title = "Debug"
+        
         if (!self.Test.isEmpty)
         {
             txtView1.text! += self.Test

@@ -28,16 +28,15 @@
         <scene sceneID="GX0-dG-FH8">
             <objects>
                 <tableViewController id="3iR-hT-lVz" userLabel="tvcBLE Devices" customClass="tvcBLEDevices" customModule="Meshtastic" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="eir-TF-qZ1">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="eir-TF-qZ1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="FJZ-vn-E8b" detailTextLabel="afe-82-2d4" style="IBUITableViewCellStyleValue1" id="qtg-So-hvs">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <rect key="frame" x="20" y="55.5" width="374" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qtg-So-hvs" id="ydi-Et-P81">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FJZ-vn-E8b">
@@ -48,7 +47,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="afe-82-2d4">
-                                            <rect key="frame" x="350" y="12" width="44" height="20.5"/>
+                                            <rect key="frame" x="310" y="12" width="44" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -67,15 +66,7 @@
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="Xmg-eZ-Rj3">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <attributedString key="attributedTitle">
-                            <fragment content="Refresh Device List">
-                                <attributes>
-                                    <color key="NSColor" red="0.84896494289340096" green="0.1613575437645168" blue="0.13402880033392553" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    <font key="NSFont" size="17" name="HelveticaNeue-Bold"/>
-                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                </attributes>
-                            </fragment>
-                        </attributedString>
+                        <attributedString key="attributedTitle"/>
                         <connections>
                             <action selector="RefreshControlValueChanged:" destination="3iR-hT-lVz" eventType="valueChanged" id="Nft-Uh-utC"/>
                         </connections>
@@ -139,7 +130,7 @@
                             <constraint firstItem="J9c-ma-gve" firstAttribute="top" secondItem="t4r-GY-oXn" secondAttribute="bottom" constant="40" id="eru-6m-pdb"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Debug" id="0fu-KL-jlc"/>
+                    <tabBarItem key="tabBarItem" title="Debug" image="ladybug" catalog="system" id="0fu-KL-jlc"/>
                     <connections>
                         <outlet property="txtMessage" destination="J9c-ma-gve" id="mMe-Oo-o9b"/>
                         <outlet property="txtView1" destination="t4r-GY-oXn" id="VEw-fX-One"/>
@@ -172,7 +163,7 @@
                             <outlet property="delegate" destination="YST-Kk-4GQ" id="waj-RN-FtC"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Chats" id="aXo-DP-gev"/>
+                    <tabBarItem key="tabBarItem" title="Chats" image="message" catalog="system" id="aXo-DP-gev"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9iJ-Dr-CRr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -222,7 +213,7 @@
                             <outlet property="delegate" destination="AeW-tu-3HS" id="ZJ6-AJ-rny"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Settings" id="A1G-Fl-Xks"/>
+                    <tabBarItem key="tabBarItem" title="Device Settings" image="gearshape" catalog="system" id="A1G-Fl-Xks"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="asj-00-y8T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -250,6 +241,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="gearshape" catalog="system" width="128" height="121"/>
+        <image name="ladybug" catalog="system" width="128" height="128"/>
+        <image name="message" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
