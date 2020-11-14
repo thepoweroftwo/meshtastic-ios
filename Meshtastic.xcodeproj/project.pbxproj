@@ -13,6 +13,7 @@
 		7D3D5370251BAC8500A603D7 /* tabVcDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3D536F251BAC8500A603D7 /* tabVcDebug.swift */; };
 		7D3E760E253F6C6F0016F3EB /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DB299F4251E6F0E00AFDEE2 /* SwiftProtobuf.framework */; };
 		7D3E760F253F6C6F0016F3EB /* SwiftProtobuf.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7DB299F4251E6F0E00AFDEE2 /* SwiftProtobuf.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7D57968F254F3B7400769E7C /* vcEditText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D57968E254F3B7400769E7C /* vcEditText.swift */; };
 		7D6F2FB025176A2C00403A2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6F2FAF25176A2C00403A2F /* AppDelegate.swift */; };
 		7D6F2FB225176A2C00403A2F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6F2FB125176A2C00403A2F /* SceneDelegate.swift */; };
 		7D6F2FB725176A2C00403A2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D6F2FB525176A2C00403A2F /* Main.storyboard */; };
@@ -56,6 +57,7 @@
 		7D1334922544B23D009E32FE /* mesh_icon_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mesh_icon_120.png; sourceTree = "<group>"; };
 		7D1334952544E4C4009E32FE /* mesh_icon_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mesh_icon_1024.png; sourceTree = "<group>"; };
 		7D3D536F251BAC8500A603D7 /* tabVcDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabVcDebug.swift; sourceTree = "<group>"; };
+		7D57968E254F3B7400769E7C /* vcEditText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vcEditText.swift; sourceTree = "<group>"; };
 		7D6F2FAC25176A2C00403A2F /* Meshtastic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meshtastic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D6F2FAF25176A2C00403A2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D6F2FB125176A2C00403A2F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				7D9A4A6B252A6C2500CE4AD2 /* tvcConfig.swift */,
 				7D72B782252CEC8E0033F613 /* cellEditText.swift */,
 				7D72B783252CEC8E0033F613 /* cellEditText.xib */,
+				7D57968E254F3B7400769E7C /* vcEditText.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				7DFDE9EC252653D400B4BBF2 /* ChannelSettings_DO.swift in Sources */,
 				7DFDE9E225264F4300B4BBF2 /* RadioConfig_DO.swift in Sources */,
 				7DFDE9E8252650E300B4BBF2 /* User_DO.swift in Sources */,
+				7D57968F254F3B7400769E7C /* vcEditText.swift in Sources */,
 				7DFDE9F025276BF700B4BBF2 /* Enumerations.swift in Sources */,
 				7DFDE9E025264E5F00B4BBF2 /* MasterDataProcessor.swift in Sources */,
 				7D9A4A6C252A6C2500CE4AD2 /* tvcConfig.swift in Sources */,
@@ -426,7 +430,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development: Thomas Huttinger (55B3HHUA2B)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5HQQDDZ3GR;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -437,6 +441,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.8;
 				PRODUCT_BUNDLE_IDENTIFIER = "de.huttinger-home.meshtastic";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = Meshtastic_dev;
@@ -452,7 +457,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Distribution: Thomas Huttinger (5HQQDDZ3GR)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5HQQDDZ3GR;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -463,6 +468,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.8;
 				PRODUCT_BUNDLE_IDENTIFIER = "de.huttinger-home.meshtastic";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = Meshtastic_dist;

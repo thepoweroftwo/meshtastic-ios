@@ -142,7 +142,7 @@ class MasterViewController
     /// - Parameters:
     ///     - peripheral: The device to disconnect
     ///
-    public func DidTriggerDisconnect(peripheral: CBPeripheral)
+    public func didTriggerDisconnect(peripheral: CBPeripheral)
     {
         BLEConroller.shared.disconnectFromDevice(peripheral: peripheral)
     }
@@ -150,7 +150,7 @@ class MasterViewController
     
     /// Called by the ViewController that holds the device list, after the user took action to refresh the list
     ///
-    public func DidTriggerRefreshDeviceList()
+    public func didTriggerRefreshDeviceList()
     {
         BLEConroller.shared.rescanForDevices()
     }
@@ -159,6 +159,17 @@ class MasterViewController
     public func didTriggerSendMessage(message: String)
     {
         BLEConroller.shared.sendMessage(message: message)            
+    }
+    
+    
+    /// Called by tvcConfig after the user has changed a radio-config value
+    ///
+    /// - Parameters:
+    ///     - dataFieldName: The name of the datafield whose name was changed
+    ///     - value: The new Value of the datafield
+    ///
+    public func radioConfigValueUpdated(dataFieldName: String, value: String)
+    {
     }
         
     
