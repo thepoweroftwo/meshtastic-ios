@@ -13,9 +13,12 @@ class tvcConfig: UITableViewController
     {
         if segue.identifier == "SegueUnwindConfigDetail"
         {
-            if let vcEdit = segue.destination as? vcEditText
+            if let vcEdit = segue.source as? vcEditText
             {
+                let dataFieldName = vcEdit.CellData.dataFieldName
+                let value = vcEdit.CellData.value
                 
+                MasterViewController.shared.radioConfigValueUpdated(dataFieldName: dataFieldName, value: value, currentRaidioConfig: self.radioConfig)
             }
         }
     }
@@ -197,7 +200,7 @@ class tvcConfig: UITableViewController
             case 0:
                 
                 let cell = tableView.dequeueReusableCell(withIdentifier: "cellConfigText", for: indexPath) as! cellEditText
-                cell.lblCaption.text = "Tx Power"
+                cell.lblCaption.text = "Tx Power (dBm)"
                 cell.lblValue.text = String(self.radioConfig.channelSettings.txPower)
                 cell.lblInfo.text = "If zero then, use default max legal continuous power (ie. something that won't burn out the radio hardware). In most cases you should use zero here."
                 cell.datafieldName = "channelSettings.txPower"
@@ -208,7 +211,7 @@ class tvcConfig: UITableViewController
                 let cell = tableView.dequeueReusableCell(withIdentifier: "cellConfigText", for: indexPath) as! cellEditText
                 cell.lblCaption.text = "Modem Config"
                 cell.lblValue.text = self.radioConfig.channelSettings.modemConfig.description
-                cell.lblInfo.text = "Note: This is the 'old' mechanism for specifying channel parameters. Either modem_config or bandwidth/spreading/coding will be specified - NOT BOTH. As a heuristic: If bandwidth is specified, do not use modem_config. Because protobufs take ZERO space when the value is zero this works out nicely."
+                cell.lblInfo.text = "Note: This is the 'old' mechanism for specifying channel parameters. Either modem_config or bandwidth/spreading/coding will be specified - NOT BOTH. As a heuristic: If bandwidth is specified, do not use modem_config. Because protobufs take ZERO space when the value is zero this works out nicely.\n\nbw125Cr45Sf128  (medium range)\n\nbw500Cr45Sf128  (Fast+short range)\n\nbw31_25Cr48Sf512  (Slow+long range)\n\nbw125Cr48Sf4096  (Slow+long range)"
                 cell.datafieldName = "channelSettings.modemConfig"
                 return cell
 
@@ -235,7 +238,7 @@ class tvcConfig: UITableViewController
                 let cell = tableView.dequeueReusableCell(withIdentifier: "cellConfigText", for: indexPath) as! cellEditText
                 cell.lblCaption.text = "Coding Rate"
                 cell.lblValue.text = String(self.radioConfig.channelSettings.codingRate)
-                cell.lblInfo.text = "The denominator of the coding rate.  ie for 4/8, the value is 8. 5/8 the value is 5."
+                cell.lblInfo.text = "The denominator of the coding rate. Ie for 4/8, the value is 8. 4/5 the value is 5."
                 cell.datafieldName = "channelSettings.codingRate"
                 return cell
 
@@ -244,7 +247,7 @@ class tvcConfig: UITableViewController
                 let cell = tableView.dequeueReusableCell(withIdentifier: "cellConfigText", for: indexPath) as! cellEditText
                 cell.lblCaption.text = "Channel Num"
                 cell.lblValue.text = String(self.radioConfig.channelSettings.channelNum)
-                cell.lblInfo.text = "A channel number between 1 and 13 (or whatever the max is in the current region)."
+                cell.lblInfo.text = "A channel number within EU433 band (433.050 to 434.790 MHz)\n\n1 = 433.175 MHz\n2 = 433.375 MHz\n3 = 433.575 MHz\n4 = 433.775 MHz\n5 = 433.975 MHz\n6 = 434.175 MHz\n7 = 434.375 MHz"
                 cell.datafieldName = "channelSettings.channelNum"
                 return cell
 

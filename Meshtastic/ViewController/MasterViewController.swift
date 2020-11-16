@@ -23,6 +23,7 @@ class MasterViewController
     var tbcDeviceDetails: tbcDeviceDetails!
     var dialogMessage: UIAlertController
     var currentViewController: UIViewController!
+    var masterDataProcessor: MasterDataProcessor
     //---------------------------------------------------------------------------------------
 
 
@@ -168,8 +169,9 @@ class MasterViewController
     ///     - dataFieldName: The name of the datafield whose name was changed
     ///     - value: The new Value of the datafield
     ///
-    public func radioConfigValueUpdated(dataFieldName: String, value: String)
+    public func radioConfigValueUpdated(dataFieldName: String, value: String, currentRaidioConfig: RadioConfig_DO)
     {
+        masterDataProcessor.radioConfig_setValue(dataFieldName: dataFieldName, value: value, currentRaidioConfig: currentRaidioConfig)
     }
         
     
@@ -181,6 +183,7 @@ class MasterViewController
     {
         tvcBLEDevices = Meshtastic.tvcBLEDevices()
         dialogMessage = UIAlertController()
+        masterDataProcessor = MasterDataProcessor()
     }
     
     

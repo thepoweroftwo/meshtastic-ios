@@ -145,6 +145,27 @@ class BLEConroller : NSObject
     }
     
     
+    public func writeRadioConfig(userPreferences: RadioConfig.UserPreferences, channelSettings: ChannelSettings)
+    {
+        var toRadio: ToRadio!
+        toRadio = ToRadio()
+        toRadio.setRadio.channelSettings = channelSettings
+        toRadio.setRadio.preferences = userPreferences
+        
+        let binaryData: Data = try! toRadio.serializedData()
+        if (connectedDevice.state == CBPeripheralState.connected)
+        {
+            connectedDevice.writeValue(binaryData, for: TORADIO_characteristic, type: .withResponse)
+            MasterViewController.shared.DebugPrint2View(text: "RadioConfig written to device" + "\n\r")
+        }
+        else
+        {
+            connectToDevice(peripheral: self.connectedDevice)
+        }
+        
+    }
+    
+    
     
     //---------------------------------------------------------------------------------------
 

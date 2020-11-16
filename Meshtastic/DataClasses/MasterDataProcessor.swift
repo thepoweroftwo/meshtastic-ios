@@ -30,6 +30,81 @@ class MasterDataProcessor
     }
     
     
+    //---------------------------------------------------------------------------------------
+    // MARK: - private functions
+    //---------------------------------------------------------------------------------------
+
+    /// Writes the ChannelSettings_DO - dataobject into protobuf structure
+    ///
+    /// - Returns: a ChannelSetting protobuf structure
+    ///
+    private func channelSettings_write2ProtoBuf() -> ChannelSettings
+    {
+        var pbChannelSettings: ChannelSettings!
+        pbChannelSettings = ChannelSettings()
+        
+        pbChannelSettings.bandwidth = self.radio.channelSettings.bandwidth
+        pbChannelSettings.channelNum = self.radio.channelSettings.channelNum
+        pbChannelSettings.codingRate = self.radio.channelSettings.codingRate
+        switch self.radio.channelSettings.modemConfig
+        {
+            case Enumerations.ModemConfig.bw125Cr45Sf128 :
+                pbChannelSettings.modemConfig = ChannelSettings.ModemConfig.bw125Cr45Sf128
+            case Enumerations.ModemConfig.bw500Cr45Sf128 :
+                pbChannelSettings.modemConfig = ChannelSettings.ModemConfig.bw500Cr45Sf128
+            case Enumerations.ModemConfig.bw3125Cr48Sf512 :
+                pbChannelSettings.modemConfig = ChannelSettings.ModemConfig.bw3125Cr48Sf512
+            case Enumerations.ModemConfig.bw125Cr48Sf4096 :
+                pbChannelSettings.modemConfig = ChannelSettings.ModemConfig.bw125Cr48Sf4096
+            default:
+                pbChannelSettings.modemConfig = ChannelSettings.ModemConfig.bw125Cr48Sf4096
+        }
+        pbChannelSettings.name = self.radio.channelSettings.name
+        pbChannelSettings.psk = self.radio.channelSettings.psk
+        pbChannelSettings.txPower = self.radio.channelSettings.txPower
+        
+        return pbChannelSettings
+    }
+    
+    
+    /// Writes the Preferences_DO - dataobject into protobuf structure
+    ///
+    /// - Returns: a UserPreferences protobuf structure
+    ///
+    private func preferences_write2ProtoBuf() -> RadioConfig.UserPreferences
+    {
+        var pbUserPreferences: RadioConfig.UserPreferences!
+        pbUserPreferences = RadioConfig.UserPreferences()
+        
+        pbUserPreferences.ignoreIncoming = self.radio.preferences.ignoreIncoming
+        pbUserPreferences.lsSecs = self.radio.preferences.lsSecs
+        pbUserPreferences.meshSdsTimeoutSecs = self.radio.preferences.meshSdsTimeoutSecs
+        pbUserPreferences.minWakeSecs = self.radio.preferences.minWakeSecs
+        pbUserPreferences.numMissedToFail = self.radio.preferences.numMissedToFail
+        pbUserPreferences.phoneSdsTimeoutSec = self.radio.preferences.phoneSdsTimeoutSec
+        pbUserPreferences.phoneTimeoutSecs = self.radio.preferences.phoneTimeoutSecs
+        pbUserPreferences.positionBroadcastSecs = self.radio.preferences.positionBroadcastSecs
+        pbUserPreferences.screenOnSecs = self.radio.preferences.screenOnSecs
+        pbUserPreferences.sdsSecs = self.radio.preferences.sdsSecs
+        pbUserPreferences.sendOwnerInterval = self.radio.preferences.sendOwnerInterval
+        pbUserPreferences.waitBluetoothSecs = self.radio.preferences.waitBluetoothSecs
+        pbUserPreferences.wifiApMode = self.radio.preferences.wifiApMode
+        pbUserPreferences.wifiPassword = self.radio.preferences.wifiPassword
+        pbUserPreferences.wifiSsid = self.radio.preferences.wifiSsid
+        
+        return pbUserPreferences
+    }
+    
+    //---------------------------------------------------------------------------------------
+
+    
+    
+    
+    
+    //---------------------------------------------------------------------------------------
+    // MARK: - public functions
+    //---------------------------------------------------------------------------------------
+
     /// Parse the decoded protoBuf structure "FromRadio" and write the data into our own data classes
     public func parseFromRadioPb(fromRadioDecoded: FromRadio)
     {
@@ -183,77 +258,83 @@ class MasterDataProcessor
     ///     - dataFieldName: The name of the datafield whose name was changed
     ///     - value: The new Value of the datafield
     ///
-    public func radioConfig_setValue(dataFieldName: String, value: String)
+    public func radioConfig_setValue(dataFieldName: String, value: String, currentRaidioConfig: RadioConfig_DO)
     {
-        
+        self.radio = currentRaidioConfig
         
         switch dataFieldName
         {
             case "preferences.positionBroadcastSecs":
-                //self.preferences.positionBroadcastSecs =
-                break
-                
+                self.radio.preferences.positionBroadcastSecs = UInt32(value) ?? 0
             case "preferences.sendOwnerInterval":
-                break
+                self.radio.preferences.positionBroadcastSecs = UInt32(value) ?? 0
             case "preferences.numMissedToFail":
-                break
+                self.radio.preferences.numMissedToFail = UInt32(value) ?? 0
             case "preferences.waitBluetoothSecs":
-                break
+                self.radio.preferences.waitBluetoothSecs = UInt32(value) ?? 0
             case "preferences.screenOnSecs":
-                break
+                self.radio.preferences.screenOnSecs = UInt32(value) ?? 0
             case "preferences.phoneTimeoutSecs":
-                break
+                self.radio.preferences.phoneTimeoutSecs = UInt32(value) ?? 0
             case "preferences.phoneSdsTimeoutSec":
-                break
+                self.radio.preferences.phoneSdsTimeoutSec = UInt32(value) ?? 0
             case "preferences.meshSdsTimeoutSecs":
-                break
+                self.radio.preferences.meshSdsTimeoutSecs = UInt32(value) ?? 0
             case "preferences.sdsSecs":
-                break
+                self.radio.preferences.sdsSecs = UInt32(value) ?? 0
             case "preferences.lsSecs":
-                break
+                self.radio.preferences.lsSecs = UInt32(value) ?? 0
             case "preferences.minWakeSecs":
-                break
+                self.radio.preferences.minWakeSecs = UInt32(value) ?? 0
             case "preferences.wifiSsid":
-                break
+                self.radio.preferences.wifiSsid = value
             case "preferences.wifiPassword":
-                break
+                self.radio.preferences.wifiPassword = value
             case "preferences.wifiApMode":
-                break
+                self.radio.preferences.wifiApMode = Bool(value) ?? false
             case "preferences.ignoreIncoming":
                 break
-
             case "channelSettings.txPower":
-                break
+                self.radio.channelSettings.txPower = Int32(value) ?? 0
             case "channelSettings.modemConfig":
-                break
+                switch value
+                {
+                    case "bw125Cr45Sf128":
+                        self.radio.channelSettings.modemConfig = Enumerations.ModemConfig.bw125Cr45Sf128
+                    case "bw500Cr45Sf128":
+                        self.radio.channelSettings.modemConfig = Enumerations.ModemConfig.bw500Cr45Sf128
+                    case "bw3125Cr48Sf512":
+                        self.radio.channelSettings.modemConfig = Enumerations.ModemConfig.bw3125Cr48Sf512
+                    case "bw125Cr48Sf4096":
+                        self.radio.channelSettings.modemConfig = Enumerations.ModemConfig.bw125Cr48Sf4096
+                    default:
+                        self.radio.channelSettings.modemConfig = Enumerations.ModemConfig.bw125Cr48Sf4096
+                }
             case "channelSettings.bandwidth":
-                break
+                self.radio.channelSettings.bandwidth = UInt32(value) ?? 0
             case "channelSettings.spreadFactor":
-                break
+                self.radio.channelSettings.spreadFactor = UInt32(value) ?? 0
             case "channelSettings.codingRate":
-                break
+                self.radio.channelSettings.codingRate = UInt32(value) ?? 0
             case "channelSettings.channelNum":
-                break
+                self.radio.channelSettings.channelNum = UInt32(value) ?? 0
             case "channelSettings.psk":
                 break
             case "channelSettings.name":
-                break
-
-        
-        
-        
-        
+                self.channelSettings.name = value
             default:
                 break
         }
 
+        let pbChannelSettings = channelSettings_write2ProtoBuf()
+        let pbUserPreferences = preferences_write2ProtoBuf()
         
-        
-        
-        
+        BLEConroller.shared.writeRadioConfig(userPreferences: pbUserPreferences, channelSettings: pbChannelSettings)
+        MasterViewController.shared.updateFromDevice(radioConfig: self.radio)
     }
     
-    
+    //---------------------------------------------------------------------------------------
+
     
     
     
