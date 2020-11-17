@@ -46,6 +46,7 @@ class MasterDataProcessor
         pbChannelSettings.bandwidth = self.radio.channelSettings.bandwidth
         pbChannelSettings.channelNum = self.radio.channelSettings.channelNum
         pbChannelSettings.codingRate = self.radio.channelSettings.codingRate
+        pbChannelSettings.spreadFactor = self.radio.channelSettings.spreadFactor
         switch self.radio.channelSettings.modemConfig
         {
             case Enumerations.ModemConfig.bw125Cr45Sf128 :
@@ -56,8 +57,11 @@ class MasterDataProcessor
                 pbChannelSettings.modemConfig = ChannelSettings.ModemConfig.bw3125Cr48Sf512
             case Enumerations.ModemConfig.bw125Cr48Sf4096 :
                 pbChannelSettings.modemConfig = ChannelSettings.ModemConfig.bw125Cr48Sf4096
+            case Enumerations.ModemConfig.UNRECOGNIZED(0) :
+                pbChannelSettings.modemConfig = ChannelSettings.ModemConfig.UNRECOGNIZED(0)
             default:
-                pbChannelSettings.modemConfig = ChannelSettings.ModemConfig.bw125Cr48Sf4096
+                //pbChannelSettings.modemConfig = ChannelSettings.ModemConfig.bw125Cr48Sf4096
+                break
         }
         pbChannelSettings.name = self.radio.channelSettings.name
         pbChannelSettings.psk = self.radio.channelSettings.psk
@@ -181,6 +185,8 @@ class MasterDataProcessor
                         self.channelSettings.modemConfig = Enumerations.ModemConfig.bw3125Cr48Sf512
                     case ChannelSettings.ModemConfig.bw125Cr48Sf4096 :
                         self.channelSettings.modemConfig = Enumerations.ModemConfig.bw125Cr48Sf4096
+                    case ChannelSettings.ModemConfig.UNRECOGNIZED(0):
+                        self.channelSettings.modemConfig = Enumerations.ModemConfig.UNRECOGNIZED(0)
                     default:
                         self.channelSettings.modemConfig = Enumerations.ModemConfig.bw125Cr48Sf4096
                 }
@@ -307,8 +313,11 @@ class MasterDataProcessor
                         self.radio.channelSettings.modemConfig = Enumerations.ModemConfig.bw3125Cr48Sf512
                     case "bw125Cr48Sf4096":
                         self.radio.channelSettings.modemConfig = Enumerations.ModemConfig.bw125Cr48Sf4096
+                    case "0":
+                        self.radio.channelSettings.modemConfig = Enumerations.ModemConfig.UNRECOGNIZED(0)
                     default:
-                        self.radio.channelSettings.modemConfig = Enumerations.ModemConfig.bw125Cr48Sf4096
+                        //self.radio.channelSettings.modemConfig = Enumerations.ModemConfig.bw125Cr45Sf128
+                        break
                 }
             case "channelSettings.bandwidth":
                 self.radio.channelSettings.bandwidth = UInt32(value) ?? 0
@@ -321,7 +330,7 @@ class MasterDataProcessor
             case "channelSettings.psk":
                 break
             case "channelSettings.name":
-                self.channelSettings.name = value
+                self.radio.channelSettings.name = value
             default:
                 break
         }
