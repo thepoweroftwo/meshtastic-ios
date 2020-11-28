@@ -168,12 +168,25 @@ class MasterViewController
     /// - Parameters:
     ///     - dataFieldName: The name of the datafield whose name was changed
     ///     - value: The new Value of the datafield
+    ///     - currentRaidioConfig: The config data to be updated
     ///
     public func radioConfigValueUpdated(dataFieldName: String, value: String, currentRaidioConfig: RadioConfig_DO)
     {
         masterDataProcessor.radioConfig_setValue(dataFieldName: dataFieldName, value: value, currentRaidioConfig: currentRaidioConfig)
     }
-        
+
+    
+    /// Called by tvcConfig after the user has changed the LoRa modulation config, that consists of 3 values
+    ///
+    /// - Parameters:
+    ///     - dataFieldName: The name of the datafield whose name was changed
+    ///     - value: The new Value of the datafield
+    ///
+    public func radioConfigLoRaModulationUpdated(bandwidth: String, spreadingFactor: String, codingRate: String, currentRadioConfig: RadioConfig_DO)
+    {
+        masterDataProcessor.radioConfig_setLoRaModulation(bandwidth: bandwidth, spreadingFactor: spreadingFactor, codingRate: codingRate, currentRadioConfig: currentRadioConfig)
+    }
+
     
     //---------------------------------------------------------------------------------------
 

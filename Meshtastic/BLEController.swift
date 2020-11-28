@@ -101,7 +101,10 @@ class BLEConroller : NSObject
     
     public func cancelConnect()
     {
-        centralManager.cancelPeripheralConnection(self.connectedDevice)
+        if (self.connectedDevice != nil)
+        {
+            centralManager.cancelPeripheralConnection(self.connectedDevice)
+        }
     }
     
     
@@ -127,6 +130,7 @@ class BLEConroller : NSObject
         var meshPacket = MeshPacket()
         meshPacket.to = UInt32(BROADCAST_ADDR)
         meshPacket.decoded = subPacket
+        meshPacket.wantAck = true
         
         var toRadio: ToRadio!
         toRadio = ToRadio()

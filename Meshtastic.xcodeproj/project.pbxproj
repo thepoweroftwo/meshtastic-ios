@@ -23,6 +23,7 @@
 		7D72B785252CEC8E0033F613 /* cellEditText.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D72B783252CEC8E0033F613 /* cellEditText.xib */; };
 		7D937733251A60AD005F0669 /* tbcDeviceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D937732251A60AD005F0669 /* tbcDeviceDetails.swift */; };
 		7D9A4A6C252A6C2500CE4AD2 /* tvcConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A4A6B252A6C2500CE4AD2 /* tvcConfig.swift */; };
+		7D9FF0CE256CFD0F0089F37E /* vcLoRaModulationConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9FF0CD256CFD0F0089F37E /* vcLoRaModulationConfig.swift */; };
 		7DB299F9251E708500AFDEE2 /* mesh.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB299F8251E708500AFDEE2 /* mesh.pb.swift */; };
 		7DB29A032521EAE000AFDEE2 /* tvcBLEDevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB29A022521EAE000AFDEE2 /* tvcBLEDevices.swift */; };
 		7DB29A052521ECD200AFDEE2 /* BLEController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB29A042521ECD200AFDEE2 /* BLEController.swift */; };
@@ -69,6 +70,7 @@
 		7D72B783252CEC8E0033F613 /* cellEditText.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = cellEditText.xib; sourceTree = "<group>"; };
 		7D937732251A60AD005F0669 /* tbcDeviceDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tbcDeviceDetails.swift; sourceTree = "<group>"; };
 		7D9A4A6B252A6C2500CE4AD2 /* tvcConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tvcConfig.swift; sourceTree = "<group>"; };
+		7D9FF0CD256CFD0F0089F37E /* vcLoRaModulationConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vcLoRaModulationConfig.swift; sourceTree = "<group>"; };
 		7DB299F4251E6F0E00AFDEE2 /* SwiftProtobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftProtobuf.framework; sourceTree = "<group>"; };
 		7DB299F8251E708500AFDEE2 /* mesh.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mesh.pb.swift; sourceTree = "<group>"; };
 		7DB29A022521EAE000AFDEE2 /* tvcBLEDevices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tvcBLEDevices.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				7D72B782252CEC8E0033F613 /* cellEditText.swift */,
 				7D72B783252CEC8E0033F613 /* cellEditText.xib */,
 				7D57968E254F3B7400769E7C /* vcEditText.swift */,
+				7D9FF0CD256CFD0F0089F37E /* vcLoRaModulationConfig.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				7D3D5370251BAC8500A603D7 /* tabVcDebug.swift in Sources */,
 				7DB29A052521ECD200AFDEE2 /* BLEController.swift in Sources */,
 				7D72B784252CEC8E0033F613 /* cellEditText.swift in Sources */,
+				7D9FF0CE256CFD0F0089F37E /* vcLoRaModulationConfig.swift in Sources */,
 				7D937733251A60AD005F0669 /* tbcDeviceDetails.swift in Sources */,
 				7D6F2FB025176A2C00403A2F /* AppDelegate.swift in Sources */,
 				7D6F2FB225176A2C00403A2F /* SceneDelegate.swift in Sources */,
@@ -441,7 +445,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.81;
+				MARKETING_VERSION = 0.82;
 				PRODUCT_BUNDLE_IDENTIFIER = "de.huttinger-home.meshtastic";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = Meshtastic_dev;
@@ -468,7 +472,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.81;
+				MARKETING_VERSION = 0.82;
 				PRODUCT_BUNDLE_IDENTIFIER = "de.huttinger-home.meshtastic";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = Meshtastic_dist;

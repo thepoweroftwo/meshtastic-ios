@@ -341,6 +341,25 @@ class MasterDataProcessor
         BLEConroller.shared.writeRadioConfig(userPreferences: pbUserPreferences, channelSettings: pbChannelSettings)
         MasterViewController.shared.updateFromDevice(radioConfig: self.radio)
     }
+
+    
+    public func radioConfig_setLoRaModulation(bandwidth: String, spreadingFactor: String, codingRate: String, currentRadioConfig: RadioConfig_DO)
+    {
+        self.radio = currentRadioConfig
+        
+        self.radio.channelSettings.bandwidth = UInt32(bandwidth) ?? 0
+        self.radio.channelSettings.spreadFactor = UInt32(spreadingFactor) ?? 0
+        self.radio.channelSettings.codingRate = UInt32(codingRate) ?? 0
+        self.radio.channelSettings.modemConfig = Enumerations.ModemConfig.UNRECOGNIZED(0)
+
+        let pbChannelSettings = channelSettings_write2ProtoBuf()
+        let pbUserPreferences = preferences_write2ProtoBuf()
+
+        BLEConroller.shared.writeRadioConfig(userPreferences: pbUserPreferences, channelSettings: pbChannelSettings)
+        MasterViewController.shared.updateFromDevice(radioConfig: self.radio)
+    }
+    
+    
     
     //---------------------------------------------------------------------------------------
 

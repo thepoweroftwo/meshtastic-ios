@@ -21,6 +21,18 @@ class tvcConfig: UITableViewController
                 MasterViewController.shared.radioConfigValueUpdated(dataFieldName: dataFieldName, value: value, currentRaidioConfig: self.radioConfig)
             }
         }
+
+        if segue.identifier == "SegueUnwindLoRsModulationConfig"
+        {
+            if let vcEdit = segue.source as? vcLoRaModulationConfig
+            {
+                let bandwidth = vcEdit.CellData.bandWidth
+                let spreadingFactor = vcEdit.CellData.spreadingFactor
+                let codingRate = vcEdit.CellData.codingRate
+                
+                MasterViewController.shared.radioConfigLoRaModulationUpdated(bandwidth: bandwidth, spreadingFactor: spreadingFactor, codingRate: codingRate, currentRadioConfig: self.radioConfig)
+            }
+        }
     }
     
     private var sectionDefinitions: [(numberOfRowsAtSection: Int, text: String)] = [
@@ -383,7 +395,17 @@ class tvcConfig: UITableViewController
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         self.currentCell = tableView.cellForRow(at: indexPath) as? cellEditText
-        self.performSegue(withIdentifier: "SegueShowConfigDetail", sender: self)
+
+        switch self.currentCell.lblCaption.text
+        {
+            case "Bandwidth",
+                 "Spread Factor",
+                 "Coding Rate":
+                self.performSegue(withIdentifier: "SegueShowLoRaModulationConfig", sender: self)
+
+            default:
+                self.performSegue(withIdentifier: "SegueShowConfigDetail", sender: self)
+        }
     }
     
     
@@ -397,6 +419,15 @@ class tvcConfig: UITableViewController
             vcEdit.CellData.info = self.currentCell.lblInfo.text!
             vcEdit.CellData.dataFieldName = self.currentCell.datafieldName
         }
+        
+        if(segue.identifier == "SegueShowLoRaModulationConfig")
+        {
+            let vcEdit = segue.destination as! vcLoRaModulationConfig
+            vcEdit.CellData.bandWidth = String(self.radioConfig.channelSettings.bandwidth)
+            vcEdit.CellData.spreadingFactor = String(self.radioConfig.channelSettings.spreadFactor)
+            vcEdit.CellData.codingRate = String(self.radioConfig.channelSettings.codingRate)
+        }
+
     }
     
     
