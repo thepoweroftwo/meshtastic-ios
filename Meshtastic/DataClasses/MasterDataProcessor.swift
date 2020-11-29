@@ -9,14 +9,15 @@ import Foundation
 
 class MasterDataProcessor
 {
-    var radio: RadioConfig_DO
-    var preferences: UserPreferences_DO
-    var channelSettings: ChannelSettings_DO
-    var nodeInfo: NodeInfo_DO
-    var user: User_DO
-    var position: Position_DO
-    var myInfo: MyNodeInfo_DO
+    public var radio: RadioConfig_DO
+    public var preferences: UserPreferences_DO
+    public var channelSettings: ChannelSettings_DO
+    public var nodeInfo: NodeInfo_DO
+    public var user: User_DO
+    public var position: Position_DO
+    public var myInfo: MyNodeInfo_DO
 
+    
     
     init()
     {
