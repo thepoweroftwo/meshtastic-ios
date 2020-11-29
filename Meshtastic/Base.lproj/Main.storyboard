@@ -273,9 +273,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uxp-dj-8D6">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uxp-dj-8D6">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="8Gm-nb-AsQ"/>
+                                </constraints>
                                 <items>
                                     <navigationItem title="LoRa Modulation" id="zb4-Go-Mmi">
                                         <barButtonItem key="leftBarButtonItem" style="plain" id="gKi-DD-JUd">
@@ -302,56 +304,81 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kyz-P8-Sby" userLabel="pvBandwidth">
-                                <rect key="frame" x="20" y="118" width="374" height="73"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kyz-P8-Sby" userLabel="pvBandwidth">
+                                <rect key="frame" x="20" y="120" width="374" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="qL6-Ni-0L4"/>
+                                </constraints>
                             </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bandwidth (kHz)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Pl-rg-e6X" userLabel="lblBandwidth">
-                                <rect key="frame" x="20" y="89" width="128" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bandwidth (kHz)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Pl-rg-e6X" userLabel="lblBandwidth">
+                                <rect key="frame" x="20" y="74" width="127.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7ef-Qd-ng6" userLabel="pvSpreadingFactor">
-                                <rect key="frame" x="20" y="240" width="374" height="75"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ef-Qd-ng6" userLabel="pvSpreadingFactor">
+                                <rect key="frame" x="20" y="281" width="374" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="e3v-FF-6qv"/>
+                                </constraints>
                             </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Spreading Factor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSm-9N-tkb" userLabel="lblSpreadingFactor">
-                                <rect key="frame" x="20" y="211" width="131" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spreading Factor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSm-9N-tkb" userLabel="lblSpreadingFactor">
+                                <rect key="frame" x="20" y="235" width="130.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E30-vq-OdH" userLabel="pvCodingRate">
-                                <rect key="frame" x="20" y="364" width="374" height="81"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coding Rate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bG-tW-uye" userLabel="lblCodingRate">
+                                <rect key="frame" x="20" y="396" width="93.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdo-C8-3ad" userLabel="lblDatarate">
+                                <rect key="frame" x="186" y="567" width="41.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Datarate (kbps)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBT-Yo-sbF" userLabel="lblCaptionDatarate">
+                                <rect key="frame" x="20" y="567" width="120" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E30-vq-OdH" userLabel="pvCodingRate">
+                                <rect key="frame" x="20" y="442" width="374" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="3ml-Ld-GD7"/>
+                                </constraints>
                             </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Coding Rate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bG-tW-uye" userLabel="lblCodingRate">
-                                <rect key="frame" x="20" y="335" width="94" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdo-C8-3ad" userLabel="lblDatarate">
-                                <rect key="frame" x="186" y="564" width="153" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Datarate (kbps)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBT-Yo-sbF" userLabel="lblCaptionDatarate">
-                                <rect key="frame" x="20" y="564" width="120" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="t66-wT-Vgn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="EBT-Yo-sbF" firstAttribute="leading" secondItem="t66-wT-Vgn" secondAttribute="leading" constant="20" id="0gT-5t-OVm"/>
+                            <constraint firstItem="Uxp-dj-8D6" firstAttribute="centerX" secondItem="HKs-BW-dzy" secondAttribute="centerX" id="6Ez-bl-Dyw"/>
+                            <constraint firstItem="E30-vq-OdH" firstAttribute="leading" secondItem="t66-wT-Vgn" secondAttribute="leading" constant="20" id="6gw-71-NoI"/>
+                            <constraint firstItem="kyz-P8-Sby" firstAttribute="top" secondItem="3Pl-rg-e6X" secondAttribute="bottom" constant="25" id="AVV-mo-xoR"/>
+                            <constraint firstItem="Uxp-dj-8D6" firstAttribute="leading" secondItem="HKs-BW-dzy" secondAttribute="leading" id="HNY-BG-2Dr"/>
+                            <constraint firstItem="kyz-P8-Sby" firstAttribute="leading" secondItem="t66-wT-Vgn" secondAttribute="leading" constant="20" id="HnZ-Ng-h9W"/>
+                            <constraint firstItem="t66-wT-Vgn" firstAttribute="trailing" secondItem="E30-vq-OdH" secondAttribute="trailing" constant="20" id="IrB-7j-N2X"/>
+                            <constraint firstItem="3Pl-rg-e6X" firstAttribute="top" secondItem="Uxp-dj-8D6" secondAttribute="bottom" constant="30" id="LUW-Gc-VlY"/>
+                            <constraint firstItem="0bG-tW-uye" firstAttribute="leading" secondItem="t66-wT-Vgn" secondAttribute="leading" constant="20" id="MHc-rQ-or8"/>
+                            <constraint firstItem="t66-wT-Vgn" firstAttribute="trailing" secondItem="7ef-Qd-ng6" secondAttribute="trailing" constant="20" id="NlC-fP-uEK"/>
+                            <constraint firstItem="gSm-9N-tkb" firstAttribute="top" secondItem="kyz-P8-Sby" secondAttribute="bottom" constant="45" id="Oqg-oH-Ucz"/>
+                            <constraint firstItem="0bG-tW-uye" firstAttribute="top" secondItem="7ef-Qd-ng6" secondAttribute="bottom" constant="45" id="Rio-9A-mn4"/>
+                            <constraint firstItem="t66-wT-Vgn" firstAttribute="trailing" secondItem="kyz-P8-Sby" secondAttribute="trailing" constant="20" id="SJZ-QF-cEB"/>
+                            <constraint firstItem="3Pl-rg-e6X" firstAttribute="leading" secondItem="t66-wT-Vgn" secondAttribute="leading" constant="20" id="V4d-Yg-wEH"/>
+                            <constraint firstItem="hdo-C8-3ad" firstAttribute="top" secondItem="E30-vq-OdH" secondAttribute="bottom" constant="55" id="Yac-LL-X29"/>
+                            <constraint firstItem="Uxp-dj-8D6" firstAttribute="top" secondItem="t66-wT-Vgn" secondAttribute="top" id="ZDM-9O-xvl"/>
+                            <constraint firstItem="7ef-Qd-ng6" firstAttribute="leading" secondItem="t66-wT-Vgn" secondAttribute="leading" constant="20" id="cZ7-6b-fCQ"/>
+                            <constraint firstItem="7ef-Qd-ng6" firstAttribute="top" secondItem="gSm-9N-tkb" secondAttribute="bottom" constant="25" id="dil-Wd-r7I"/>
+                            <constraint firstItem="EBT-Yo-sbF" firstAttribute="top" secondItem="E30-vq-OdH" secondAttribute="bottom" constant="55" id="gUf-cv-lDm"/>
+                            <constraint firstItem="hdo-C8-3ad" firstAttribute="leading" secondItem="EBT-Yo-sbF" secondAttribute="trailing" constant="46" id="nzp-Y4-cTw"/>
+                            <constraint firstItem="E30-vq-OdH" firstAttribute="top" secondItem="0bG-tW-uye" secondAttribute="bottom" constant="25" id="vkS-tR-y8n"/>
+                            <constraint firstItem="gSm-9N-tkb" firstAttribute="leading" secondItem="t66-wT-Vgn" secondAttribute="leading" constant="20" id="zla-jr-T4T"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6RQ-t4-S52"/>
                     <connections>

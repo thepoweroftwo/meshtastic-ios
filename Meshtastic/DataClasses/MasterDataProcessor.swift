@@ -16,7 +16,7 @@ class MasterDataProcessor
     var user: User_DO
     var position: Position_DO
     var myInfo: MyNodeInfo_DO
-        
+
     
     init()
     {
