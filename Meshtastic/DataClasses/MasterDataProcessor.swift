@@ -7,8 +7,22 @@
 
 import Foundation
 
+
 class MasterDataProcessor
 {
+    //---------------------------------------------------------------------------------------
+    // MARK: - private class variables
+    //---------------------------------------------------------------------------------------
+
+    private var nodeInfo_DP: NodeInfo_DP
+
+    //---------------------------------------------------------------------------------------
+
+        
+    //---------------------------------------------------------------------------------------
+    // MARK: - public class variables
+    //---------------------------------------------------------------------------------------
+
     public var radio: RadioConfig_DO
     public var preferences: UserPreferences_DO
     public var channelSettings: ChannelSettings_DO
@@ -17,10 +31,14 @@ class MasterDataProcessor
     public var position: Position_DO
     public var myInfo: MyNodeInfo_DO
 
+    //---------------------------------------------------------------------------------------
+
     
-    
+    // MARK: - Initialization
     init()
     {
+        nodeInfo_DP = NodeInfo_DP()
+        
         radio = RadioConfig_DO()
         preferences = UserPreferences_DO()
         channelSettings = ChannelSettings_DO()
@@ -129,7 +147,13 @@ class MasterDataProcessor
                 if (sbDataType == SubPacket.OneOf_Payload.position(subPacket.position))
                 {
                     print("######## MeshPacket.Decoded.SubPacket.Position ########")
-
+                    self.position.latitudeI = subPacket.position.latitudeI
+                    self.position.longitudeI = subPacket.position.longitudeI
+                    self.position.altitude = subPacket.position.altitude
+                    self.position.batteryLevel = subPacket.position.batteryLevel
+                    self.position.time = subPacket.position.time
+                    
+                    self.nodeInfo_DP.dbWrite(position: self.position, nodeId: meshPacket.from)
                 }
                 else if (sbDataType == SubPacket.OneOf_Payload.data(subPacket.data))
                 {
@@ -139,7 +163,12 @@ class MasterDataProcessor
                 else if (sbDataType == SubPacket.OneOf_Payload.user(subPacket.user))
                 {
                     print("######## MeshPacket.Decoded.SubPacket.User ########")
-
+                    self.user.id = subPacket.user.id
+                    self.user.longName = subPacket.user.longName
+                    self.user.shortName = subPacket.user.shortName
+                    self.user.macaddr = subPacket.user.macaddr
+                    
+                    self.nodeInfo_DP.dbWrite(user: self.user, nodeId: meshPacket.from)
                 }
             }
             else if (mpDataType == MeshPacket.OneOf_Payload.encrypted(meshPacket.encrypted))
@@ -228,6 +257,7 @@ class MasterDataProcessor
                 self.position.time = fromRadioDecoded.nodeInfo.position.time
                 self.nodeInfo.position = self.position
             }
+            nodeInfo_DP.dbWrite(nodeInfo: self.nodeInfo)
         }
         else if (pbDataType == FromRadio.OneOf_Variant.myInfo(fromRadioDecoded.myInfo) )
         {

@@ -7,6 +7,8 @@
 
 import Foundation
 
+/// NodeInfo data object
+///
 class NodeInfo_DO
 {
     var num: UInt32

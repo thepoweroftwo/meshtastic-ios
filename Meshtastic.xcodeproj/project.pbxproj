@@ -10,6 +10,7 @@
 		7D1334932544B23D009E32FE /* mesh_icon_180.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D1334912544B23D009E32FE /* mesh_icon_180.png */; };
 		7D1334942544B23D009E32FE /* mesh_icon_120.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D1334922544B23D009E32FE /* mesh_icon_120.png */; };
 		7D1334962544E4C4009E32FE /* mesh_icon_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D1334952544E4C4009E32FE /* mesh_icon_1024.png */; };
+		7D199BB5257EB21100395C27 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D199BB4257EB21100395C27 /* DataBase.swift */; };
 		7D3D5370251BAC8500A603D7 /* tabVcDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3D536F251BAC8500A603D7 /* tabVcDebug.swift */; };
 		7D3E760E253F6C6F0016F3EB /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DB299F4251E6F0E00AFDEE2 /* SwiftProtobuf.framework */; };
 		7D3E760F253F6C6F0016F3EB /* SwiftProtobuf.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7DB299F4251E6F0E00AFDEE2 /* SwiftProtobuf.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -28,6 +29,7 @@
 		7DB29A032521EAE000AFDEE2 /* tvcBLEDevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB29A022521EAE000AFDEE2 /* tvcBLEDevices.swift */; };
 		7DB29A052521ECD200AFDEE2 /* BLEController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB29A042521ECD200AFDEE2 /* BLEController.swift */; };
 		7DB29A072522236100AFDEE2 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB29A062522236100AFDEE2 /* MasterViewController.swift */; };
+		7DC5D21E2586663E00C6B5D1 /* NodeInfo_DP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC5D21D2586663E00C6B5D1 /* NodeInfo_DP.swift */; };
 		7DFDE9E025264E5F00B4BBF2 /* MasterDataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFDE9DF25264E5F00B4BBF2 /* MasterDataProcessor.swift */; };
 		7DFDE9E225264F4300B4BBF2 /* RadioConfig_DO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFDE9E125264F4300B4BBF2 /* RadioConfig_DO.swift */; };
 		7DFDE9E42526505500B4BBF2 /* NodeInfo_DO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFDE9E32526505500B4BBF2 /* NodeInfo_DO.swift */; };
@@ -57,6 +59,7 @@
 		7D1334912544B23D009E32FE /* mesh_icon_180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mesh_icon_180.png; sourceTree = "<group>"; };
 		7D1334922544B23D009E32FE /* mesh_icon_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mesh_icon_120.png; sourceTree = "<group>"; };
 		7D1334952544E4C4009E32FE /* mesh_icon_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mesh_icon_1024.png; sourceTree = "<group>"; };
+		7D199BB4257EB21100395C27 /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
 		7D3D536F251BAC8500A603D7 /* tabVcDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabVcDebug.swift; sourceTree = "<group>"; };
 		7D57968E254F3B7400769E7C /* vcEditText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vcEditText.swift; sourceTree = "<group>"; };
 		7D6F2FAC25176A2C00403A2F /* Meshtastic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meshtastic.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +79,7 @@
 		7DB29A022521EAE000AFDEE2 /* tvcBLEDevices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tvcBLEDevices.swift; sourceTree = "<group>"; };
 		7DB29A042521ECD200AFDEE2 /* BLEController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEController.swift; sourceTree = "<group>"; };
 		7DB29A062522236100AFDEE2 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		7DC5D21D2586663E00C6B5D1 /* NodeInfo_DP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeInfo_DP.swift; sourceTree = "<group>"; };
 		7DFDE9DF25264E5F00B4BBF2 /* MasterDataProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterDataProcessor.swift; sourceTree = "<group>"; };
 		7DFDE9E125264F4300B4BBF2 /* RadioConfig_DO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioConfig_DO.swift; sourceTree = "<group>"; };
 		7DFDE9E32526505500B4BBF2 /* NodeInfo_DO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeInfo_DO.swift; sourceTree = "<group>"; };
@@ -158,12 +162,14 @@
 				7DFDE9DF25264E5F00B4BBF2 /* MasterDataProcessor.swift */,
 				7DFDE9E125264F4300B4BBF2 /* RadioConfig_DO.swift */,
 				7DFDE9E32526505500B4BBF2 /* NodeInfo_DO.swift */,
+				7DC5D21D2586663E00C6B5D1 /* NodeInfo_DP.swift */,
 				7DFDE9E52526508500B4BBF2 /* MyNodeInfo_DO.swift */,
 				7DFDE9E7252650E300B4BBF2 /* User_DO.swift */,
 				7DFDE9E92526535100B4BBF2 /* Position_DO.swift */,
 				7DFDE9EB252653D400B4BBF2 /* ChannelSettings_DO.swift */,
 				7DFDE9ED2526554400B4BBF2 /* UserPreferences_DO.swift */,
 				7DFDE9EF25276BF700B4BBF2 /* Enumerations.swift */,
+				7D199BB4257EB21100395C27 /* DataBase.swift */,
 			);
 			path = DataClasses;
 			sourceTree = "<group>";
@@ -265,6 +271,7 @@
 				7D57968F254F3B7400769E7C /* vcEditText.swift in Sources */,
 				7DFDE9F025276BF700B4BBF2 /* Enumerations.swift in Sources */,
 				7DFDE9E025264E5F00B4BBF2 /* MasterDataProcessor.swift in Sources */,
+				7D199BB5257EB21100395C27 /* DataBase.swift in Sources */,
 				7D9A4A6C252A6C2500CE4AD2 /* tvcConfig.swift in Sources */,
 				7DFDE9E62526508500B4BBF2 /* MyNodeInfo_DO.swift in Sources */,
 				7DFDE9E42526505500B4BBF2 /* NodeInfo_DO.swift in Sources */,
@@ -278,6 +285,7 @@
 				7D6F2FB025176A2C00403A2F /* AppDelegate.swift in Sources */,
 				7D6F2FB225176A2C00403A2F /* SceneDelegate.swift in Sources */,
 				7DB29A032521EAE000AFDEE2 /* tvcBLEDevices.swift in Sources */,
+				7DC5D21E2586663E00C6B5D1 /* NodeInfo_DP.swift in Sources */,
 				7DB299F9251E708500AFDEE2 /* mesh.pb.swift in Sources */,
 				7DFDE9EA2526535100B4BBF2 /* Position_DO.swift in Sources */,
 			);
@@ -445,7 +453,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.83;
+				MARKETING_VERSION = 0.84;
 				PRODUCT_BUNDLE_IDENTIFIER = "de.huttinger-home.meshtastic";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = Meshtastic_dev;
@@ -472,7 +480,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.83;
+				MARKETING_VERSION = 0.84;
 				PRODUCT_BUNDLE_IDENTIFIER = "de.huttinger-home.meshtastic";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = Meshtastic_dist;

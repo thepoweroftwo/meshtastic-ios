@@ -71,10 +71,10 @@ class BLEConroller : NSObject
 
     
     //---------------------------------------------------------------------------------------
-    // public methods
+    // public functions
     //---------------------------------------------------------------------------------------
 
-    // MARK: - methods for use by MasterViewontroller
+    // MARK: - functions for use by MasterViewontroller
 
     /// Estabishes a connection to a device
     ///
