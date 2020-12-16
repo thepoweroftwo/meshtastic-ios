@@ -124,6 +124,13 @@ class MasterViewController
     }
 
     
+    /// Called by MasterDataProcessor after node has been updated by device
+    ///
+    public func nodeUpdated()
+    {
+        
+    }
+    
     
     // MARK: - methods for use by all View Controllers
     
