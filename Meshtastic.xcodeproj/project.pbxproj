@@ -14,6 +14,8 @@
 		7D3D5370251BAC8500A603D7 /* tabVcDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3D536F251BAC8500A603D7 /* tabVcDebug.swift */; };
 		7D3E760E253F6C6F0016F3EB /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DB299F4251E6F0E00AFDEE2 /* SwiftProtobuf.framework */; };
 		7D3E760F253F6C6F0016F3EB /* SwiftProtobuf.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7DB299F4251E6F0E00AFDEE2 /* SwiftProtobuf.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7D447339258E42730063ACBC /* MyNodeInfo_DP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D447338258E42730063ACBC /* MyNodeInfo_DP.swift */; };
+		7D44733B258E74BB0063ACBC /* DataMessage_DO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D44733A258E74BB0063ACBC /* DataMessage_DO.swift */; };
 		7D57968F254F3B7400769E7C /* vcEditText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D57968E254F3B7400769E7C /* vcEditText.swift */; };
 		7D6F2FB025176A2C00403A2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6F2FAF25176A2C00403A2F /* AppDelegate.swift */; };
 		7D6F2FB225176A2C00403A2F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6F2FB125176A2C00403A2F /* SceneDelegate.swift */; };
@@ -61,6 +63,8 @@
 		7D1334952544E4C4009E32FE /* mesh_icon_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mesh_icon_1024.png; sourceTree = "<group>"; };
 		7D199BB4257EB21100395C27 /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
 		7D3D536F251BAC8500A603D7 /* tabVcDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabVcDebug.swift; sourceTree = "<group>"; };
+		7D447338258E42730063ACBC /* MyNodeInfo_DP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNodeInfo_DP.swift; sourceTree = "<group>"; };
+		7D44733A258E74BB0063ACBC /* DataMessage_DO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMessage_DO.swift; sourceTree = "<group>"; };
 		7D57968E254F3B7400769E7C /* vcEditText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vcEditText.swift; sourceTree = "<group>"; };
 		7D6F2FAC25176A2C00403A2F /* Meshtastic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meshtastic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D6F2FAF25176A2C00403A2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -164,10 +168,12 @@
 				7DFDE9E32526505500B4BBF2 /* NodeInfo_DO.swift */,
 				7DC5D21D2586663E00C6B5D1 /* NodeInfo_DP.swift */,
 				7DFDE9E52526508500B4BBF2 /* MyNodeInfo_DO.swift */,
+				7D447338258E42730063ACBC /* MyNodeInfo_DP.swift */,
 				7DFDE9E7252650E300B4BBF2 /* User_DO.swift */,
 				7DFDE9E92526535100B4BBF2 /* Position_DO.swift */,
 				7DFDE9EB252653D400B4BBF2 /* ChannelSettings_DO.swift */,
 				7DFDE9ED2526554400B4BBF2 /* UserPreferences_DO.swift */,
+				7D44733A258E74BB0063ACBC /* DataMessage_DO.swift */,
 				7DFDE9EF25276BF700B4BBF2 /* Enumerations.swift */,
 				7D199BB4257EB21100395C27 /* DataBase.swift */,
 			);
@@ -266,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DFDE9EC252653D400B4BBF2 /* ChannelSettings_DO.swift in Sources */,
+				7D447339258E42730063ACBC /* MyNodeInfo_DP.swift in Sources */,
 				7DFDE9E225264F4300B4BBF2 /* RadioConfig_DO.swift in Sources */,
 				7DFDE9E8252650E300B4BBF2 /* User_DO.swift in Sources */,
 				7D57968F254F3B7400769E7C /* vcEditText.swift in Sources */,
@@ -276,6 +283,7 @@
 				7DFDE9E62526508500B4BBF2 /* MyNodeInfo_DO.swift in Sources */,
 				7DFDE9E42526505500B4BBF2 /* NodeInfo_DO.swift in Sources */,
 				7DFDE9EE2526554400B4BBF2 /* UserPreferences_DO.swift in Sources */,
+				7D44733B258E74BB0063ACBC /* DataMessage_DO.swift in Sources */,
 				7DB29A072522236100AFDEE2 /* MasterViewController.swift in Sources */,
 				7D3D5370251BAC8500A603D7 /* tabVcDebug.swift in Sources */,
 				7DB29A052521ECD200AFDEE2 /* BLEController.swift in Sources */,

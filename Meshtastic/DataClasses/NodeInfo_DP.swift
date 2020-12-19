@@ -16,6 +16,7 @@ class NodeInfo_DP
     // MARK: - private class variables
     //---------------------------------------------------------------------------------------
 
+    
     //---------------------------------------------------------------------------------------
 
         
@@ -38,6 +39,27 @@ class NodeInfo_DP
     // MARK: - private functions
     //---------------------------------------------------------------------------------------
     
+    /// Get the index of a node within array
+    ///
+    /// - Parameters:
+    ///     - nodeInfo: The node data object for which we want the index
+    ///
+    /// - Returns: The index of the node object within it's array
+    ///
+    private func getNodeIdx(_ nodeId: UInt32) -> Int
+    {
+        var iCounter = 0
+        for element in DataBase.shared.nodeArray
+        {
+            if (element.num == nodeId)
+            {
+                return iCounter
+            }
+            iCounter += 1
+        }
+        return -1
+    }
+
     //---------------------------------------------------------------------------------------
         
     
@@ -52,10 +74,17 @@ class NodeInfo_DP
     /// - Parameters:
     ///     - nodeInfo: The node data object
     ///
-    public func dbWrite(nodeInfo: NodeInfo_DO)
+    public func dbWrite(_ nodeInfo: NodeInfo_DO)
     {
-        
-        
+        let index = getNodeIdx(nodeInfo.num)
+        if (index > -1) //Update
+        {
+            DataBase.shared.nodeArray[index] = nodeInfo
+        }
+        else //Add
+        {
+            DataBase.shared.nodeArray += [nodeInfo]
+        }
     }
     
     /// Updates a person object within it's node structure.
@@ -65,10 +94,22 @@ class NodeInfo_DP
     ///     - user: The user data object
     ///     - nodeId: Id of the enclosing node object
     ///
-    public func dbWrite(user: User_DO, nodeId: UInt32)
+    public func dbWrite(_ user: User_DO, nodeId: UInt32)
     {
-        
-        
+        let index = getNodeIdx(nodeId)
+        if (index > -1) //Update
+        {
+            DataBase.shared.nodeArray[index].user = user
+            DataBase.shared.nodeArray[index].hasUser = true
+        }
+        else //Add
+        {
+            let nodeInfo = NodeInfo_DO()
+            nodeInfo.num = nodeId
+            nodeInfo.user = user
+            nodeInfo.hasUser = true
+            DataBase.shared.nodeArray += [nodeInfo]
+        }
     }
 
     
@@ -79,10 +120,43 @@ class NodeInfo_DP
     ///     - position: The position data object
     ///     - nodeId: Id of the enclosing node object
     ///
-    public func dbWrite(position: Position_DO, nodeId: UInt32)
+    public func dbWrite(_ position: Position_DO, nodeId: UInt32)
     {
-        
-        
+        let index = getNodeIdx(nodeId)
+        if (index > -1) //Update
+        {
+            DataBase.shared.nodeArray[index].position = position
+            DataBase.shared.nodeArray[index].hasPosition = true
+        }
+        else //Add
+        {
+            let nodeInfo = NodeInfo_DO()
+            nodeInfo.num = nodeId
+            nodeInfo.position = position
+            nodeInfo.hasPosition = true
+            DataBase.shared.nodeArray += [nodeInfo]
+        }        
+    }
+    
+    
+    /// Reads a node object from DB.
+    ///
+    /// - Parameters:
+    ///     - nodeId: Id of the node object to read
+    ///
+    /// - Returns: The node object or nil if it was not fund
+    ///
+    public func dbRead( nodeId: UInt32) -> NodeInfo_DO?
+    {
+        // Check if node is already in the array.
+        for element in DataBase.shared.nodeArray
+        {
+            if (element.num == nodeId)
+            {
+                return element
+            }
+        }
+        return nil
     }
 
     //---------------------------------------------------------------------------------------

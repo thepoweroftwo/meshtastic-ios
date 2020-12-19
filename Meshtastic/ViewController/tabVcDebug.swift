@@ -13,10 +13,7 @@ class tabVcDebug: UIViewController
     var Test: String = ""
 
     @IBOutlet var txtView1: UITextView!
-    
-    
     @IBOutlet var txtMessage: UITextField!
-    
     
     @IBAction func btnSend_TouchUp(_ sender: Any)
     {

@@ -15,6 +15,7 @@ class MasterDataProcessor
     //---------------------------------------------------------------------------------------
 
     private var nodeInfo_DP: NodeInfo_DP
+    private var myNodeInfo_DP: MyNodeInfo_DP
 
     //---------------------------------------------------------------------------------------
 
@@ -38,7 +39,8 @@ class MasterDataProcessor
     init()
     {
         nodeInfo_DP = NodeInfo_DP()
-        
+        myNodeInfo_DP = MyNodeInfo_DP()
+
         radio = RadioConfig_DO()
         preferences = UserPreferences_DO()
         channelSettings = ChannelSettings_DO()
@@ -153,7 +155,7 @@ class MasterDataProcessor
                     self.position.batteryLevel = subPacket.position.batteryLevel
                     self.position.time = subPacket.position.time
                     
-                    self.nodeInfo_DP.dbWrite(position: self.position, nodeId: meshPacket.from)
+                    self.nodeInfo_DP.dbWrite(self.position, nodeId: meshPacket.from)
                 }
                 else if (sbDataType == SubPacket.OneOf_Payload.data(subPacket.data))
                 {
@@ -168,7 +170,7 @@ class MasterDataProcessor
                     self.user.shortName = subPacket.user.shortName
                     self.user.macaddr = subPacket.user.macaddr
                     
-                    self.nodeInfo_DP.dbWrite(user: self.user, nodeId: meshPacket.from)
+                    self.nodeInfo_DP.dbWrite(self.user, nodeId: meshPacket.from)
                 }
             }
             else if (mpDataType == MeshPacket.OneOf_Payload.encrypted(meshPacket.encrypted))
@@ -257,7 +259,7 @@ class MasterDataProcessor
                 self.position.time = fromRadioDecoded.nodeInfo.position.time
                 self.nodeInfo.position = self.position
             }
-            nodeInfo_DP.dbWrite(nodeInfo: self.nodeInfo)
+            nodeInfo_DP.dbWrite(self.nodeInfo)
         }
         else if (pbDataType == FromRadio.OneOf_Variant.myInfo(fromRadioDecoded.myInfo) )
         {
@@ -276,6 +278,8 @@ class MasterDataProcessor
             self.myInfo.nodeNumBits = fromRadioDecoded.myInfo.nodeNumBits
             self.myInfo.messageTimeoutMsec = fromRadioDecoded.myInfo.messageTimeoutMsec
             self.myInfo.minAppVersion = fromRadioDecoded.myInfo.minAppVersion
+            
+            self.myNodeInfo_DP.dbWrite(self.myInfo)
         }
         else if (pbDataType == FromRadio.OneOf_Variant.configCompleteID(fromRadioDecoded.configCompleteID) )
         {
@@ -359,7 +363,7 @@ class MasterDataProcessor
             case "channelSettings.channelNum":
                 self.radio.channelSettings.channelNum = UInt32(value) ?? 0
             case "channelSettings.psk":
-                break
+                self.radio.channelSettings.psk = Data(value.utf8)
             case "channelSettings.name":
                 self.radio.channelSettings.name = value
             default:
