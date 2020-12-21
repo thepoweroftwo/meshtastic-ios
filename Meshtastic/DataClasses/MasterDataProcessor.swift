@@ -160,6 +160,44 @@ class MasterDataProcessor
                 else if (sbDataType == SubPacket.OneOf_Payload.data(subPacket.data))
                 {
                     print("######## MeshPacket.Decoded.SubPacket.DataMessage ########")
+                    switch subPacket.data.portnum
+                    {
+                        case PortNum.textMessageApp:
+                            print("######## From TextMessageApp ########")
+                            print(subPacket.data.payload)
+
+                        case PortNum.nodeinfoApp:
+                            print("######## From NodeInfoApp ########")
+                            var decodedInfo = User()
+                            decodedInfo = try! User(serializedData: subPacket.data.payload)
+                            self.user.id = decodedInfo.id
+                            self.user.longName = decodedInfo.longName
+                            self.user.shortName = decodedInfo.shortName
+                            self.user.macaddr = decodedInfo.macaddr
+                            
+                            self.nodeInfo_DP.dbWrite(self.user, nodeId: meshPacket.from)
+                            MasterViewController.shared.DebugPrint2View(text: "*** decoded:\n" + decodedInfo.debugDescription)
+                            print("user:")
+                            print(decodedInfo)
+
+                        case PortNum.positionApp:
+                            print("######## From PositionApp ########")
+                            var decodedPosition = Position()
+                            decodedPosition = try! Position(serializedData: subPacket.data.payload)
+                            self.position.latitudeI = decodedPosition.latitudeI
+                            self.position.longitudeI = decodedPosition.longitudeI
+                            self.position.altitude = decodedPosition.altitude
+                            self.position.batteryLevel = decodedPosition.batteryLevel
+                            self.position.time = decodedPosition.time
+                            
+                            self.nodeInfo_DP.dbWrite(self.position, nodeId: meshPacket.from)
+                            MasterViewController.shared.DebugPrint2View(text: "*** decoded:\n" + decodedPosition.debugDescription)
+                            print("position:")
+                            print(decodedPosition)
+                            
+                        default:
+                            break
+                    }
 
                 }
                 else if (sbDataType == SubPacket.OneOf_Payload.user(subPacket.user))
@@ -363,7 +401,8 @@ class MasterDataProcessor
             case "channelSettings.channelNum":
                 self.radio.channelSettings.channelNum = UInt32(value) ?? 0
             case "channelSettings.psk":
-                self.radio.channelSettings.psk = Data(value.utf8)
+                self.radio.channelSettings.psk = value.hexadecimal ?? Data("".utf8)
+                //self.radio.channelSettings.psk = Data(value.utf8)
             case "channelSettings.name":
                 self.radio.channelSettings.name = value
             default:

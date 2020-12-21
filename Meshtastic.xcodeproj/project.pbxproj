@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D0338EB258F868200C09EB0 /* portnums.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0338EA258F868200C09EB0 /* portnums.pb.swift */; };
 		7D1334932544B23D009E32FE /* mesh_icon_180.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D1334912544B23D009E32FE /* mesh_icon_180.png */; };
 		7D1334942544B23D009E32FE /* mesh_icon_120.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D1334922544B23D009E32FE /* mesh_icon_120.png */; };
 		7D1334962544E4C4009E32FE /* mesh_icon_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D1334952544E4C4009E32FE /* mesh_icon_1024.png */; };
@@ -58,6 +59,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7D0338EA258F868200C09EB0 /* portnums.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = portnums.pb.swift; sourceTree = "<group>"; };
 		7D1334912544B23D009E32FE /* mesh_icon_180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mesh_icon_180.png; sourceTree = "<group>"; };
 		7D1334922544B23D009E32FE /* mesh_icon_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mesh_icon_120.png; sourceTree = "<group>"; };
 		7D1334952544E4C4009E32FE /* mesh_icon_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mesh_icon_1024.png; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				7DB29A012521EAE000AFDEE2 /* ViewController */,
 				7DB299FA2521CEB500AFDEE2 /* DataClasses */,
 				7DB299F8251E708500AFDEE2 /* mesh.pb.swift */,
+				7D0338EA258F868200C09EB0 /* portnums.pb.swift */,
 				7D6F2FBD25176A2F00403A2F /* Info.plist */,
 				7D6F2FAF25176A2C00403A2F /* AppDelegate.swift */,
 				7D6F2FB125176A2C00403A2F /* SceneDelegate.swift */,
@@ -287,6 +290,7 @@
 				7DB29A072522236100AFDEE2 /* MasterViewController.swift in Sources */,
 				7D3D5370251BAC8500A603D7 /* tabVcDebug.swift in Sources */,
 				7DB29A052521ECD200AFDEE2 /* BLEController.swift in Sources */,
+				7D0338EB258F868200C09EB0 /* portnums.pb.swift in Sources */,
 				7D72B784252CEC8E0033F613 /* cellEditText.swift in Sources */,
 				7D9FF0CE256CFD0F0089F37E /* vcLoRaModulationConfig.swift in Sources */,
 				7D937733251A60AD005F0669 /* tbcDeviceDetails.swift in Sources */,

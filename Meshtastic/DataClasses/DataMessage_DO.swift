@@ -9,12 +9,13 @@ import Foundation
 
 class DataMessage_DO
 {
-    var typ: Enumerations.TypeEnum
+    //var typ: Enumerations.TypeEnum
+    var portnum: Enumerations.PortNum
     var payload: Data
     
     init()
     {
-        self.typ = Enumerations.TypeEnum.opaque
+        self.portnum = Enumerations.PortNum.unknownApp
         self.payload = Data()
     }
 }

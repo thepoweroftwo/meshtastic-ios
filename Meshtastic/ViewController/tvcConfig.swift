@@ -267,8 +267,8 @@ class tvcConfig: UITableViewController
                 
                 let cell = tableView.dequeueReusableCell(withIdentifier: "cellConfigText", for: indexPath) as! cellEditText
                 cell.lblCaption.text = "PSK"
-                //cell.lblValue.text = self.radioConfig.channelSettings.psk.hexDescription
-                cell.lblValue.text = String(decoding: self.radioConfig.channelSettings.psk, as: UTF8.self)
+                cell.lblValue.text = self.radioConfig.channelSettings.psk.hexDescription
+                //cell.lblValue.text = String(decoding: self.radioConfig.channelSettings.psk, as: UTF8.self)
                 cell.lblInfo.text = "A simple preshared key for now for crypto.  Must be either 0 bytes (no crypto), 16 bytes (AES128), or 32 bytes (AES256)"
                 cell.datafieldName = "channelSettings.psk"
                 return cell
