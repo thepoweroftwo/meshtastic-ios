@@ -12,6 +12,7 @@
 		7D1334942544B23D009E32FE /* mesh_icon_120.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D1334922544B23D009E32FE /* mesh_icon_120.png */; };
 		7D1334962544E4C4009E32FE /* mesh_icon_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D1334952544E4C4009E32FE /* mesh_icon_1024.png */; };
 		7D199BB5257EB21100395C27 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D199BB4257EB21100395C27 /* DataBase.swift */; };
+		7D1FB11E2592445F008FBAEF /* User_DP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1FB11D2592445F008FBAEF /* User_DP.swift */; };
 		7D3D5370251BAC8500A603D7 /* tabVcDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3D536F251BAC8500A603D7 /* tabVcDebug.swift */; };
 		7D3E760E253F6C6F0016F3EB /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DB299F4251E6F0E00AFDEE2 /* SwiftProtobuf.framework */; };
 		7D3E760F253F6C6F0016F3EB /* SwiftProtobuf.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7DB299F4251E6F0E00AFDEE2 /* SwiftProtobuf.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -64,6 +65,7 @@
 		7D1334922544B23D009E32FE /* mesh_icon_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mesh_icon_120.png; sourceTree = "<group>"; };
 		7D1334952544E4C4009E32FE /* mesh_icon_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mesh_icon_1024.png; sourceTree = "<group>"; };
 		7D199BB4257EB21100395C27 /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
+		7D1FB11D2592445F008FBAEF /* User_DP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User_DP.swift; sourceTree = "<group>"; };
 		7D3D536F251BAC8500A603D7 /* tabVcDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabVcDebug.swift; sourceTree = "<group>"; };
 		7D447338258E42730063ACBC /* MyNodeInfo_DP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNodeInfo_DP.swift; sourceTree = "<group>"; };
 		7D44733A258E74BB0063ACBC /* DataMessage_DO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMessage_DO.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				7DFDE9E52526508500B4BBF2 /* MyNodeInfo_DO.swift */,
 				7D447338258E42730063ACBC /* MyNodeInfo_DP.swift */,
 				7DFDE9E7252650E300B4BBF2 /* User_DO.swift */,
+				7D1FB11D2592445F008FBAEF /* User_DP.swift */,
 				7DFDE9E92526535100B4BBF2 /* Position_DO.swift */,
 				7DFDE9EB252653D400B4BBF2 /* ChannelSettings_DO.swift */,
 				7DFDE9ED2526554400B4BBF2 /* UserPreferences_DO.swift */,
@@ -288,6 +291,7 @@
 				7DFDE9EE2526554400B4BBF2 /* UserPreferences_DO.swift in Sources */,
 				7D44733B258E74BB0063ACBC /* DataMessage_DO.swift in Sources */,
 				7DB29A072522236100AFDEE2 /* MasterViewController.swift in Sources */,
+				7D1FB11E2592445F008FBAEF /* User_DP.swift in Sources */,
 				7D3D5370251BAC8500A603D7 /* tabVcDebug.swift in Sources */,
 				7DB29A052521ECD200AFDEE2 /* BLEController.swift in Sources */,
 				7D0338EB258F868200C09EB0 /* portnums.pb.swift in Sources */,

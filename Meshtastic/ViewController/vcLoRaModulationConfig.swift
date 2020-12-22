@@ -99,7 +99,7 @@ class vcLoRaModulationConfig: UIViewController
 
 class BandwidthData : NSObject, UIPickerViewDataSource, UIPickerViewDelegate
 {
-    let bandwidthData = ["7.8", "10.4", "15.6", "20.8", "31.25", "41.7", "62.5", "125", "250", "500"]
+    let bandwidthData = ["7.8", "10.4", "15.6", "20.80", "31.25", "41.70", "62.5", "125", "250", "500"]
     var selectedBandwidth: String = ""
     var dataRateCalculator = DataRateCalculator()
 

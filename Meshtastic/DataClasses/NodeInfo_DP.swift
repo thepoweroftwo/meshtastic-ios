@@ -144,7 +144,7 @@ class NodeInfo_DP
     /// - Parameters:
     ///     - nodeId: Id of the node object to read
     ///
-    /// - Returns: The node object or nil if it was not fund
+    /// - Returns: The node object or nil if it was not found
     ///
     public func dbRead( nodeId: UInt32) -> NodeInfo_DO?
     {
@@ -159,6 +159,22 @@ class NodeInfo_DP
         return nil
     }
 
+    
+    /// Get your own node object
+    ///
+    /// - Returns: A node object or nil if it was not found
+    ///
+    public func getMyNodeObject() -> NodeInfo_DO?
+    {
+        let myNodeNumber = DataBase.shared.myNodeInfo_DO.myNodeNum
+        let myNodeObject = dbRead(nodeId: myNodeNumber)
+        return myNodeObject ?? nil
+    }
+    
+    
+    
+    
+    
     //---------------------------------------------------------------------------------------
 
     
