@@ -21,6 +21,7 @@ class MasterViewController
     //---------------------------------------------------------------------------------------
     var tvcBLEDevices: tvcBLEDevices
     var tbcDeviceDetails: tbcDeviceDetails!
+    var tvcChats: tvcChats!
     var dialogMessage: UIAlertController
     var currentViewController: UIViewController!
     var masterDataProcessor: MasterDataProcessor
@@ -121,6 +122,22 @@ class MasterViewController
     public func updateFromDevice(radioConfig: RadioConfig_DO)
     {
         self.tbcDeviceDetails.refreshRadioConfigData(radioConfig: radioConfig)
+    }
+
+
+    public func updateFromDevice(user: User_DO)
+    {
+        if (self.tvcChats != nil)
+        {
+            if (self.tvcChats.tableView != nil)
+            {
+                self.tvcChats.Add_Update_Item()
+            }
+            else
+            {
+                self.tvcChats.needsReload = true
+            }
+        }
     }
 
     

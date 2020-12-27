@@ -27,9 +27,6 @@ class MasterDataProcessor
     public var radio: RadioConfig_DO
     public var preferences: UserPreferences_DO
     public var channelSettings: ChannelSettings_DO
-    public var nodeInfo: NodeInfo_DO
-    public var user: User_DO
-    public var position: Position_DO
     public var myInfo: MyNodeInfo_DO
 
     //---------------------------------------------------------------------------------------
@@ -44,9 +41,6 @@ class MasterDataProcessor
         radio = RadioConfig_DO()
         preferences = UserPreferences_DO()
         channelSettings = ChannelSettings_DO()
-        nodeInfo = NodeInfo_DO()
-        user = User_DO()
-        position = Position_DO()
         myInfo = MyNodeInfo_DO()
     }
     
@@ -135,6 +129,9 @@ class MasterDataProcessor
     {
         var pbDataType: FromRadio.OneOf_Variant
         pbDataType = fromRadioDecoded.variant!
+        let nodeInfo = NodeInfo_DO()
+        let user = User_DO()
+        let position = Position_DO()
         
         if (pbDataType == FromRadio.OneOf_Variant.packet(fromRadioDecoded.packet))
         {
@@ -149,13 +146,13 @@ class MasterDataProcessor
                 if (sbDataType == SubPacket.OneOf_Payload.position(subPacket.position))
                 {
                     print("######## MeshPacket.Decoded.SubPacket.Position ########")
-                    self.position.latitudeI = subPacket.position.latitudeI
-                    self.position.longitudeI = subPacket.position.longitudeI
-                    self.position.altitude = subPacket.position.altitude
-                    self.position.batteryLevel = subPacket.position.batteryLevel
-                    self.position.time = subPacket.position.time
+                    position.latitudeI = subPacket.position.latitudeI
+                    position.longitudeI = subPacket.position.longitudeI
+                    position.altitude = subPacket.position.altitude
+                    position.batteryLevel = subPacket.position.batteryLevel
+                    position.time = subPacket.position.time
                     
-                    self.nodeInfo_DP.dbWrite(self.position, nodeId: meshPacket.from)
+                    self.nodeInfo_DP.dbWrite(position, nodeId: meshPacket.from)
                 }
                 else if (sbDataType == SubPacket.OneOf_Payload.data(subPacket.data))
                 {
@@ -170,12 +167,13 @@ class MasterDataProcessor
                             print("######## From NodeInfoApp ########")
                             var decodedInfo = User()
                             decodedInfo = try! User(serializedData: subPacket.data.payload)
-                            self.user.id = decodedInfo.id
-                            self.user.longName = decodedInfo.longName
-                            self.user.shortName = decodedInfo.shortName
-                            self.user.macaddr = decodedInfo.macaddr
+                            user.id = decodedInfo.id
+                            user.longName = decodedInfo.longName
+                            user.shortName = decodedInfo.shortName
+                            user.macaddr = decodedInfo.macaddr
                             
-                            self.nodeInfo_DP.dbWrite(self.user, nodeId: meshPacket.from)
+                            self.nodeInfo_DP.dbWrite(user, nodeId: meshPacket.from)
+                            MasterViewController.shared.updateFromDevice(user: user)
                             MasterViewController.shared.DebugPrint2View(text: "*** decoded:\n" + decodedInfo.debugDescription)
                             print("user:")
                             print(decodedInfo)
@@ -184,13 +182,13 @@ class MasterDataProcessor
                             print("######## From PositionApp ########")
                             var decodedPosition = Position()
                             decodedPosition = try! Position(serializedData: subPacket.data.payload)
-                            self.position.latitudeI = decodedPosition.latitudeI
-                            self.position.longitudeI = decodedPosition.longitudeI
-                            self.position.altitude = decodedPosition.altitude
-                            self.position.batteryLevel = decodedPosition.batteryLevel
-                            self.position.time = decodedPosition.time
+                            position.latitudeI = decodedPosition.latitudeI
+                            position.longitudeI = decodedPosition.longitudeI
+                            position.altitude = decodedPosition.altitude
+                            position.batteryLevel = decodedPosition.batteryLevel
+                            position.time = decodedPosition.time
                             
-                            self.nodeInfo_DP.dbWrite(self.position, nodeId: meshPacket.from)
+                            self.nodeInfo_DP.dbWrite(position, nodeId: meshPacket.from)
                             MasterViewController.shared.DebugPrint2View(text: "*** decoded:\n" + decodedPosition.debugDescription)
                             print("position:")
                             print(decodedPosition)
@@ -203,12 +201,14 @@ class MasterDataProcessor
                 else if (sbDataType == SubPacket.OneOf_Payload.user(subPacket.user))
                 {
                     print("######## MeshPacket.Decoded.SubPacket.User ########")
-                    self.user.id = subPacket.user.id
-                    self.user.longName = subPacket.user.longName
-                    self.user.shortName = subPacket.user.shortName
-                    self.user.macaddr = subPacket.user.macaddr
+                    user.id = subPacket.user.id
+                    user.longName = subPacket.user.longName
+                    user.shortName = subPacket.user.shortName
+                    user.macaddr = subPacket.user.macaddr
                     
-                    self.nodeInfo_DP.dbWrite(self.user, nodeId: meshPacket.from)
+                    self.nodeInfo_DP.dbWrite(user, nodeId: meshPacket.from)
+                    MasterViewController.shared.updateFromDevice(user: user)
+
                 }
             }
             else if (mpDataType == MeshPacket.OneOf_Payload.encrypted(meshPacket.encrypted))
@@ -274,30 +274,30 @@ class MasterDataProcessor
         else if (pbDataType == FromRadio.OneOf_Variant.nodeInfo(fromRadioDecoded.nodeInfo) )
         {
             print("######## NodeInfo ########")
-            self.nodeInfo.num = fromRadioDecoded.nodeInfo.num
-            self.nodeInfo.hasUser = fromRadioDecoded.nodeInfo.hasUser
-            self.nodeInfo.hasPosition = fromRadioDecoded.nodeInfo.hasPosition
-            self.nodeInfo.snr = fromRadioDecoded.nodeInfo.snr
-            self.nodeInfo.nextHop = fromRadioDecoded.nodeInfo.nextHop
-            if (self.nodeInfo.hasUser)
+            nodeInfo.num = fromRadioDecoded.nodeInfo.num
+            nodeInfo.hasUser = fromRadioDecoded.nodeInfo.hasUser
+            nodeInfo.hasPosition = fromRadioDecoded.nodeInfo.hasPosition
+            nodeInfo.snr = fromRadioDecoded.nodeInfo.snr
+            nodeInfo.nextHop = fromRadioDecoded.nodeInfo.nextHop
+            if (nodeInfo.hasUser)
             {
-                self.user.id = fromRadioDecoded.nodeInfo.user.id
-                self.user.longName = fromRadioDecoded.nodeInfo.user.longName
-                self.user.shortName = fromRadioDecoded.nodeInfo.user.shortName
-                self.user.macaddr = fromRadioDecoded.nodeInfo.user.macaddr
-                self.nodeInfo.user = self.user
+                user.id = fromRadioDecoded.nodeInfo.user.id
+                user.longName = fromRadioDecoded.nodeInfo.user.longName
+                user.shortName = fromRadioDecoded.nodeInfo.user.shortName
+                user.macaddr = fromRadioDecoded.nodeInfo.user.macaddr
+                nodeInfo.user = user
             }
             
             if (nodeInfo.hasPosition)
             {
-                self.position.latitudeI = fromRadioDecoded.nodeInfo.position.latitudeI
-                self.position.longitudeI = fromRadioDecoded.nodeInfo.position.longitudeI
-                self.position.altitude = fromRadioDecoded.nodeInfo.position.altitude
-                self.position.batteryLevel = fromRadioDecoded.nodeInfo.position.batteryLevel
-                self.position.time = fromRadioDecoded.nodeInfo.position.time
-                self.nodeInfo.position = self.position
+                position.latitudeI = fromRadioDecoded.nodeInfo.position.latitudeI
+                position.longitudeI = fromRadioDecoded.nodeInfo.position.longitudeI
+                position.altitude = fromRadioDecoded.nodeInfo.position.altitude
+                position.batteryLevel = fromRadioDecoded.nodeInfo.position.batteryLevel
+                position.time = fromRadioDecoded.nodeInfo.position.time
+                nodeInfo.position = position
             }
-            nodeInfo_DP.dbWrite(self.nodeInfo)
+            self.nodeInfo_DP.dbWrite(nodeInfo)
         }
         else if (pbDataType == FromRadio.OneOf_Variant.myInfo(fromRadioDecoded.myInfo) )
         {
