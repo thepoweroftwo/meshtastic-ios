@@ -19,6 +19,7 @@
 		7D3E760F253F6C6F0016F3EB /* SwiftProtobuf.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7DB299F4251E6F0E00AFDEE2 /* SwiftProtobuf.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7D447339258E42730063ACBC /* MyNodeInfo_DP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D447338258E42730063ACBC /* MyNodeInfo_DP.swift */; };
 		7D44733B258E74BB0063ACBC /* DataMessage_DO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D44733A258E74BB0063ACBC /* DataMessage_DO.swift */; };
+		7D5710E725A8C80100A6D83E /* vcMyUserConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5710E625A8C80100A6D83E /* vcMyUserConfig.swift */; };
 		7D57968F254F3B7400769E7C /* vcEditText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D57968E254F3B7400769E7C /* vcEditText.swift */; };
 		7D6F2FB025176A2C00403A2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6F2FAF25176A2C00403A2F /* AppDelegate.swift */; };
 		7D6F2FB225176A2C00403A2F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6F2FB125176A2C00403A2F /* SceneDelegate.swift */; };
@@ -71,6 +72,7 @@
 		7D3D536F251BAC8500A603D7 /* tabVcDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabVcDebug.swift; sourceTree = "<group>"; };
 		7D447338258E42730063ACBC /* MyNodeInfo_DP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNodeInfo_DP.swift; sourceTree = "<group>"; };
 		7D44733A258E74BB0063ACBC /* DataMessage_DO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMessage_DO.swift; sourceTree = "<group>"; };
+		7D5710E625A8C80100A6D83E /* vcMyUserConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vcMyUserConfig.swift; sourceTree = "<group>"; };
 		7D57968E254F3B7400769E7C /* vcEditText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vcEditText.swift; sourceTree = "<group>"; };
 		7D6F2FAC25176A2C00403A2F /* Meshtastic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meshtastic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D6F2FAF25176A2C00403A2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				7D72B783252CEC8E0033F613 /* cellEditText.xib */,
 				7D57968E254F3B7400769E7C /* vcEditText.swift */,
 				7D9FF0CD256CFD0F0089F37E /* vcLoRaModulationConfig.swift */,
+				7D5710E625A8C80100A6D83E /* vcMyUserConfig.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DFDE9EC252653D400B4BBF2 /* ChannelSettings_DO.swift in Sources */,
+				7D5710E725A8C80100A6D83E /* vcMyUserConfig.swift in Sources */,
 				7D447339258E42730063ACBC /* MyNodeInfo_DP.swift in Sources */,
 				7DFDE9E225264F4300B4BBF2 /* RadioConfig_DO.swift in Sources */,
 				7DFDE9E8252650E300B4BBF2 /* User_DO.swift in Sources */,

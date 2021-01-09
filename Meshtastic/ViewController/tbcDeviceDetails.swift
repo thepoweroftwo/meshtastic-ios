@@ -16,6 +16,7 @@ class tbcDeviceDetails: UITabBarController
     //---------------------------------------------------------------------------------------
     var vcConfig: tvcConfig!
     var vcDebug: tabVcDebug!
+    var vcChats: tvcChats!
     //---------------------------------------------------------------------------------------
 
     
@@ -69,14 +70,19 @@ class tbcDeviceDetails: UITabBarController
         super.viewDidLoad()
         vcDebug = (self.viewControllers![2] as? tabVcDebug)
         vcConfig = (self.viewControllers![0] as? tvcConfig)
+        vcChats = (self.viewControllers![1] as? tvcChats)
+
         //print(self.viewControllers![0].title!)
         MasterViewController.shared.tbcDeviceDetails = self
+        
+        //self.navigationItem.rightBarButtonItem = self.editButtonItem
+
     }
     
     
     override func viewWillAppear(_ animated: Bool)
     {
-        MasterViewController.shared.currentViewController = self
+        MasterViewController.shared.currentViewController = self        
     }
     
 

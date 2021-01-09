@@ -114,6 +114,18 @@ class MasterDataProcessor
         return pbUserPreferences
     }
     
+    
+    private func user_write2ProtoBuf(user_DO: User_DO) -> User
+    {
+        var user: User = User()
+        user.id = user_DO.id
+        user.shortName = user_DO.shortName
+        user.longName = user_DO.longName
+        user.macaddr = user_DO.macaddr
+        
+        return user
+    }
+    
     //---------------------------------------------------------------------------------------
 
     
@@ -196,7 +208,6 @@ class MasterDataProcessor
                         default:
                             break
                     }
-
                 }
                 else if (sbDataType == SubPacket.OneOf_Payload.user(subPacket.user))
                 {
@@ -327,7 +338,6 @@ class MasterDataProcessor
         {
             print("######## Rebooted ########")
         }
-
     }
     
     
@@ -417,6 +427,14 @@ class MasterDataProcessor
     }
 
     
+    /// Called by MasterViewController after the user has changed the LoRa parameters
+    ///
+    /// - Parameters:
+    ///     - bandwidth: LoRa bandwidth
+    ///     - spreadingFactor: LoRa spreading factor
+    ///     - codingRate: LoRa coding rate
+    ///     - currentRadioConfig: the raidio config dataobject, containig the current (old) data
+    ///
     public func radioConfig_setLoRaModulation(bandwidth: String, spreadingFactor: String, codingRate: String, currentRadioConfig: RadioConfig_DO)
     {
         self.radio = currentRadioConfig
@@ -432,8 +450,24 @@ class MasterDataProcessor
         BLEConroller.shared.writeRadioConfig(userPreferences: pbUserPreferences, channelSettings: pbChannelSettings)
         MasterViewController.shared.updateFromDevice(radioConfig: self.radio)
     }
+
     
-    
+    /// Called by MasterViewController after the user has changed the oner settings
+    ///
+    /// - Parameters:
+    ///     - myUser_DO: The user data object, containing the updated data
+    ///
+    public func setOwner(myUser_DO: User_DO)
+    {
+        // Update database
+        let myNode: NodeInfo_DO = nodeInfo_DP.getMyNodeObject()!
+        let nodeInfo_DP: NodeInfo_DP = NodeInfo_DP()
+        nodeInfo_DP.dbWrite(myUser_DO, nodeId: myNode.num)
+        
+        // Set to device
+        let user = self.user_write2ProtoBuf(user_DO: myUser_DO)
+        BLEConroller.shared.setOwner(myUser: user)
+    }
     
     //---------------------------------------------------------------------------------------
 

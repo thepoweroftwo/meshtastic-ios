@@ -212,6 +212,16 @@ class MasterViewController
     }
 
     
+    /// Called by vcMyUserConfig after the user has touched the save bnutton
+    ///
+    /// - Parameters:
+    ///     - user_DO: The user data object containig the updated data
+    ///
+    public func myUserConfigUpdated(user_DO: User_DO)
+    {
+        masterDataProcessor.setOwner(myUser_DO: user_DO)
+    }
+    
     //---------------------------------------------------------------------------------------
 
     

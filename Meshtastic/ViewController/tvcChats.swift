@@ -9,13 +9,6 @@ import UIKit
 
 class tvcChats: UITableViewController
 {
-
-    
-    
-    
-    
-    
-    
     
     
     //---------------------------------------------------------------------------------------
@@ -39,16 +32,14 @@ class tvcChats: UITableViewController
 
     
     //---------------------------------------------------------------------------------------
-    // MARK: - pull action definitions
-    //---------------------------------------------------------------------------------------
-
-    //---------------------------------------------------------------------------------------
-
-    
-    //---------------------------------------------------------------------------------------
     // MARK: - private functions
     //---------------------------------------------------------------------------------------
-
+    
+    @objc private func showMyUserConfig()
+    {
+        self.performSegue(withIdentifier: "SegueShowMyUserConfig", sender: self)
+    }
+    
     //---------------------------------------------------------------------------------------
 
     
@@ -83,15 +74,14 @@ class tvcChats: UITableViewController
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     
     override func viewWillAppear(_ animated: Bool)
     {
         self.navigationController?.visibleViewController?.title = "Chats"
-        
+        self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.fill"), style: .plain, target: self, action: #selector(showMyUserConfig))
+
         if (self.needsReload)
         {
             self.chatUsersArray = self.user_DP.getChatUsers()
@@ -99,6 +89,17 @@ class tvcChats: UITableViewController
         }
     }
 
+    
+    override func viewDidDisappear(_ animated: Bool)
+    {
+        if (self.tabBarController?.selectedIndex != 1)
+        {
+            self.tabBarController?.navigationItem.rightBarButtonItem = nil
+        }
+
+    }
+
+    
     //---------------------------------------------------------------------------------------
     // Table datasource
     //---------------------------------------------------------------------------------------

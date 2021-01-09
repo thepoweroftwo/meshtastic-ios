@@ -147,6 +147,27 @@ class BLEConroller : NSObject
             connectToDevice(peripheral: self.connectedDevice)
         }
     }
+
+    
+    public func setOwner(myUser: User)
+    {
+        var toRadio: ToRadio!
+        toRadio = ToRadio()
+        toRadio.setOwner = myUser
+        
+        let binaryData: Data = try! toRadio.serializedData()
+        if (connectedDevice.state == CBPeripheralState.connected)
+        {
+            connectedDevice.writeValue(binaryData, for: TORADIO_characteristic, type: .withResponse)
+            MasterViewController.shared.DebugPrint2View(text: "Owner set to device" + "\n\r")
+        }
+        else
+        {
+            connectToDevice(peripheral: self.connectedDevice)
+        }
+    }
+
+    
     
     
     public func writeRadioConfig(userPreferences: RadioConfig.UserPreferences, channelSettings: ChannelSettings)
