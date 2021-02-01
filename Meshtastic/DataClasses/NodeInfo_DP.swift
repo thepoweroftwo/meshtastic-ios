@@ -171,6 +171,19 @@ class NodeInfo_DP
         return myNodeObject ?? nil
     }
     
+ 
+    /// Get the Node Id assigned to the passed user Id
+    ///
+    /// - Parameters:
+    ///     - userId: Id of the user for whom we want to get the NodeId
+    ///
+    /// - Returns: The NodeId we are looking for
+    ///
+    public func getNodeIdByUserId(userId: String) -> String
+    {
+        
+        
+    }
     
     
     

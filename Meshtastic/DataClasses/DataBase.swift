@@ -27,6 +27,7 @@ class DataBase
     public var nodeInfo_DO: NodeInfo_DO
     public var myNodeInfo_DO: MyNodeInfo_DO
     public var nodeArray = [NodeInfo_DO]()
+    public var chatMessageArray = [ChatMessage_DO]()
     
     //---------------------------------------------------------------------------------------
 

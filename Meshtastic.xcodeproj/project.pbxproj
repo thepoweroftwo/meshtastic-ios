@@ -28,6 +28,7 @@
 		7D6F2FBC25176A2F00403A2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D6F2FBA25176A2F00403A2F /* LaunchScreen.storyboard */; };
 		7D72B784252CEC8E0033F613 /* cellEditText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D72B782252CEC8E0033F613 /* cellEditText.swift */; };
 		7D72B785252CEC8E0033F613 /* cellEditText.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D72B783252CEC8E0033F613 /* cellEditText.xib */; };
+		7D82961C25C6CF2B00C904B6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D82961B25C6CF2B00C904B6 /* Extensions.swift */; };
 		7D937733251A60AD005F0669 /* tbcDeviceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D937732251A60AD005F0669 /* tbcDeviceDetails.swift */; };
 		7D9A4A6C252A6C2500CE4AD2 /* tvcConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A4A6B252A6C2500CE4AD2 /* tvcConfig.swift */; };
 		7D9FF0CE256CFD0F0089F37E /* vcLoRaModulationConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9FF0CD256CFD0F0089F37E /* vcLoRaModulationConfig.swift */; };
@@ -36,6 +37,7 @@
 		7DB29A052521ECD200AFDEE2 /* BLEController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB29A042521ECD200AFDEE2 /* BLEController.swift */; };
 		7DB29A072522236100AFDEE2 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB29A062522236100AFDEE2 /* MasterViewController.swift */; };
 		7DC5D21E2586663E00C6B5D1 /* NodeInfo_DP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC5D21D2586663E00C6B5D1 /* NodeInfo_DP.swift */; };
+		7DD21F4E25BC450B00CB1E4F /* ChatMessage_DO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD21F4D25BC450B00CB1E4F /* ChatMessage_DO.swift */; };
 		7DFDE9E025264E5F00B4BBF2 /* MasterDataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFDE9DF25264E5F00B4BBF2 /* MasterDataProcessor.swift */; };
 		7DFDE9E225264F4300B4BBF2 /* RadioConfig_DO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFDE9E125264F4300B4BBF2 /* RadioConfig_DO.swift */; };
 		7DFDE9E42526505500B4BBF2 /* NodeInfo_DO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFDE9E32526505500B4BBF2 /* NodeInfo_DO.swift */; };
@@ -83,6 +85,7 @@
 		7D6F2FBD25176A2F00403A2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D72B782252CEC8E0033F613 /* cellEditText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cellEditText.swift; sourceTree = "<group>"; };
 		7D72B783252CEC8E0033F613 /* cellEditText.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = cellEditText.xib; sourceTree = "<group>"; };
+		7D82961B25C6CF2B00C904B6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		7D937732251A60AD005F0669 /* tbcDeviceDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tbcDeviceDetails.swift; sourceTree = "<group>"; };
 		7D9A4A6B252A6C2500CE4AD2 /* tvcConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tvcConfig.swift; sourceTree = "<group>"; };
 		7D9FF0CD256CFD0F0089F37E /* vcLoRaModulationConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vcLoRaModulationConfig.swift; sourceTree = "<group>"; };
@@ -92,6 +95,7 @@
 		7DB29A042521ECD200AFDEE2 /* BLEController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEController.swift; sourceTree = "<group>"; };
 		7DB29A062522236100AFDEE2 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		7DC5D21D2586663E00C6B5D1 /* NodeInfo_DP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeInfo_DP.swift; sourceTree = "<group>"; };
+		7DD21F4D25BC450B00CB1E4F /* ChatMessage_DO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage_DO.swift; sourceTree = "<group>"; };
 		7DFDE9DF25264E5F00B4BBF2 /* MasterDataProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterDataProcessor.swift; sourceTree = "<group>"; };
 		7DFDE9E125264F4300B4BBF2 /* RadioConfig_DO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioConfig_DO.swift; sourceTree = "<group>"; };
 		7DFDE9E32526505500B4BBF2 /* NodeInfo_DO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeInfo_DO.swift; sourceTree = "<group>"; };
@@ -157,6 +161,7 @@
 				7D6F2FBA25176A2F00403A2F /* LaunchScreen.storyboard */,
 				7D6F2FB525176A2C00403A2F /* Main.storyboard */,
 				7DB29A042521ECD200AFDEE2 /* BLEController.swift */,
+				7D82961B25C6CF2B00C904B6 /* Extensions.swift */,
 			);
 			path = Meshtastic;
 			sourceTree = "<group>";
@@ -186,6 +191,7 @@
 				7D44733A258E74BB0063ACBC /* DataMessage_DO.swift */,
 				7DFDE9EF25276BF700B4BBF2 /* Enumerations.swift */,
 				7D199BB4257EB21100395C27 /* DataBase.swift */,
+				7DD21F4D25BC450B00CB1E4F /* ChatMessage_DO.swift */,
 			);
 			path = DataClasses;
 			sourceTree = "<group>";
@@ -303,11 +309,13 @@
 				7DB29A052521ECD200AFDEE2 /* BLEController.swift in Sources */,
 				7D0338EB258F868200C09EB0 /* portnums.pb.swift in Sources */,
 				7D72B784252CEC8E0033F613 /* cellEditText.swift in Sources */,
+				7DD21F4E25BC450B00CB1E4F /* ChatMessage_DO.swift in Sources */,
 				7D9FF0CE256CFD0F0089F37E /* vcLoRaModulationConfig.swift in Sources */,
 				7D937733251A60AD005F0669 /* tbcDeviceDetails.swift in Sources */,
 				7D6F2FB025176A2C00403A2F /* AppDelegate.swift in Sources */,
 				7D6F2FB225176A2C00403A2F /* SceneDelegate.swift in Sources */,
 				7DB29A032521EAE000AFDEE2 /* tvcBLEDevices.swift in Sources */,
+				7D82961C25C6CF2B00C904B6 /* Extensions.swift in Sources */,
 				7DC5D21E2586663E00C6B5D1 /* NodeInfo_DP.swift in Sources */,
 				7D1F7F712598B5D800C9A26F /* tvcChats.swift in Sources */,
 				7DB299F9251E708500AFDEE2 /* mesh.pb.swift in Sources */,
@@ -477,7 +485,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.84;
+				MARKETING_VERSION = 0.85;
 				PRODUCT_BUNDLE_IDENTIFIER = "de.huttinger-home.meshtastic";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = Meshtastic_dev;
@@ -504,7 +512,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.84;
+				MARKETING_VERSION = 0.85;
 				PRODUCT_BUNDLE_IDENTIFIER = "de.huttinger-home.meshtastic";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = Meshtastic_dist;
