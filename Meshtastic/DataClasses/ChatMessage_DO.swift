@@ -9,7 +9,7 @@ import Foundation
 
 class ChatMessage_DO
 {    
-    var messageID: String
+    var messageID: UInt32
     var messageTimestamp: Int64
     var fromUserID: String
     var toUserID: String
@@ -20,7 +20,7 @@ class ChatMessage_DO
     
     init()
     {
-        self.messageID = String()
+        self.messageID = UInt32()
         self.messageTimestamp = Int64()
         self.fromUserID = String()
         self.toUserID = String()

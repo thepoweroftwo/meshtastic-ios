@@ -155,6 +155,7 @@ class MasterDataProcessor
                 print("######## MeshPacket.Decoded ########")
                 let subPacket = meshPacket.decoded
                 let sbDataType = subPacket.payload
+                let sbAckType = subPacket.ack
                 if (sbDataType == SubPacket.OneOf_Payload.position(subPacket.position))
                 {
                     print("######## MeshPacket.Decoded.SubPacket.Position ########")
@@ -173,6 +174,22 @@ class MasterDataProcessor
                     {
                         case PortNum.textMessageApp:
                             print("######## From TextMessageApp ########")
+                            
+                            let nodeInfo_DP = NodeInfo_DP()
+                            let chatMessage = ChatMessage_DO()
+                            let chatMessage_DP = ChatMessage_DP()
+                            let nodeSender = nodeInfo_DP.dbRead(nodeId: meshPacket.from)
+                            let nodeReceiver = nodeInfo_DP.dbRead(nodeId: meshPacket.to)
+                            chatMessage.messageID = meshPacket.id
+                            chatMessage.messageTimestamp = Date.currentTimeStamp
+                            chatMessage.fromUserID = nodeSender?.user.id ?? ""
+                            chatMessage.fromUserLongName = nodeSender?.user.longName ?? ""
+                            chatMessage.toUserID = nodeReceiver?.user.id ?? ""
+                            chatMessage.toUserLongName = nodeReceiver?.user.longName ?? ""
+                            chatMessage.messagePayload = subPacket.data.payload.description
+                            
+                            chatMessage_DP.dbWrite(chatMessage)
+                            
                             print(subPacket.data.payload)
 
                         case PortNum.nodeinfoApp:
@@ -221,6 +238,20 @@ class MasterDataProcessor
                     MasterViewController.shared.updateFromDevice(user: user)
 
                 }
+                else if (sbAckType == SubPacket.OneOf_Ack.successID(subPacket.successID))
+                {
+                    print("######## MeshPacket.Decoded.SubPacket.Ack.Success ########")
+                    print(subPacket.successID)
+                }
+                else if (sbAckType == SubPacket.OneOf_Ack.failID(subPacket.failID))
+                {
+                    print("######## MeshPacket.Decoded.SubPacket.Ack.Fail ########")
+                    print(subPacket.failID)
+                }
+
+                
+                
+
             }
             else if (mpDataType == MeshPacket.OneOf_Payload.encrypted(meshPacket.encrypted))
             {

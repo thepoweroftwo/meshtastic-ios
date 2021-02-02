@@ -42,7 +42,7 @@ class NodeInfo_DP
     /// Get the index of a node within array
     ///
     /// - Parameters:
-    ///     - nodeInfo: The node data object for which we want the index
+    ///     - nodeInfo: The node data object for which we want to get the index
     ///
     /// - Returns: The index of the node object within it's array
     ///
@@ -179,10 +179,16 @@ class NodeInfo_DP
     ///
     /// - Returns: The NodeId we are looking for
     ///
-    public func getNodeIdByUserId(userId: String) -> String
+    public func getNodeIdByUserId(userId: String) -> UInt32
     {
-        
-        
+        for element in DataBase.shared.nodeArray
+        {
+            if (element.user.id == userId)
+            {
+                return element.num
+            }
+        }
+        return 0
     }
     
     

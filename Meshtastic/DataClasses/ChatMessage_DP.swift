@@ -1,17 +1,19 @@
 //
-//  User_DP.swift
+//  ChatMessage_DP.swift
 //  Meshtastic
 //
-//  Created by Thomas Huttinger on 22.12.20.
+//  Created by Thomas Huttinger on 02.02.21.
 //
 
 import Foundation
 
-class User_DP
+class ChatMessage_DP
 {
+    
     //---------------------------------------------------------------------------------------
     // MARK: - private class variables
     //---------------------------------------------------------------------------------------
+
     
     //---------------------------------------------------------------------------------------
 
@@ -34,6 +36,27 @@ class User_DP
     //---------------------------------------------------------------------------------------
     // MARK: - private functions
     //---------------------------------------------------------------------------------------
+    
+    /// Get the index of a message within array
+    ///
+    /// - Parameters:
+    ///     - chatMessage: The message object for which we want too get the index
+    ///
+    /// - Returns: The index of the message object within it's array
+    ///
+    private func getMessageIdx(_ messageId: UInt32) -> Int
+    {
+        var iCounter = 0
+        for element in DataBase.shared.chatMessageArray
+        {
+            if (element.messageID == messageId)
+            {
+                return iCounter
+            }
+            iCounter += 1
+        }
+        return -1
+    }
 
     //---------------------------------------------------------------------------------------
 
@@ -41,49 +64,37 @@ class User_DP
     //---------------------------------------------------------------------------------------
     // MARK: - public functions
     //---------------------------------------------------------------------------------------
-    
-    /// Get the id of your own user
+
+    /// Writes a node object into database
+    /// If the object allready exists in db it will be updated
     ///
-    /// - Returns: A string with the user id or an empty string if the id was not found
+    /// - Parameters:
+    ///     - nodeInfo: The node data object
     ///
-    public func getMyUserId() -> String
+    public func dbWrite(_ chatMessage: ChatMessage_DO)
     {
-        let nodeInfo_DP = NodeInfo_DP()
-        let myNodeNumber = DataBase.shared.myNodeInfo_DO.myNodeNum
-        let myNodeObject = nodeInfo_DP.dbRead(nodeId: myNodeNumber)
-        if (myNodeObject != nil)
+        let index = getMessageIdx(chatMessage.messageID)
+        if (index > -1) //Update
         {
-            return myNodeObject!.user.id
+            DataBase.shared.chatMessageArray[index] = chatMessage
         }
-        else
+        else //Add
         {
-            return ""
+            DataBase.shared.chatMessageArray += [chatMessage]
         }
-    }
-    
-        
-    /// Creates an array witth all users except your own.
-    /// Use it to fill the Chat Users tableView
-    ///
-    /// - Returns: A chatUseres array
-    ///
-    public func getChatUsers() -> [User_DO]
-    {
-        var chatUsersArray = [User_DO]()
-        let myUserId = getMyUserId()
-        for element in DataBase.shared.nodeArray
-        {
-            if (element.user.id != myUserId)
-            {
-                chatUsersArray += [element.user]
-            }
-        }
-        
-        return chatUsersArray
     }
 
+    
     
     //---------------------------------------------------------------------------------------
 
+    
+    
+    
+    
+    
+    
+    
+    
     
 }
