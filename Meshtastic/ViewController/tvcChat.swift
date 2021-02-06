@@ -1,65 +1,60 @@
 //
-//  tvcChats.swift
+//  tvcChat.swift
 //  Meshtastic
 //
-//  Created by Thomas Huttinger on 27.12.20.
+//  Created by Thomas Huttinger on 03.02.21.
 //
 
 import UIKit
 
-class tvcChats: UITableViewController
+class tvcChat: UITableViewController
 {
-    
+
     
     //---------------------------------------------------------------------------------------
     // MARK: - private class variables
     //---------------------------------------------------------------------------------------
-    
-    private var user_DP = User_DP()
-    private var chatUsersArray = [User_DO]()
-    private var selectedUserId: String = ""
-    
-    
+
+    private var chatMessage_DP = ChatMessage_DP()
+    private var nodeInfo_DP = NodeInfo_DP()
+    private var conversationArray = [ChatMessage_DO]()
+
     //---------------------------------------------------------------------------------------
 
         
     //---------------------------------------------------------------------------------------
     // MARK: - public class variables
     //---------------------------------------------------------------------------------------
-
+    
+    public var selectedUserId: String = ""
     public var needsReload: Bool = false
-
+    
     //---------------------------------------------------------------------------------------
 
     
     //---------------------------------------------------------------------------------------
     // MARK: - private functions
     //---------------------------------------------------------------------------------------
-    
-    @objc private func showMyUserConfig()
-    {
-        self.performSegue(withIdentifier: "SegueShowMyUserConfig", sender: self)
-    }
-    
+
     //---------------------------------------------------------------------------------------
 
     
     //---------------------------------------------------------------------------------------
     // MARK: - public functions
     //---------------------------------------------------------------------------------------
-    
+
     /// Adds a new item to table or updates an existing.
     /// It's called by MasterViewController
     ///
     public func Add_Update_Item()
     {
-        self.chatUsersArray = self.user_DP.getChatUsers()
+        self.conversationArray = self.chatMessage_DP.getConversation(self.selectedUserId)
         self.tableView.reloadData()
         self.needsReload = false
     }
+
     //---------------------------------------------------------------------------------------
 
-    
     
     
     //=======================================================================================
@@ -70,37 +65,40 @@ class tvcChats: UITableViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        self.chatUsersArray = self.user_DP.getChatUsers()
-        MasterViewController.shared.tvcChats = self
+        
+        //self.conversationArray = [ChatMessage_DO]()
+        self.conversationArray = self.chatMessage_DP.getConversation(self.selectedUserId)
+        MasterViewController.shared.tvcChat = self
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-    
+
     
     override func viewWillAppear(_ animated: Bool)
     {
-        self.navigationController?.visibleViewController?.title = "Chats"
-        self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.fill"), style: .plain, target: self, action: #selector(showMyUserConfig))
-
+        if (self.selectedUserId == "BC")
+        {
+            self.navigationController?.visibleViewController?.title = "Broadcast"
+        }
+        else
+        {
+            let nodeId = nodeInfo_DP.getNodeIdByUserId(userId: self.selectedUserId)
+            let node = nodeInfo_DP.dbRead(nodeId: nodeId)
+            self.navigationController?.visibleViewController?.title = node?.user.longName
+        }
+    
         if (self.needsReload)
         {
-            self.chatUsersArray = self.user_DP.getChatUsers()
-            self.tableView.reloadData()
+            Add_Update_Item()
         }
     }
 
     
-    override func viewDidDisappear(_ animated: Bool)
-    {
-        if (self.tabBarController?.selectedIndex != 1)
-        {
-            self.tabBarController?.navigationItem.rightBarButtonItem = nil
-        }
 
-    }
-
-    
     //---------------------------------------------------------------------------------------
     // Table datasource
     //---------------------------------------------------------------------------------------
@@ -110,26 +108,22 @@ class tvcChats: UITableViewController
         return 1
     }
 
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return self.chatUsersArray.count
+        return self.conversationArray.count
     }
+
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
-        cell.textLabel?.text = self.chatUsersArray[indexPath.row].longName
-        cell.detailTextLabel?.text = self.chatUsersArray[indexPath.row].shortName
+        cell.textLabel?.text = self.conversationArray[indexPath.row].messagePayload
+        cell.detailTextLabel?.text = self.conversationArray[indexPath.row].fromUserLongName
+
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-    {
-        self.selectedUserId = self.chatUsersArray[indexPath.row].id
-        self.performSegue(withIdentifier: "SegueShowConversation", sender: self)
-    }
-
 
     /*
     // Override to support conditional editing of the table view.
@@ -171,19 +165,18 @@ class tvcChats: UITableViewController
     //---------------------------------------------------------------------------------------
     // Navigation
     //---------------------------------------------------------------------------------------
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
-        if  (segue.identifier == "SegueShowConversation")
-        {
-            let destination = segue.destination as? tvcChat
-            destination?.selectedUserId = self.selectedUserId
-        }
+    
+    /*
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
     }
-
+    */
     //---------------------------------------------------------------------------------------
 
-
+    
+    
     //=======================================================================================
     // END TableView delegates
     //=======================================================================================

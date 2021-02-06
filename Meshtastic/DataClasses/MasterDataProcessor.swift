@@ -184,13 +184,21 @@ class MasterDataProcessor
                             chatMessage.messageTimestamp = Date.currentTimeStamp
                             chatMessage.fromUserID = nodeSender?.user.id ?? ""
                             chatMessage.fromUserLongName = nodeSender?.user.longName ?? ""
-                            chatMessage.toUserID = nodeReceiver?.user.id ?? ""
-                            chatMessage.toUserLongName = nodeReceiver?.user.longName ?? ""
-                            chatMessage.messagePayload = subPacket.data.payload.description
-                            
+                            if (meshPacket.to == DataBase.shared.broadcastNodeId)
+                            {
+                                chatMessage.toUserID = "BC"
+                                chatMessage.toUserLongName = "broadcast"
+                            }
+                            else
+                            {
+                                chatMessage.toUserID = nodeReceiver?.user.id ?? ""
+                                chatMessage.toUserLongName = nodeReceiver?.user.longName ?? ""
+                            }
+                            chatMessage.messagePayload = String(decoding: subPacket.data.payload, as: UTF8.self)
                             chatMessage_DP.dbWrite(chatMessage)
                             
-                            print(subPacket.data.payload)
+                            MasterViewController.shared.chatMessageUpdated()
+                            print(String(decoding: subPacket.data.payload, as: UTF8.self))
 
                         case PortNum.nodeinfoApp:
                             print("######## From NodeInfoApp ########")
@@ -202,7 +210,7 @@ class MasterDataProcessor
                             user.macaddr = decodedInfo.macaddr
                             
                             self.nodeInfo_DP.dbWrite(user, nodeId: meshPacket.from)
-                            MasterViewController.shared.updateFromDevice(user: user)
+                            MasterViewController.shared.userUpdated(user: user)
                             MasterViewController.shared.DebugPrint2View(text: "*** decoded:\n" + decodedInfo.debugDescription)
                             print("user:")
                             print(decodedInfo)
@@ -235,7 +243,7 @@ class MasterDataProcessor
                     user.macaddr = subPacket.user.macaddr
                     
                     self.nodeInfo_DP.dbWrite(user, nodeId: meshPacket.from)
-                    MasterViewController.shared.updateFromDevice(user: user)
+                    MasterViewController.shared.userUpdated(user: user)
 
                 }
                 else if (sbAckType == SubPacket.OneOf_Ack.successID(subPacket.successID))

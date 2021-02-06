@@ -84,6 +84,36 @@ class ChatMessage_DP
         }
     }
 
+    /// Get all chat messages for a specified user
+    ///
+    /// - Parameters:
+    ///     - userId: The id of the user for whom we need the chat data
+    ///
+    /// - Returns: An array containing all chat-message objects that belong to the conversation with the specified user
+    ///
+    public func getConversation(_ userId: String) -> [ChatMessage_DO]
+    {
+        var conversationArray = [ChatMessage_DO]()
+        let user_DP = User_DP()
+        let myUserId = user_DP.getMyUserId()
+        
+        if (userId == "BC")
+        {
+            for element in DataBase.shared.chatMessageArray
+            {
+                if (element.toUserID == "BC")
+                {
+                    conversationArray += [element]
+                }
+            }
+        }
+        else
+        {
+            
+        }
+        
+        return conversationArray
+    }
     
     
     //---------------------------------------------------------------------------------------

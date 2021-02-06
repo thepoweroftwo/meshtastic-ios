@@ -372,18 +372,14 @@ class tvcConfig: UITableViewController
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)
     {
-        //view.tintColor = UIColor.systemGray5
         view.tintColor = UIColor.systemGroupedBackground
 
         let header = view as! UITableViewHeaderFooterView
         header.textLabel?.textColor = UIColor.secondaryLabel
-        //header.textLabel?.backgroundColor = UIColor.red
         header.textLabel?.font = UIFont.boldSystemFont(ofSize: 12)
 
-        //header.textLabel?.translatesAutoresizingMaskIntoConstraints = false
         header.textLabel?.addConstraint(NSLayoutConstraint(item: header.textLabel!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 40))
         header.textLabel?.addConstraint(NSLayoutConstraint(item: header.textLabel!, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 200))
-                
     }
     
     

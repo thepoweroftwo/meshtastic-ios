@@ -28,6 +28,7 @@ class DataBase
     public var myNodeInfo_DO: MyNodeInfo_DO
     public var nodeArray = [NodeInfo_DO]()
     public var chatMessageArray = [ChatMessage_DO]()
+    public var broadcastNodeId: UInt32 = 4294967295
     
     //---------------------------------------------------------------------------------------
 

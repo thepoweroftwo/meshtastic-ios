@@ -22,6 +22,7 @@ class MasterViewController
     var tvcBLEDevices: tvcBLEDevices
     var tbcDeviceDetails: tbcDeviceDetails!
     var tvcChats: tvcChats!
+    var tvcChat: tvcChat!
     var dialogMessage: UIAlertController
     var currentViewController: UIViewController!
     var masterDataProcessor: MasterDataProcessor
@@ -112,9 +113,9 @@ class MasterViewController
     }
 
     
-    // MARK: - methods for use by BLEController
+    // MARK: - methods for use by MasterDataProcessor
 
-    /// Called by MasterDataProcessor after data has been updated by device
+    /// Called by MasterDataProcessor after radioConfig has been updated by device
     ///
     /// - Parameters:
     ///     - radioConfig: the dataobject that holds the updated data
@@ -124,8 +125,10 @@ class MasterViewController
         self.tbcDeviceDetails.refreshRadioConfigData(radioConfig: radioConfig)
     }
 
-
-    public func updateFromDevice(user: User_DO)
+    
+    /// Called by MasterDataProcessor after user has been updated by device
+    ///
+    public func userUpdated(user: User_DO)
     {
         if (self.tvcChats != nil)
         {
@@ -146,6 +149,24 @@ class MasterViewController
     public func nodeUpdated()
     {
         
+    }
+    
+    
+    /// Called by MasterDataProcessor after chat-message update by device
+    ///
+    public func chatMessageUpdated()
+    {
+        if (self.tvcChat != nil)
+        {
+            if (self.tvcChat.tableView != nil)
+            {
+                self.tvcChat.Add_Update_Item()
+            }
+            else
+            {
+                self.tvcChat.needsReload = true
+            }
+        }
     }
     
     

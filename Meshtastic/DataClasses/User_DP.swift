@@ -71,6 +71,14 @@ class User_DP
     {
         var chatUsersArray = [User_DO]()
         let myUserId = getMyUserId()
+        
+        // create a user object for broadcasts
+        let broadcastUser = User_DO()
+        broadcastUser.id = "BC"
+        broadcastUser.longName = "broadcast"
+        broadcastUser.shortName = "bc"
+        chatUsersArray += [broadcastUser]
+        
         for element in DataBase.shared.nodeArray
         {
             if (element.user.id != myUserId)
