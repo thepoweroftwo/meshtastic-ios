@@ -23,6 +23,7 @@ class MasterViewController
     var tbcDeviceDetails: tbcDeviceDetails!
     var tvcChats: tvcChats!
     var tvcChat: tvcChat!
+    var vcChat: vcChat!
     var dialogMessage: UIAlertController
     var currentViewController: UIViewController!
     var masterDataProcessor: MasterDataProcessor
@@ -156,15 +157,15 @@ class MasterViewController
     ///
     public func chatMessageUpdated()
     {
-        if (self.tvcChat != nil)
+        if (self.vcChat != nil)
         {
-            if (self.tvcChat.tableView != nil)
+            if (self.vcChat.tableView != nil)
             {
-                self.tvcChat.Add_Update_Item()
+                self.vcChat.Add_Update_Item()
             }
             else
             {
-                self.tvcChat.needsReload = true
+                self.vcChat.needsReload = true
             }
         }
     }

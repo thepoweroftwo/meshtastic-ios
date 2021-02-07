@@ -9,7 +9,6 @@ import UIKit
 
 class tvcChat: UITableViewController
 {
-
     
     //---------------------------------------------------------------------------------------
     // MARK: - private class variables

@@ -127,7 +127,7 @@ class tvcChats: UITableViewController
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         self.selectedUserId = self.chatUsersArray[indexPath.row].id
-        self.performSegue(withIdentifier: "SegueShowConversation", sender: self)
+        self.performSegue(withIdentifier: "SegueShowConversation2", sender: self)
     }
 
 
@@ -174,9 +174,14 @@ class tvcChats: UITableViewController
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if  (segue.identifier == "SegueShowConversation")
+        if (segue.identifier == "SegueShowConversation")
         {
             let destination = segue.destination as? tvcChat
+            destination?.selectedUserId = self.selectedUserId
+        }
+        else if (segue.identifier == "SegueShowConversation2")
+        {
+            let destination = segue.destination as? vcChat
             destination?.selectedUserId = self.selectedUserId
         }
     }

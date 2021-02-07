@@ -44,6 +44,7 @@
 		7DC5D21E2586663E00C6B5D1 /* NodeInfo_DP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC5D21D2586663E00C6B5D1 /* NodeInfo_DP.swift */; };
 		7DD21F4E25BC450B00CB1E4F /* ChatMessage_DO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD21F4D25BC450B00CB1E4F /* ChatMessage_DO.swift */; };
 		7DEF07AE25CB249D00C8BE55 /* tvcChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEF07AD25CB249D00C8BE55 /* tvcChat.swift */; };
+		7DF1B3C125D044D600900923 /* vcChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF1B3C025D044D600900923 /* vcChat.swift */; };
 		7DFDE9E025264E5F00B4BBF2 /* MasterDataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFDE9DF25264E5F00B4BBF2 /* MasterDataProcessor.swift */; };
 		7DFDE9E225264F4300B4BBF2 /* RadioConfig_DO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFDE9E125264F4300B4BBF2 /* RadioConfig_DO.swift */; };
 		7DFDE9E42526505500B4BBF2 /* NodeInfo_DO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFDE9E32526505500B4BBF2 /* NodeInfo_DO.swift */; };
@@ -108,6 +109,7 @@
 		7DC5D21D2586663E00C6B5D1 /* NodeInfo_DP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeInfo_DP.swift; sourceTree = "<group>"; };
 		7DD21F4D25BC450B00CB1E4F /* ChatMessage_DO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage_DO.swift; sourceTree = "<group>"; };
 		7DEF07AD25CB249D00C8BE55 /* tvcChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tvcChat.swift; sourceTree = "<group>"; };
+		7DF1B3C025D044D600900923 /* vcChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vcChat.swift; sourceTree = "<group>"; };
 		7DFDE9DF25264E5F00B4BBF2 /* MasterDataProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterDataProcessor.swift; sourceTree = "<group>"; };
 		7DFDE9E125264F4300B4BBF2 /* RadioConfig_DO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioConfig_DO.swift; sourceTree = "<group>"; };
 		7DFDE9E32526505500B4BBF2 /* NodeInfo_DO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeInfo_DO.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				7D78DD9F25CF1D45006FCBE6 /* cellChatMessageUser.xib */,
 				7D78DDA225CF1D6A006FCBE6 /* cellChatMessageMe.swift */,
 				7D78DDA325CF1D6A006FCBE6 /* cellChatMessageMe.xib */,
+				7DF1B3C025D044D600900923 /* vcChat.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				7DFDE9E225264F4300B4BBF2 /* RadioConfig_DO.swift in Sources */,
 				7DFDE9E8252650E300B4BBF2 /* User_DO.swift in Sources */,
 				7D57968F254F3B7400769E7C /* vcEditText.swift in Sources */,
+				7DF1B3C125D044D600900923 /* vcChat.swift in Sources */,
 				7DFDE9F025276BF700B4BBF2 /* Enumerations.swift in Sources */,
 				7D5A423A25C952C000A147B3 /* ChatMessage_DP.swift in Sources */,
 				7DFDE9E025264E5F00B4BBF2 /* MasterDataProcessor.swift in Sources */,
