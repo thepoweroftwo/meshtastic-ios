@@ -73,6 +73,7 @@ class vcChat: UIViewController, UITableViewDelegate, UITableViewDataSource
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.transform = CGAffineTransform(scaleX: 1, y: -1)
         
         self.conversationArray = self.chatMessage_DP.getConversation(self.selectedUserId)
         MasterViewController.shared.vcChat = self
@@ -115,10 +116,10 @@ class vcChat: UIViewController, UITableViewDelegate, UITableViewDataSource
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.contentView.transform = CGAffineTransform(scaleX: 1, y: -1)
 
         cell.textLabel?.text = self.conversationArray[indexPath.row].messagePayload
         cell.detailTextLabel?.text = self.conversationArray[indexPath.row].fromUserLongName
-
         return cell
     }
 

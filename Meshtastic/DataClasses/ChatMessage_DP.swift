@@ -112,7 +112,7 @@ class ChatMessage_DP
             
         }
         
-        return conversationArray
+        return conversationArray.reversed()
     }
     
     
