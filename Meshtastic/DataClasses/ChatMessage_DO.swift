@@ -17,6 +17,7 @@ class ChatMessage_DO
     var toUserLongName: String
     var receivedACK: Bool
     var messagePayload: String
+    var direction: String
     
     init()
     {
@@ -28,6 +29,7 @@ class ChatMessage_DO
         self.toUserLongName = String()
         self.receivedACK = Bool()
         self.messagePayload = String()
+        self.direction = String()
     }
 
 }

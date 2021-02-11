@@ -14,6 +14,8 @@ class tabVcDebug: UIViewController
 
     @IBOutlet var txtView1: UITextView!
     @IBOutlet var txtMessage: UITextField!
+    @IBOutlet var scView: UIScrollView!
+    
     
     @IBAction func btnSend_TouchUp(_ sender: Any)
     {
@@ -27,10 +29,12 @@ class tabVcDebug: UIViewController
         super.viewDidLoad()
         
         // call the 'keyboardWillShow' function when the view controller receive notification that keyboard is going to be shown
-        NotificationCenter.default.addObserver(self, selector: #selector(tabVcDebug.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(tabVcDebug.adjustForKeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
         
         // call the 'keyboardWillHide' function when the view controlelr receive notification that keyboard is going to be hidden
-        NotificationCenter.default.addObserver(self, selector: #selector(tabVcDebug.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(tabVcDebug.adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        
     }
 
     
@@ -42,7 +46,7 @@ class tabVcDebug: UIViewController
         }
       
       // move the root view up by the distance of keyboard height
-      self.view.frame.origin.y = 0 - keyboardSize.height
+        self.view.frame.origin.y = 0 - keyboardSize.height + (self.navigationController?.toolbar.frame.size.height)!
     }
     
     
@@ -51,7 +55,31 @@ class tabVcDebug: UIViewController
       // move back the root view origin to zero
       self.view.frame.origin.y = 0
     }
+    
+    
+    
+    @objc func adjustForKeyboard(notification: Notification) {
+        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
 
+        let keyboardScreenEndFrame = keyboardValue.cgRectValue
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            scView.contentInset = .zero
+        } else {
+            scView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom, right: 0)
+            
+        }
+
+        scView.scrollIndicatorInsets = scView.contentInset
+
+        //let selectedRange = txtView1.selectedRange
+        //txtView1.scrollRangeToVisible(selectedRange)
+        //txtView1.scrollRangeToVisible(NSMakeRange(txtView1.text.count - 1, 1))
+
+    }
+
+    
     
     override func viewWillAppear(_ animated: Bool)
     {

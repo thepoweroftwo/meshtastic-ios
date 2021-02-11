@@ -90,58 +90,71 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="t4r-GY-oXn">
-                                <rect key="frame" x="20" y="0.0" width="374" height="698"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <accessibility key="accessibilityConfiguration" identifier="txtOutput"/>
-                                <viewLayoutGuide key="contentLayoutGuide" id="MOu-72-Xa0"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="XE3-2b-Kp5"/>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
-                            </textView>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J9c-ma-gve" userLabel="txtMessage">
-                                <rect key="frame" x="20" y="738" width="313" height="34"/>
-                                <accessibility key="accessibilityConfiguration" label="txtMessage"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2xj-KR-xvy" userLabel="btnSend">
-                                <rect key="frame" x="343" y="740" width="36" height="30"/>
-                                <accessibility key="accessibilityConfiguration" label="btnSend"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" bouncesZoom="NO" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="6HY-Zq-LCb">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="t4r-GY-oXn">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="625"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="txtOutput"/>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
+                                    </textView>
+                                    <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J9c-ma-gve" userLabel="txtMessage">
+                                        <rect key="frame" x="48" y="612" width="258" height="34"/>
+                                        <accessibility key="accessibilityConfiguration" label="txtMessage"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2xj-KR-xvy" userLabel="btnSend">
+                                        <rect key="frame" x="339" y="610" width="60" height="30"/>
+                                        <accessibility key="accessibilityConfiguration" label="btnSend"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="So2-Uo-Aaw"/>
+                                        </constraints>
+                                        <state key="normal" title="Send"/>
+                                        <connections>
+                                            <action selector="btnSend_TouchUp:" destination="1VV-M0-Wfu" eventType="touchUpInside" id="tUr-5m-bDs"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.76071941600000004" green="0.89883407360000001" blue="0.51499403509999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="F5A-ew-U8S"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="36" id="uBQ-6z-o8G"/>
+                                    <constraint firstItem="t4r-GY-oXn" firstAttribute="width" secondItem="6HY-Zq-LCb" secondAttribute="width" id="AeL-OW-Lc0"/>
+                                    <constraint firstItem="2xj-KR-xvy" firstAttribute="leading" secondItem="J9c-ma-gve" secondAttribute="trailing" constant="33" id="MSy-SQ-84X"/>
+                                    <constraint firstItem="J9c-ma-gve" firstAttribute="top" secondItem="t4r-GY-oXn" secondAttribute="bottom" constant="10" id="OdF-1E-mtY"/>
+                                    <constraint firstItem="t4r-GY-oXn" firstAttribute="top" secondItem="6HY-Zq-LCb" secondAttribute="top" id="RKO-GN-vbg"/>
+                                    <constraint firstItem="t4r-GY-oXn" firstAttribute="centerX" secondItem="6HY-Zq-LCb" secondAttribute="centerX" id="RvZ-cD-RU6"/>
+                                    <constraint firstItem="t4r-GY-oXn" firstAttribute="height" secondItem="6HY-Zq-LCb" secondAttribute="height" constant="-100" id="bXo-Zb-5JT"/>
+                                    <constraint firstItem="2xj-KR-xvy" firstAttribute="top" secondItem="t4r-GY-oXn" secondAttribute="bottom" constant="8" symbolic="YES" id="d0F-mS-ekZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="J9c-ma-gve" secondAttribute="bottom" constant="79" id="dKS-lc-EDe"/>
+                                    <constraint firstItem="t4r-GY-oXn" firstAttribute="leading" secondItem="6HY-Zq-LCb" secondAttribute="leading" id="edY-4f-52c"/>
+                                    <constraint firstAttribute="trailing" secondItem="t4r-GY-oXn" secondAttribute="trailing" id="iOT-tR-g18"/>
+                                    <constraint firstAttribute="trailing" secondItem="2xj-KR-xvy" secondAttribute="trailing" constant="55" id="ibm-Vm-EFL"/>
+                                    <constraint firstItem="J9c-ma-gve" firstAttribute="leading" secondItem="6HY-Zq-LCb" secondAttribute="leadingMargin" id="wPy-Be-3tT"/>
                                 </constraints>
-                                <state key="normal" title="Send"/>
-                                <connections>
-                                    <action selector="btnSend_TouchUp:" destination="1VV-M0-Wfu" eventType="touchUpInside" id="tUr-5m-bDs"/>
-                                </connections>
-                            </button>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NUb-Z1-B3U"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="NUb-Z1-B3U" firstAttribute="bottom" secondItem="J9c-ma-gve" secondAttribute="bottom" constant="41" id="6La-nX-aSA"/>
-                            <constraint firstItem="2xj-KR-xvy" firstAttribute="leading" secondItem="J9c-ma-gve" secondAttribute="trailing" constant="10" id="9kv-mJ-Ome"/>
-                            <constraint firstItem="NUb-Z1-B3U" firstAttribute="bottom" secondItem="2xj-KR-xvy" secondAttribute="bottom" constant="43" id="AMi-UK-qfc"/>
-                            <constraint firstItem="t4r-GY-oXn" firstAttribute="top" secondItem="NUb-Z1-B3U" secondAttribute="top" constant="-88" id="Dwk-vg-wVr"/>
-                            <constraint firstItem="NUb-Z1-B3U" firstAttribute="trailing" secondItem="t4r-GY-oXn" secondAttribute="trailing" constant="20" id="QWh-1p-6OW"/>
-                            <constraint firstItem="t4r-GY-oXn" firstAttribute="leading" secondItem="NUb-Z1-B3U" secondAttribute="leading" constant="20" id="SSf-yD-Pg5"/>
-                            <constraint firstItem="NUb-Z1-B3U" firstAttribute="trailing" secondItem="2xj-KR-xvy" secondAttribute="trailing" constant="35" id="ViW-kF-wD4"/>
-                            <constraint firstItem="J9c-ma-gve" firstAttribute="leading" secondItem="NUb-Z1-B3U" secondAttribute="leading" constant="20" id="cND-Y3-NAe"/>
-                            <constraint firstItem="J9c-ma-gve" firstAttribute="top" secondItem="t4r-GY-oXn" secondAttribute="bottom" constant="40" id="eru-6m-pdb"/>
+                            <constraint firstItem="6HY-Zq-LCb" firstAttribute="bottom" secondItem="NUb-Z1-B3U" secondAttribute="bottom" id="Mjd-Dw-EcL"/>
+                            <constraint firstItem="6HY-Zq-LCb" firstAttribute="leading" secondItem="J7Z-7F-x0K" secondAttribute="leading" id="W8S-Dk-Wgd"/>
+                            <constraint firstItem="6HY-Zq-LCb" firstAttribute="top" secondItem="NUb-Z1-B3U" secondAttribute="top" id="nNB-yS-nbk"/>
+                            <constraint firstAttribute="trailing" secondItem="6HY-Zq-LCb" secondAttribute="trailing" id="nZY-kc-lur"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Debug" image="ladybug" catalog="system" id="0fu-KL-jlc"/>
                     <connections>
+                        <outlet property="scView" destination="6HY-Zq-LCb" id="Kym-Kl-w3Y"/>
                         <outlet property="txtMessage" destination="J9c-ma-gve" id="mMe-Oo-o9b"/>
                         <outlet property="txtView1" destination="t4r-GY-oXn" id="VEw-fX-One"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dIp-wm-VhZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="712" y="2036"/>
+            <point key="canvasLocation" x="711.59420289855075" y="2035.7142857142856"/>
         </scene>
         <!--tvcChats-->
         <scene sceneID="WkU-bC-yzx">

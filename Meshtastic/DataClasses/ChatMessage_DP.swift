@@ -84,6 +84,7 @@ class ChatMessage_DP
         }
     }
 
+    
     /// Get all chat messages for a specified user
     ///
     /// - Parameters:
@@ -103,6 +104,14 @@ class ChatMessage_DP
             {
                 if (element.toUserID == "BC")
                 {
+                    if (element.fromUserID == myUserId)
+                    {
+                        element.direction = "OUT"
+                    }
+                    else
+                    {
+                        element.direction = "IN"
+                    }
                     conversationArray += [element]
                 }
             }
