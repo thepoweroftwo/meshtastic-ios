@@ -203,9 +203,9 @@ class MasterViewController
     }
     
     
-    public func didTriggerSendMessage(message: String)
+    public func didTriggerSendMessage(message: String, toUserID: String)
     {
-        BLEConroller.shared.sendMessage(message: message)            
+        BLEConroller.shared.sendMessage(message: message, toUserID: toUserID)
     }
     
     

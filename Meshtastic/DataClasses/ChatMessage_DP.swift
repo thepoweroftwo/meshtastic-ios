@@ -74,7 +74,7 @@ class ChatMessage_DP
     public func dbWrite(_ chatMessage: ChatMessage_DO)
     {
         let index = getMessageIdx(chatMessage.messageID)
-        if (index > -1) //Update
+        if (index > -1 && chatMessage.direction == "IN") //Update
         {
             DataBase.shared.chatMessageArray[index] = chatMessage
         }
@@ -118,7 +118,26 @@ class ChatMessage_DP
         }
         else
         {
-            
+            for element in DataBase.shared.chatMessageArray
+            {
+                if (element.toUserID == myUserId)
+                {
+                    if (element.fromUserID == userId)
+                    {
+                        element.direction = "IN"
+                    }
+                    conversationArray += [element]
+                }
+                else if (element.toUserID == userId)
+                {
+                    if (element.fromUserID == myUserId)
+                    {
+                        element.direction = "OUT"
+                    }
+                    conversationArray += [element]
+                }
+
+            }
         }
         
         return conversationArray.reversed()

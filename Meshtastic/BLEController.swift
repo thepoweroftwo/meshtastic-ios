@@ -117,10 +117,40 @@ class BLEConroller : NSObject
     }
     
     
-    public func sendMessage(message: String)
+    public func sendMessage(message: String, toUserID: String)
     {
+        var toNodeID: UInt32
+        let nodeInfo_DP = NodeInfo_DP()
+        var toNode = NodeInfo_DO()
+        var fromNode = NodeInfo_DO()
+        let chatMessagr_DP = ChatMessage_DP()
+        let chatMessage = ChatMessage_DO()
+
+        
+        if (toUserID == "BC")
+        {
+            toNodeID = DataBase.shared.broadcastNodeId
+        }
+        else
+        {
+            toNodeID = nodeInfo_DP.getNodeIdByUserId(userId: toUserID)
+            toNode = nodeInfo_DP.dbRead(nodeId: toNodeID)!
+            fromNode = nodeInfo_DP.getMyNodeObject()!
+            
+            chatMessage.messageID = 0
+            chatMessage.messageTimestamp = Date.currentTimeStamp
+            chatMessage.fromUserID = fromNode.user.id
+            chatMessage.fromUserLongName = fromNode.user.longName
+            chatMessage.toUserID = toNode.user.id
+            chatMessage.toUserLongName = toNode.user.longName
+            chatMessage.messagePayload = message
+            chatMessage.direction = "OUT"
+            chatMessagr_DP.dbWrite(chatMessage)
+            MasterViewController.shared.chatMessageUpdated()
+        }
+        
         let dataType = PortNum.textMessageApp
-        let BROADCAST_ADDR = 0xffffffff
+        //let BROADCAST_ADDR = 0xffffffff
         let payloadData: Data = message.data(using: String.Encoding.utf8)!
     
         var subPacket = SubPacket()
@@ -128,7 +158,8 @@ class BLEConroller : NSObject
         subPacket.data.portnum = dataType
         
         var meshPacket = MeshPacket()
-        meshPacket.to = UInt32(BROADCAST_ADDR)
+        //meshPacket.to = UInt32(BROADCAST_ADDR)
+        meshPacket.to = toNodeID
         meshPacket.decoded = subPacket
         meshPacket.wantAck = true
         

@@ -10,6 +10,8 @@ import UIKit
 class tvcChat: UITableViewController
 {
     
+    @IBOutlet var writeView: UIView!
+    
     //---------------------------------------------------------------------------------------
     // MARK: - private class variables
     //---------------------------------------------------------------------------------------
@@ -17,6 +19,9 @@ class tvcChat: UITableViewController
     private var chatMessage_DP = ChatMessage_DP()
     private var nodeInfo_DP = NodeInfo_DP()
     private var conversationArray = [ChatMessage_DO]()
+    private let keyboardLayoutGuide =  UILayoutGuide()
+    
+    private let accessoryView = avChatTextInput(frame: CGRect.zero)
 
     //---------------------------------------------------------------------------------------
 
@@ -35,6 +40,40 @@ class tvcChat: UITableViewController
     // MARK: - private functions
     //---------------------------------------------------------------------------------------
 
+    @objc func keyboardWillShow(notification: NSNotification)
+    {
+        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+           // if keyboard size is not available for some reason, dont do anything
+           return
+        }
+      
+      // move the root view up by the distance of keyboard height
+        self.navigationController?.toolbar.frame.origin.y = self.view.frame.height - keyboardSize.height - (self.navigationController?.toolbar.frame.height)!
+    }
+    
+    
+    @objc func keyboardWillHide(notification: NSNotification)
+    {
+        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+           // if keyboard size is not available for some reason, dont do anything
+           return
+        }
+      // move back the root view origin to zero
+        self.navigationController?.toolbar.frame.origin.y = self.view.frame.height - keyboardSize.height - (self.navigationController?.toolbar.frame.height)!
+    }
+
+    
+    @objc func keyboardWillChangeFrame(notification: NSNotification)
+    {
+        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+           // if keyboard size is not available for some reason, dont do anything
+           return
+        }
+      // move back the root view origin to zero
+        self.navigationController?.toolbar.frame.origin.y = self.view.frame.height - keyboardSize.height - (self.navigationController?.toolbar.frame.height)!
+    }
+
+    
     //---------------------------------------------------------------------------------------
 
     
@@ -51,6 +90,16 @@ class tvcChat: UITableViewController
         self.tableView.reloadData()
         self.needsReload = false
     }
+    
+    override var inputAccessoryView: avChatTextInput
+    {
+        return accessoryView
+    }
+
+//    override func canBecomeFirstResponder() -> Bool
+//    {
+//        return true
+//    }
 
     //---------------------------------------------------------------------------------------
 
@@ -65,9 +114,41 @@ class tvcChat: UITableViewController
     {
         super.viewDidLoad()
         
+        
+        //writeView.sizeToFit()
+        let progressButton = UIBarButtonItem(customView: writeView)
+        self.toolbarItems = [progressButton]
+        self.navigationController?.setToolbarHidden(false, animated: true)
+                
+        
+//        self.navigationController?.toolbar.bottomAnchor.constraint(equalTo: keyboardLayoutGuide.topAnchor, constant: -40).isActive = true
+        
         //self.conversationArray = [ChatMessage_DO]()
         self.conversationArray = self.chatMessage_DP.getConversation(self.selectedUserId)
         MasterViewController.shared.tvcChat = self
+        
+        
+        
+//        // call the 'keyboardWillShow' function when the view controller receive notification that keyboard is going to be shown
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+//
+//        // call the 'keyboardWillHide' function when the view controlelr receive notification that keyboard is going to be hidden
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+//
+//
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillChangeFrame), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -173,7 +254,13 @@ class tvcChat: UITableViewController
     }
     */
     //---------------------------------------------------------------------------------------
-
+    
+    
+    // while scrolling this delegate is being called so you may now check which direction your scrollView is being scrolled to
+    override func scrollViewDidScroll(_ scrollView: UIScrollView)
+    {
+        
+    }
     
     
     //=======================================================================================

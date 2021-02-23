@@ -15,9 +15,24 @@ class vcChat: UIViewController, UITableViewDelegate, UITableViewDataSource
     //---------------------------------------------------------------------------------------
 
     @IBOutlet var tableView: UITableView!
-
+    @IBOutlet var txtTextInput: UITextField!
+    @IBOutlet var svInput: UIStackView!
+    
+    //---------------------------------------------------------------------------------------
+    
+    
+    //---------------------------------------------------------------------------------------
+    // MARK: - IBActioons
     //---------------------------------------------------------------------------------------
 
+    @IBAction func btnSend_TouchUp(_ sender: Any)
+    {
+        MasterViewController.shared.didTriggerSendMessage(message: txtTextInput.text!, toUserID: self.selectedUserId)
+        txtTextInput.text = ""
+    }
+    
+    //---------------------------------------------------------------------------------------
+    
     
     //---------------------------------------------------------------------------------------
     // MARK: - private class variables
@@ -26,7 +41,7 @@ class vcChat: UIViewController, UITableViewDelegate, UITableViewDataSource
     private var chatMessage_DP = ChatMessage_DP()
     private var nodeInfo_DP = NodeInfo_DP()
     private var conversationArray = [ChatMessage_DO]()
-
+    
     //---------------------------------------------------------------------------------------
 
         
@@ -77,6 +92,9 @@ class vcChat: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         self.conversationArray = self.chatMessage_DP.getConversation(self.selectedUserId)
         MasterViewController.shared.vcChat = self
+        
+        
+        self.svInput.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor).isActive = true
         
     }
     
