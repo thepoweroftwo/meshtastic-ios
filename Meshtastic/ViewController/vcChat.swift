@@ -7,7 +7,7 @@
 
 import UIKit
 
-class vcChat: UIViewController, UITableViewDelegate, UITableViewDataSource
+class vcChat: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate
 {
 
     //---------------------------------------------------------------------------------------
@@ -15,7 +15,7 @@ class vcChat: UIViewController, UITableViewDelegate, UITableViewDataSource
     //---------------------------------------------------------------------------------------
 
     @IBOutlet var tableView: UITableView!
-    @IBOutlet var txtTextInput: UITextField!
+    @IBOutlet var txtTextInput: UITextView!
     @IBOutlet var svInput: UIStackView!
     
     //---------------------------------------------------------------------------------------
@@ -79,10 +79,10 @@ class vcChat: UIViewController, UITableViewDelegate, UITableViewDataSource
     //---------------------------------------------------------------------------------------
 
     
-    
-    
-    
-    
+    //=======================================================================================
+    // MARK: - UIView delegates
+    //=======================================================================================
+
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -90,12 +90,21 @@ class vcChat: UIViewController, UITableViewDelegate, UITableViewDataSource
         self.tableView.dataSource = self
         self.tableView.transform = CGAffineTransform(scaleX: 1, y: -1)
         
+        self.txtTextInput.delegate = self
+        
         self.conversationArray = self.chatMessage_DP.getConversation(self.selectedUserId)
         MasterViewController.shared.vcChat = self
         
-        
+        // Set constraint to move content up when keyboard appears
         self.svInput.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor).isActive = true
+
+        // Set adaptive row height
+        tableView.rowHeight = UITableView.automaticDimension
+                tableView.estimatedRowHeight = 44
         
+        // Set placeholder text
+        txtTextInput.text = "Message"
+        txtTextInput.textColor = UIColor.systemGray
     }
     
 
@@ -109,6 +118,12 @@ class vcChat: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     */
 
+    //=======================================================================================
+    // END UIView delegates
+    //=======================================================================================
+
+
+    
     
     //=======================================================================================
     // MARK: - TableView delegates
@@ -141,15 +156,45 @@ class vcChat: UIViewController, UITableViewDelegate, UITableViewDataSource
         return cell
     }
 
+        
+    //=======================================================================================
+    // END TableView delegates
+    //=======================================================================================
+
     
     
     
+    //=======================================================================================
+    // MARK: - TextView delegates
+    //=======================================================================================
+
+    
+    //---------------------------------------------------------------------------------------
+    // Handle placeholder text
+    //---------------------------------------------------------------------------------------
+    func textViewDidBeginEditing(_ textView: UITextView)
+    {
+        if textView.textColor == UIColor.systemGray
+        {
+            textView.text = nil
+            textView.textColor = UIColor.label
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView)
+    {
+        if textView.text.isEmpty
+        {
+            textView.text = "Placeholder"
+            textView.textColor = UIColor.systemGray
+        }
+    }
     
     
     
     
     //=======================================================================================
-    // END TableView delegates
+    // END TextView delegates
     //=======================================================================================
 
 }

@@ -45,7 +45,6 @@
 		7DB29A072522236100AFDEE2 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB29A062522236100AFDEE2 /* MasterViewController.swift */; };
 		7DC5D21E2586663E00C6B5D1 /* NodeInfo_DP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC5D21D2586663E00C6B5D1 /* NodeInfo_DP.swift */; };
 		7DD21F4E25BC450B00CB1E4F /* ChatMessage_DO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD21F4D25BC450B00CB1E4F /* ChatMessage_DO.swift */; };
-		7DEF07AE25CB249D00C8BE55 /* tvcChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEF07AD25CB249D00C8BE55 /* tvcChat.swift */; };
 		7DF1B3C125D044D600900923 /* vcChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF1B3C025D044D600900923 /* vcChat.swift */; };
 		7DF4882625E1DCDF00187E23 /* avChatTextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF4882525E1DCDF00187E23 /* avChatTextInput.swift */; };
 		7DFDE9E025264E5F00B4BBF2 /* MasterDataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFDE9DF25264E5F00B4BBF2 /* MasterDataProcessor.swift */; };
@@ -113,7 +112,6 @@
 		7DB29A062522236100AFDEE2 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		7DC5D21D2586663E00C6B5D1 /* NodeInfo_DP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeInfo_DP.swift; sourceTree = "<group>"; };
 		7DD21F4D25BC450B00CB1E4F /* ChatMessage_DO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage_DO.swift; sourceTree = "<group>"; };
-		7DEF07AD25CB249D00C8BE55 /* tvcChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tvcChat.swift; sourceTree = "<group>"; };
 		7DF1B3C025D044D600900923 /* vcChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vcChat.swift; sourceTree = "<group>"; };
 		7DF4882525E1DCDF00187E23 /* avChatTextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = avChatTextInput.swift; sourceTree = "<group>"; };
 		7DFDE9DF25264E5F00B4BBF2 /* MasterDataProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterDataProcessor.swift; sourceTree = "<group>"; };
@@ -227,7 +225,6 @@
 				7D3D536F251BAC8500A603D7 /* tabVcDebug.swift */,
 				7D9A4A6B252A6C2500CE4AD2 /* tvcConfig.swift */,
 				7D1F7F702598B5D800C9A26F /* tvcChats.swift */,
-				7DEF07AD25CB249D00C8BE55 /* tvcChat.swift */,
 				7D5710E625A8C80100A6D83E /* vcMyUserConfig.swift */,
 				7D72B782252CEC8E0033F613 /* cellEditText.swift */,
 				7D72B783252CEC8E0033F613 /* cellEditText.xib */,
@@ -341,7 +338,6 @@
 				7DFDE9EE2526554400B4BBF2 /* UserPreferences_DO.swift in Sources */,
 				7D44733B258E74BB0063ACBC /* DataMessage_DO.swift in Sources */,
 				7D1D885B25E133740034F94E /* ScrollingDecelerator.swift in Sources */,
-				7DEF07AE25CB249D00C8BE55 /* tvcChat.swift in Sources */,
 				7DB29A072522236100AFDEE2 /* MasterViewController.swift in Sources */,
 				7D1FB11E2592445F008FBAEF /* User_DP.swift in Sources */,
 				7D3D5370251BAC8500A603D7 /* tabVcDebug.swift in Sources */,

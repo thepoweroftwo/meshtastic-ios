@@ -22,7 +22,6 @@ class MasterViewController
     var tvcBLEDevices: tvcBLEDevices
     var tbcDeviceDetails: tbcDeviceDetails!
     var tvcChats: tvcChats!
-    var tvcChat: tvcChat!
     var vcChat: vcChat!
     var dialogMessage: UIAlertController
     var currentViewController: UIViewController!

@@ -174,12 +174,7 @@ class tvcChats: UITableViewController
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if (segue.identifier == "SegueShowConversation")
-        {
-            let destination = segue.destination as? tvcChat
-            destination?.selectedUserId = self.selectedUserId
-        }
-        else if (segue.identifier == "SegueShowConversation2")
+        if (segue.identifier == "SegueShowConversation2")
         {
             let destination = segue.destination as? vcChat
             destination?.selectedUserId = self.selectedUserId
