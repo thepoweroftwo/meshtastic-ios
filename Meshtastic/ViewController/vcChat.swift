@@ -153,6 +153,19 @@ class vcChat: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
 
         cell.textLabel?.text = self.conversationArray[indexPath.row].messagePayload
         cell.detailTextLabel?.text = self.conversationArray[indexPath.row].fromUserLongName
+        
+        // Set text color ....
+        if (self.conversationArray[indexPath.row].direction == "IN")
+        {
+            // .... for incomming messages
+            cell.textLabel?.textColor = UIColor.systemOrange
+        }
+        else if (self.conversationArray[indexPath.row].direction == "OUT")
+        {
+            // .... for outgoing messages
+            cell.textLabel?.textColor = UIColor.systemGreen
+        }
+        
         return cell
     }
 
