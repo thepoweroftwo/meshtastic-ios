@@ -58,6 +58,15 @@ class vcChat: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
     //---------------------------------------------------------------------------------------
     // MARK: - private functions
     //---------------------------------------------------------------------------------------
+    
+    private func registerCell()
+    {
+        let cellMe = UINib(nibName: "cellChatMessageMe", bundle: nil)
+        self.tableView.register(cellMe, forCellReuseIdentifier: "cellMessageMe")
+        let cellUser = UINib(nibName: "cellChatMessageUser", bundle: nil)
+        self.tableView.register(cellUser, forCellReuseIdentifier: "cellMessageUser")
+        
+    }
 
     //---------------------------------------------------------------------------------------
 
@@ -86,6 +95,21 @@ class vcChat: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        registerCell()
+        
+        
+        
+        let yourColor : UIColor = UIColor( red: 0.4, green: 0.4, blue:0.4, alpha: 0.5 )
+        txtTextInput.layer.masksToBounds = true
+        txtTextInput.layer.borderColor = yourColor.cgColor
+        txtTextInput.layer.borderWidth = 1.0
+        txtTextInput.layer.cornerRadius = 15
+        
+        txtTextInput.textContainerInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        
+        
+
+        
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.transform = CGAffineTransform(scaleX: 1, y: -1)
@@ -96,11 +120,13 @@ class vcChat: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
         MasterViewController.shared.vcChat = self
         
         // Set constraint to move content up when keyboard appears
-        self.svInput.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor).isActive = true
+        self.svInput.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor, constant: -10).isActive = true
 
+        
+        
         // Set adaptive row height
         tableView.rowHeight = UITableView.automaticDimension
-                tableView.estimatedRowHeight = 44
+        tableView.estimatedRowHeight = 44
         
         // Set placeholder text
         txtTextInput.text = "Message"
@@ -144,29 +170,40 @@ class vcChat: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
     {
         return self.conversationArray.count
     }
+    
+   
 
 
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.contentView.transform = CGAffineTransform(scaleX: 1, y: -1)
-
-        cell.textLabel?.text = self.conversationArray[indexPath.row].messagePayload
-        cell.detailTextLabel?.text = self.conversationArray[indexPath.row].fromUserLongName
         
         // Set text color ....
         if (self.conversationArray[indexPath.row].direction == "IN")
         {
             // .... for incomming messages
-            cell.textLabel?.textColor = UIColor.systemOrange
+            let customCell = tableView.dequeueReusableCell(withIdentifier: "cellMessageUser", for: indexPath) as! cellChatMessageUser
+            customCell.contentView.transform = CGAffineTransform(scaleX: 1, y: -1)
+
+            customCell.messageText?.text = self.conversationArray[indexPath.row].messagePayload
+            customCell.messageUser?.text = self.conversationArray[indexPath.row].fromUserLongName
+            
+            return customCell
         }
         else if (self.conversationArray[indexPath.row].direction == "OUT")
         {
             // .... for outgoing messages
-            cell.textLabel?.textColor = UIColor.systemGreen
+            let customCell = tableView.dequeueReusableCell(withIdentifier: "cellMessageMe", for: indexPath) as! cellChatMessageMe
+            customCell.contentView.transform = CGAffineTransform(scaleX: 1, y: -1)
+
+            customCell.messageText?.text = self.conversationArray[indexPath.row].messagePayload
+            customCell.messageUser?.text = self.conversationArray[indexPath.row].fromUserLongName
+            
+            return customCell
         }
         
-        return cell
+        return UITableViewCell()
+        
+        
     }
 
         
@@ -198,7 +235,7 @@ class vcChat: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
     {
         if textView.text.isEmpty
         {
-            textView.text = "Placeholder"
+            textView.text = "Message"
             textView.textColor = UIColor.systemGray
         }
     }

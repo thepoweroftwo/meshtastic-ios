@@ -69,8 +69,8 @@ class tbcDeviceDetails: UITabBarController
     {
         super.viewDidLoad()
         vcDebug = (self.viewControllers![2] as? tabVcDebug)
-        vcConfig = (self.viewControllers![0] as? tvcConfig)
-        vcChats = (self.viewControllers![1] as? tvcChats)
+        vcConfig = (self.viewControllers![1] as? tvcConfig)
+        vcChats = (self.viewControllers![0] as? tvcChats)
 
         //print(self.viewControllers![0].title!)
         MasterViewController.shared.tbcDeviceDetails = self
@@ -82,7 +82,8 @@ class tbcDeviceDetails: UITabBarController
     
     override func viewWillAppear(_ animated: Bool)
     {
-        MasterViewController.shared.currentViewController = self        
+        MasterViewController.shared.currentViewController = self
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person"), style: .plain, target: self, action: #selector(showMyUserConfig))
     }
     
 
@@ -95,8 +96,18 @@ class tbcDeviceDetails: UITabBarController
         // Pass the selected object to the new view controller.
     }
     */
+    
+    //---------------------------------------------------------------------------------------
+    // MARK: - private functions
+    //---------------------------------------------------------------------------------------
+    
+    @objc private func showMyUserConfig()
+    {
+        self.performSegue(withIdentifier: "SegueShowMyUserConfig", sender: self)
+    }
 
 }
 
 //=======================================================================================
+
 

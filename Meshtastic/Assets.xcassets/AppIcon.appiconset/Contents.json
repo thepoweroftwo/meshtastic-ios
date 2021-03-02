@@ -31,64 +31,19 @@
       "size" : "40x40"
     },
     {
-      "filename" : "mesh_icon_120.png",
+      "filename" : "app_120.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "60x60"
     },
     {
-      "filename" : "mesh_icon_180.png",
+      "filename" : "app_180.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x60"
     },
     {
-      "idiom" : "ipad",
-      "scale" : "1x",
-      "size" : "20x20"
-    },
-    {
-      "idiom" : "ipad",
-      "scale" : "2x",
-      "size" : "20x20"
-    },
-    {
-      "idiom" : "ipad",
-      "scale" : "1x",
-      "size" : "29x29"
-    },
-    {
-      "idiom" : "ipad",
-      "scale" : "2x",
-      "size" : "29x29"
-    },
-    {
-      "idiom" : "ipad",
-      "scale" : "1x",
-      "size" : "40x40"
-    },
-    {
-      "idiom" : "ipad",
-      "scale" : "2x",
-      "size" : "40x40"
-    },
-    {
-      "idiom" : "ipad",
-      "scale" : "1x",
-      "size" : "76x76"
-    },
-    {
-      "idiom" : "ipad",
-      "scale" : "2x",
-      "size" : "76x76"
-    },
-    {
-      "idiom" : "ipad",
-      "scale" : "2x",
-      "size" : "83.5x83.5"
-    },
-    {
-      "filename" : "mesh_icon_1024.png",
+      "filename" : "appicon.png",
       "idiom" : "ios-marketing",
       "scale" : "1x",
       "size" : "1024x1024"

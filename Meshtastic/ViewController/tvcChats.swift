@@ -35,13 +35,6 @@ class tvcChats: UITableViewController
     //---------------------------------------------------------------------------------------
     // MARK: - private functions
     //---------------------------------------------------------------------------------------
-    
-    @objc private func showMyUserConfig()
-    {
-        self.performSegue(withIdentifier: "SegueShowMyUserConfig", sender: self)
-    }
-    
-    //---------------------------------------------------------------------------------------
 
     
     //---------------------------------------------------------------------------------------
@@ -81,7 +74,6 @@ class tvcChats: UITableViewController
     override func viewWillAppear(_ animated: Bool)
     {
         self.navigationController?.visibleViewController?.title = "Chats"
-        self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.fill"), style: .plain, target: self, action: #selector(showMyUserConfig))
 
         if (self.needsReload)
         {
