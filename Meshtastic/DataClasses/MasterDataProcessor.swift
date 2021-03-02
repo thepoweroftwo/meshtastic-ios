@@ -135,6 +135,10 @@ class MasterDataProcessor
     //---------------------------------------------------------------------------------------
     // MARK: - public functions
     //---------------------------------------------------------------------------------------
+    
+    public func resetDB() {
+        DataBase.shared.nodeArray = [NodeInfo_DO]()
+    }
 
     /// Parse the decoded protoBuf structure "FromRadio" and write the data into our own data classes
     public func parseFromRadioPb(fromRadioDecoded: FromRadio)

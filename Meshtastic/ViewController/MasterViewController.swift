@@ -191,6 +191,7 @@ class MasterViewController
     public func didTriggerDisconnect(peripheral: CBPeripheral)
     {
         BLEConroller.shared.disconnectFromDevice(peripheral: peripheral)
+        self.masterDataProcessor.resetDB()
     }
     
     
