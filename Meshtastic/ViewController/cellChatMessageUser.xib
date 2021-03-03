@@ -20,8 +20,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mpj-rG-JHs">
                         <rect key="frame" x="0.0" y="7" width="254" height="65"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vn5-Xt-13m">
-                                <rect key="frame" x="18" y="26" width="41.5" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vn5-Xt-13m">
+                                <rect key="frame" x="18" y="26" width="222" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -35,6 +35,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="separatorColor"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Vn5-Xt-13m" secondAttribute="trailing" constant="14" id="BJr-hu-lJG"/>
                             <constraint firstItem="LWc-5j-Lx7" firstAttribute="leading" secondItem="mpj-rG-JHs" secondAttribute="leading" constant="18" id="Pk7-YB-DxR"/>
                             <constraint firstAttribute="bottom" secondItem="Vn5-Xt-13m" secondAttribute="bottom" constant="10" id="RFK-ro-etJ"/>
                             <constraint firstItem="Vn5-Xt-13m" firstAttribute="leading" secondItem="mpj-rG-JHs" secondAttribute="leading" constant="18" id="RYG-xm-OWw"/>
