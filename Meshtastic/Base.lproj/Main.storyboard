@@ -281,7 +281,7 @@
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="aA1-M5-VVn">
                                                 <rect key="frame" x="20" y="13" width="92" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Abbrechen"/>
+                                                <state key="normal" title="Cancel"/>
                                                 <connections>
                                                     <action selector="btnCancel_TouchUp:" destination="o8T-2T-CSX" eventType="touchUpInside" id="Cof-sh-REL"/>
                                                 </connections>
@@ -291,7 +291,7 @@
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="IwK-6X-biM">
                                                 <rect key="frame" x="302" y="13" width="92" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Speichern"/>
+                                                <state key="normal" title="Save"/>
                                                 <connections>
                                                     <action selector="btnSave_TouchUp:" destination="o8T-2T-CSX" eventType="touchUpInside" id="iZS-SH-eck"/>
                                                 </connections>
@@ -478,7 +478,7 @@
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="qda-r0-UtP">
                                                 <rect key="frame" x="20" y="13" width="92" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Abbrechen"/>
+                                                <state key="normal" title="Cancel"/>
                                                 <connections>
                                                     <action selector="btnCancel_TouchUp:" destination="Ciq-Rj-Okl" eventType="touchUpInside" id="xbL-8i-OLu"/>
                                                 </connections>
@@ -488,7 +488,7 @@
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Ulj-wQ-mUN">
                                                 <rect key="frame" x="308" y="13" width="92" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Speichen"/>
+                                                <state key="normal" title="Save"/>
                                                 <connections>
                                                     <action selector="btnSave_TouchUp:" destination="Ciq-Rj-Okl" eventType="touchUpInside" id="ae4-EJ-ujw"/>
                                                     <segue destination="bRN-h2-A4c" kind="unwind" identifier="SegueUnwindConfigDetail" unwindAction="unwindToPresentingViewControllerWithSegue:" id="bnJ-yo-PtF"/>
@@ -565,7 +565,7 @@
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="qJf-gy-QaO">
                                                 <rect key="frame" x="20" y="13" width="92" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Abbrechen"/>
+                                                <state key="normal" title="Cancel"/>
                                                 <connections>
                                                     <action selector="btnCancel_TouchUp:" destination="616-w8-O98" eventType="touchUpInside" id="yVP-FU-Kug"/>
                                                 </connections>
@@ -575,7 +575,7 @@
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="vZ1-8W-Tf0">
                                                 <rect key="frame" x="302" y="13" width="92" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Speichern"/>
+                                                <state key="normal" title="Save"/>
                                                 <connections>
                                                     <action selector="btnSave_TouchUp:" destination="616-w8-O98" eventType="touchUpInside" id="DYj-ea-QUD"/>
                                                     <segue destination="bXI-R7-HuZ" kind="unwind" identifier="SegueUnwindLoRsModulationConfig" unwindAction="unwindToPresentingViewControllerWithSegue:" id="1pF-Vm-Fyd"/>
