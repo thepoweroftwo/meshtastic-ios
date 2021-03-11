@@ -294,6 +294,7 @@ extension BLEConroller: CBCentralManagerDelegate
         isBLEConnected = false
         //connectedDevice = nil
         print("Disconnected: " + peripheral.name!)
+        MasterViewController.shared.DebugPrint2View(text: "!!! Disconnected: " + peripheral.name! + "\n\r")
         centralManager.scanForPeripherals(withServices: nil)
     }
     
@@ -381,7 +382,7 @@ extension BLEConroller: CBPeripheralDelegate
                 peripheral.readValue(for: FROMRADIO_characteristic)
 
             case FROMRADIO_UUID:
-                if (characteristic.value!.isEmpty)
+                if (characteristic.value == nil || characteristic.value!.isEmpty)
                 {
                     return
                 }
