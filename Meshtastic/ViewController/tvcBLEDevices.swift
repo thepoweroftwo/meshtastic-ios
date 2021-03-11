@@ -274,7 +274,7 @@ class tvcBLEDevices: UITableViewController
             else
             {
                 // Create new Alert
-                let dialogMessage = UIAlertController(title: "Info", message: "Es besteht bereits eine Verbindung zu einem Meshtastic Gerät", preferredStyle: .alert)
+                let dialogMessage = UIAlertController(title: "Info", message: "Cannot connect to Meshtasic device because another connection was already established", preferredStyle: .alert)
                 
                 // Create OK button with action handler
                 let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
