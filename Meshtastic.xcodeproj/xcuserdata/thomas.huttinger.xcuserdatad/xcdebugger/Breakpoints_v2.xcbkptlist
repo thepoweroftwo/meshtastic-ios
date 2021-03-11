@@ -112,8 +112,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "200"
             endingLineNumber = "200"
-            landmarkName = "centralManager(_:didConnect:)"
-            landmarkType = "7">
+            landmarkName = "BLEConroller"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -176,15 +176,15 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "338"
             endingLineNumber = "338"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
+            landmarkName = "tvcConfig"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "12FE372B-D35D-44F7-90AD-1A0884BDC366"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Meshtastic/ViewController/tvcConfig.swift"
@@ -208,8 +208,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "226"
             endingLineNumber = "226"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "BLEConroller"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -224,7 +224,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "143"
             endingLineNumber = "143"
-            landmarkName = "sendMessage(message:)"
+            landmarkName = "sendMessage(message:toUserID:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -256,7 +256,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "136"
             endingLineNumber = "136"
-            landmarkName = "DidSelectDevice(peripheral:)"
+            landmarkName = "userUpdated(user:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -272,7 +272,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "292"
             endingLineNumber = "292"
-            landmarkName = "viewWillAppear(_:)"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -411,7 +411,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "278"
             endingLineNumber = "278"
-            landmarkName = "viewDidLoad()"
+            landmarkName = "initCellsFor_RadioChannelSettings(indexPath:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
