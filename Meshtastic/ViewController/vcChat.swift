@@ -22,7 +22,7 @@ class vcChat: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
     
     
     //---------------------------------------------------------------------------------------
-    // MARK: - IBActioons
+    // MARK: - IBActions
     //---------------------------------------------------------------------------------------
 
     @IBAction func btnSend_TouchUp(_ sender: Any)
@@ -97,8 +97,6 @@ class vcChat: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
         super.viewDidLoad()
         registerCell()
         
-        
-        
         let yourColor : UIColor = UIColor( red: 0.4, green: 0.4, blue:0.4, alpha: 0.5 )
         txtTextInput.layer.masksToBounds = true
         txtTextInput.layer.borderColor = yourColor.cgColor
@@ -106,9 +104,6 @@ class vcChat: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
         txtTextInput.layer.cornerRadius = 15
         
         txtTextInput.textContainerInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
-        
-        
-
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -122,8 +117,6 @@ class vcChat: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
         // Set constraint to move content up when keyboard appears
         self.svInput.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor, constant: -10).isActive = true
 
-        
-        
         // Set adaptive row height
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 44

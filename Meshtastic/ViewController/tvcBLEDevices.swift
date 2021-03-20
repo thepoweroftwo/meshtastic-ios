@@ -11,17 +11,44 @@ import CoreBluetooth
 
 class tvcBLEDevices: UITableViewController
 {
+    //---------------------------------------------------------------------------------------
+    // MARK: - IBOutlets
+    //---------------------------------------------------------------------------------------
+
+    //---------------------------------------------------------------------------------------
+
+        
+    //---------------------------------------------------------------------------------------
+    // MARK: - IBActions
+    //---------------------------------------------------------------------------------------
+
+    // Pull to refresh action
+    @IBAction func RefreshControlValueChanged(_ sender: Any)
+    {
+        // Clear data array and refill it
+        dataChangedHandler(nil)
+        tableView.reloadData()
+        MasterViewController.shared.didTriggerRefreshDeviceList()
+        (sender as AnyObject).endRefreshing()
+    }
+        
+    //---------------------------------------------------------------------------------------
+
     
     //---------------------------------------------------------------------------------------
-    // MARK: - class variables and dataobjects
+    // MARK: - private class variables
     //---------------------------------------------------------------------------------------
-    var centralManager: CBCentralManager!
-    var peripheralArray = [CBPeripheral]()
-    var tableDataArray = [tableDataObject]()
-    var connectedDevice: CBPeripheral!
-    //var isBLEConnected = false
+
+    private var centralManager: CBCentralManager!
+    private var peripheralArray = [CBPeripheral]()
+    private var tableDataArray = [tableDataObject]()
     
+    //---------------------------------------------------------------------------------------
+
     
+    //---------------------------------------------------------------------------------------
+    // MARK: - public class variables
+    //---------------------------------------------------------------------------------------
 
     struct tableDataObject
     {
@@ -64,27 +91,6 @@ class tvcBLEDevices: UITableViewController
     }
 
     //---------------------------------------------------------------------------------------
-
-    
-
-    
-    //---------------------------------------------------------------------------------------
-    // MARK: - pull action definitions
-    //---------------------------------------------------------------------------------------
-
-    // Pull to refresh action
-    @IBAction func RefreshControlValueChanged(_ sender: Any)
-    {
-        // Clear data array and refill it
-        dataChangedHandler(nil)
-        tableView.reloadData()
-        MasterViewController.shared.didTriggerRefreshDeviceList()
-        (sender as AnyObject).endRefreshing()
-    }
-        
-    //---------------------------------------------------------------------------------------
-
-    
     
         
     //---------------------------------------------------------------------------------------
@@ -106,9 +112,16 @@ class tvcBLEDevices: UITableViewController
         {
             var tmpTableDataObject = tableDataObject()
             tableDataArray.removeAll()
-            tmpTableDataObject.deviceName = "No devices found"
-            tmpTableDataObject.isConnected = false
-            tableDataArray += [tmpTableDataObject]
+            if(BLEConroller.shared.isBLEConnected)
+            {
+                addConnectedDevice()
+            }
+            else
+            {
+                tmpTableDataObject.deviceName = "No devices found"
+                tmpTableDataObject.isConnected = false
+                tableDataArray += [tmpTableDataObject]
+            }
             return
         }
         
@@ -135,13 +148,37 @@ class tvcBLEDevices: UITableViewController
             var tmpTableDataObject = tableDataObject()
             tmpTableDataObject.peripheral = peripheral
             tableDataArray += [tmpTableDataObject]
+            addConnectedDevice()
+        }
+    }
+    
+    
+    /// Handler for the connected device
+    /// Due to the fact that connected devices don't send BLE advertisement data
+    /// we need to manually handle it here
+    ///
+    func addConnectedDevice()
+    {
+        // Check if there is a connected device
+        if(BLEConroller.shared.isBLEConnected)
+        {
+            for element in tableDataArray
+            {
+                if (element.deviceName == BLEConroller.shared.connectedDevice.name)
+                {
+                    // If the table allready contains the connected device there is nothing to do
+                    return
+                }
+            }
+            // If the table doesn't contain the connected device we have to add it
+            var tmpTableDataObject = tableDataObject()
+            tmpTableDataObject.peripheral = BLEConroller.shared.connectedDevice
+            self.tableDataArray += [tmpTableDataObject]
         }
     }
     
     //---------------------------------------------------------------------------------------
 
-    
-    
     
     //---------------------------------------------------------------------------------------
     // MARK: - public functions
@@ -161,10 +198,6 @@ class tvcBLEDevices: UITableViewController
     
     //---------------------------------------------------------------------------------------
 
-    
-    
-    
-    
     
     //=======================================================================================
     // MARK: - TableView delegates

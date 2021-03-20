@@ -126,8 +126,8 @@
             filePath = "Meshtastic/ViewController/tvcBLEDevices.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
+            startingLineNumber = "195"
+            endingLineNumber = "195"
             landmarkName = "Add_Update_Item(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -161,38 +161,6 @@
             startingLineNumber = "30"
             endingLineNumber = "30"
             landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E54F4CA4-E4CE-4985-BC04-C5997CBBE00E"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Meshtastic/ViewController/tvcConfig.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "338"
-            endingLineNumber = "338"
-            landmarkName = "tvcConfig"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "12FE372B-D35D-44F7-90AD-1A0884BDC366"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Meshtastic/ViewController/tvcConfig.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "188"
-            endingLineNumber = "188"
-            landmarkName = "initCellsFor_RadioPreferences(indexPath:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -238,25 +206,9 @@
             filePath = "Meshtastic/ViewController/MasterViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "bleConnectionTimeout()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D90182EC-C2AD-4386-AA20-CAFA84E4EBD6"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Meshtastic/ViewController/MasterViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
-            landmarkName = "userUpdated(user:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -270,8 +222,8 @@
             filePath = "Meshtastic/ViewController/tvcConfig.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "292"
-            endingLineNumber = "292"
+            startingLineNumber = "335"
+            endingLineNumber = "335"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -279,171 +231,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6CCEDA11-EBD5-44B6-A7F9-851D5866E8F5"
+            uuid = "E8EB5B27-2EEE-4394-9193-CE02BE17F28B"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Meshtastic/ViewController/tvcConfig.swift"
+            filePath = "Meshtastic/DataClasses/MasterDataProcessor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "tvcConfig"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  uuid = "6CCEDA11-EBD5-44B6-A7F9-851D5866E8F5 - 6ac52d2f2cac3890"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Meshtastic.tvcConfig.radioConfig.getter : Meshtastic.RadioConfig_DO"
-                  moduleName = "Meshtastic"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/thomas.huttinger/dev_Projects/meshtastic/Meshtastic/ViewController/tvcConfig.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "18"
-                  endingLineNumber = "18"
-                  offsetFromSymbolStart = "112">
-               </Location>
-               <Location
-                  uuid = "6CCEDA11-EBD5-44B6-A7F9-851D5866E8F5 - c1b93cda8d7e0d3c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Meshtastic.tvcConfig.radioConfig.setter : Meshtastic.RadioConfig_DO"
-                  moduleName = "Meshtastic"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/thomas.huttinger/dev_Projects/meshtastic/Meshtastic/ViewController/tvcConfig.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "18"
-                  endingLineNumber = "18"
-                  offsetFromSymbolStart = "132">
-               </Location>
-               <Location
-                  uuid = "6CCEDA11-EBD5-44B6-A7F9-851D5866E8F5 - 56c2862d8fec5065"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Meshtastic.tvcConfig.radioConfig.modify : Meshtastic.RadioConfig_DO"
-                  moduleName = "Meshtastic"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/thomas.huttinger/dev_Projects/meshtastic/Meshtastic/ViewController/tvcConfig.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "16">
-               </Location>
-               <Location
-                  uuid = "6CCEDA11-EBD5-44B6-A7F9-851D5866E8F5 - be0d9964a93a6a55"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Meshtastic.tvcConfig.radioConfig.modify : Meshtastic.RadioConfig_DO with unmangled suffix &quot;.resume.0&quot;"
-                  moduleName = "Meshtastic"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/thomas.huttinger/dev_Projects/meshtastic/Meshtastic/ViewController/tvcConfig.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "18"
-                  endingLineNumber = "18"
-                  offsetFromSymbolStart = "8">
-               </Location>
-               <Location
-                  uuid = "6CCEDA11-EBD5-44B6-A7F9-851D5866E8F5 - 7d01e097063294c5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Meshtastic.tvcConfig.init(style: __C.UITableViewStyle) -&gt; Meshtastic.tvcConfig"
-                  moduleName = "Meshtastic"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/thomas.huttinger/dev_Projects/meshtastic/Meshtastic/ViewController/tvcConfig.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "18"
-                  endingLineNumber = "18"
-                  offsetFromSymbolStart = "352">
-               </Location>
-               <Location
-                  uuid = "6CCEDA11-EBD5-44B6-A7F9-851D5866E8F5 - 5bf04bdf7cc53e48"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Meshtastic.tvcConfig.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Meshtastic.tvcConfig"
-                  moduleName = "Meshtastic"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/thomas.huttinger/dev_Projects/meshtastic/Meshtastic/ViewController/tvcConfig.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "18"
-                  endingLineNumber = "18"
-                  offsetFromSymbolStart = "376">
-               </Location>
-               <Location
-                  uuid = "6CCEDA11-EBD5-44B6-A7F9-851D5866E8F5 - 8a67c24a9999963f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Meshtastic.tvcConfig.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Meshtastic.tvcConfig&gt;"
-                  moduleName = "Meshtastic"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/thomas.huttinger/dev_Projects/meshtastic/Meshtastic/ViewController/tvcConfig.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "18"
-                  endingLineNumber = "18"
-                  offsetFromSymbolStart = "352">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F54D6963-792A-41A9-9CAF-636C7B7F4A95"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Meshtastic/ViewController/tvcConfig.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "278"
-            endingLineNumber = "278"
-            landmarkName = "initCellsFor_RadioChannelSettings(indexPath:)"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
+            landmarkName = "resetDB()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4023B1A3-EC59-4741-A050-6EA7736503D9"
+            uuid = "EF0C8B34-8EE7-4092-9ED0-AE4B13663C51"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Meshtastic/ViewController/tbcDeviceDetails.swift"
+            filePath = "Meshtastic/DataClasses/User_DP.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "getChatUsers()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "06F963B8-E7E3-4483-BE65-332D86650BC2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Meshtastic/ViewController/tvcChats.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "viewWillAppear(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4078129F-BD2D-4CBA-B80D-A5844DECC877"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Meshtastic/ViewController/tvcConfig.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "unwindToPresentingViewController(segue:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

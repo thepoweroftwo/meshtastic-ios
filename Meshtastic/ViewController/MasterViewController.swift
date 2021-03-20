@@ -45,7 +45,7 @@ class MasterViewController
         if (self.tvcBLEDevices.isKind(of: Meshtastic.tvcBLEDevices.self))
         {
             print("TableViewController initialized")
-            self.tvcBLEDevices.Add_Update_Item(peripheral)
+            self.tvcBLEDevices.Add_Update_Item(peripheral)            
         }
     }
 
@@ -58,6 +58,10 @@ class MasterViewController
 
         if (self.currentViewController == tvcBLEDevices)
         {
+            if (self.tvcChats != nil)
+            {
+                self.tvcChats.Add_Update_Item()
+            }
             show_tbcDeviceDetails()
         }
     }

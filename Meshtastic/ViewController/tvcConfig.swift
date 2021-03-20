@@ -9,6 +9,17 @@ import UIKit
 
 class tvcConfig: UITableViewController
 {
+    //---------------------------------------------------------------------------------------
+    // MARK: - IBOutlets
+    //---------------------------------------------------------------------------------------
+
+    //---------------------------------------------------------------------------------------
+
+    
+    //---------------------------------------------------------------------------------------
+    // MARK: - IBActions
+    //---------------------------------------------------------------------------------------
+
     @IBAction func unwindToPresentingViewController(segue:UIStoryboardSegue)
     {
         if segue.identifier == "SegueUnwindConfigDetail"
@@ -34,7 +45,14 @@ class tvcConfig: UITableViewController
             }
         }
     }
+
+    //---------------------------------------------------------------------------------------
     
+    
+    //---------------------------------------------------------------------------------------
+    // MARK: - private class variables
+    //---------------------------------------------------------------------------------------
+
     private var sectionDefinitions: [(numberOfRowsAtSection: Int, text: String)] = [
         (15, "RADIO - PREFERENCES"),
         (8, "RADIO - CHANNEL SETTINGS")]
@@ -47,12 +65,24 @@ class tvcConfig: UITableViewController
     }
     
     private var currentCell: cellEditText!
+
+    //---------------------------------------------------------------------------------------
+
     
-    
+    //---------------------------------------------------------------------------------------
+    // MARK: - public class variables
+    //---------------------------------------------------------------------------------------
+
     public var radioConfig: RadioConfig_DO = RadioConfig_DO()
     public var needsReload: Bool = false
 
-    
+    //---------------------------------------------------------------------------------------
+
+
+    //---------------------------------------------------------------------------------------
+    // MARK: - private functions
+    //---------------------------------------------------------------------------------------
+
     private func registerCell()
     {
         let cell = UINib(nibName: "cellEditText", bundle: nil)
@@ -288,6 +318,19 @@ class tvcConfig: UITableViewController
         }
     }
 
+    //---------------------------------------------------------------------------------------
+
+
+    //---------------------------------------------------------------------------------------
+    // MARK: - public functions
+    //---------------------------------------------------------------------------------------
+
+    //---------------------------------------------------------------------------------------
+    
+    
+    //=======================================================================================
+    // MARK: - TableView delegates
+    //=======================================================================================
     
     override func viewDidLoad()
     {
@@ -315,7 +358,9 @@ class tvcConfig: UITableViewController
     }
 
 
-    // MARK: - Table view data source
+    //---------------------------------------------------------------------------------------
+    // Table datasource
+    //---------------------------------------------------------------------------------------
 
     override func numberOfSections(in tableView: UITableView) -> Int
     {
@@ -404,36 +449,7 @@ class tvcConfig: UITableViewController
                 self.performSegue(withIdentifier: "SegueShowConfigDetail", sender: self)
         }
     }
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
-        if(segue.identifier == "SegueShowConfigDetail")
-        {
-            let vcEdit = segue.destination as! vcEditText
-            vcEdit.CellData.caption = self.currentCell.lblCaption.text!
-            vcEdit.CellData.value = self.currentCell.lblValue.text!
-            vcEdit.CellData.info = self.currentCell.lblInfo.text!
-            vcEdit.CellData.dataFieldName = self.currentCell.datafieldName
-        }
-        
-        if(segue.identifier == "SegueShowLoRaModulationConfig")
-        {
-            let vcEdit = segue.destination as! vcLoRaModulationConfig
-            vcEdit.CellData.bandWidth = String(self.radioConfig.channelSettings.bandwidth)
-            vcEdit.CellData.spreadingFactor = String(self.radioConfig.channelSettings.spreadFactor)
-            vcEdit.CellData.codingRate = String(self.radioConfig.channelSettings.codingRate)
-        }
 
-    }
-    
-    
-//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
-//    {
-//        return 121
-//    }
-
-    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -468,15 +484,35 @@ class tvcConfig: UITableViewController
         return true
     }
     */
+    //---------------------------------------------------------------------------------------
 
-    /*
-    // MARK: - Navigation
+    
+    //---------------------------------------------------------------------------------------
+    // Navigation
+    //---------------------------------------------------------------------------------------
+     
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+     {
+         if(segue.identifier == "SegueShowConfigDetail")
+         {
+             let vcEdit = segue.destination as! vcEditText
+             vcEdit.CellData.caption = self.currentCell.lblCaption.text!
+             vcEdit.CellData.value = self.currentCell.lblValue.text!
+             vcEdit.CellData.info = self.currentCell.lblInfo.text!
+             vcEdit.CellData.dataFieldName = self.currentCell.datafieldName
+         }
+         
+         if(segue.identifier == "SegueShowLoRaModulationConfig")
+         {
+             let vcEdit = segue.destination as! vcLoRaModulationConfig
+             vcEdit.CellData.bandWidth = String(self.radioConfig.channelSettings.bandwidth)
+             vcEdit.CellData.spreadingFactor = String(self.radioConfig.channelSettings.spreadFactor)
+             vcEdit.CellData.codingRate = String(self.radioConfig.channelSettings.codingRate)
+         }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     }
+
+    //---------------------------------------------------------------------------------------
+
 
 }

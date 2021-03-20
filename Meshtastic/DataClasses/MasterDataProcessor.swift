@@ -136,14 +136,21 @@ class MasterDataProcessor
     // MARK: - public functions
     //---------------------------------------------------------------------------------------
     
-    public func resetDB() {
-        DataBase.shared.nodeArray = [NodeInfo_DO]()
+    public func resetDB()
+    {
+        // This is a temporary functioon called after BLE disconnect. Later when implementing a database
+        // we need to highlight the users who are online on the connected device.
+        DataBase.shared.nodeArray.removeAll()
     }
 
     /// Parse the decoded protoBuf structure "FromRadio" and write the data into our own data classes
     public func parseFromRadioPb(fromRadioDecoded: FromRadio)
     {
         var pbDataType: FromRadio.OneOf_Variant
+        if (fromRadioDecoded.variant == nil)
+        {
+            return
+        }
         pbDataType = fromRadioDecoded.variant!
         let nodeInfo = NodeInfo_DO()
         let user = User_DO()

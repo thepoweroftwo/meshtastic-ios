@@ -292,6 +292,7 @@ extension BLEConroller: CBCentralManagerDelegate
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?)
     {
         isBLEConnected = false
+        self.masterDataProcessor.resetDB()
         //connectedDevice = nil
         print("Disconnected: " + peripheral.name!)
         MasterViewController.shared.DebugPrint2View(text: "!!! Disconnected: " + peripheral.name! + "\n\r")
