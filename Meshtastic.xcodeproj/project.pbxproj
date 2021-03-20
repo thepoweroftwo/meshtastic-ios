@@ -30,7 +30,6 @@
 		7D6F2FBC25176A2F00403A2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D6F2FBA25176A2F00403A2F /* LaunchScreen.storyboard */; };
 		7D72B784252CEC8E0033F613 /* cellEditText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D72B782252CEC8E0033F613 /* cellEditText.swift */; };
 		7D72B785252CEC8E0033F613 /* cellEditText.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D72B783252CEC8E0033F613 /* cellEditText.xib */; };
-		7D748D0D25E29764000AC02C /* KeyboardLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D748D0C25E29764000AC02C /* KeyboardLayoutGuide.swift */; };
 		7D78DDA025CF1D45006FCBE6 /* cellChatMessageUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D78DD9E25CF1D45006FCBE6 /* cellChatMessageUser.swift */; };
 		7D78DDA125CF1D45006FCBE6 /* cellChatMessageUser.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D78DD9F25CF1D45006FCBE6 /* cellChatMessageUser.xib */; };
 		7D78DDA425CF1D6A006FCBE6 /* cellChatMessageMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D78DDA225CF1D6A006FCBE6 /* cellChatMessageMe.swift */; };
@@ -96,7 +95,6 @@
 		7D6F2FBD25176A2F00403A2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D72B782252CEC8E0033F613 /* cellEditText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cellEditText.swift; sourceTree = "<group>"; };
 		7D72B783252CEC8E0033F613 /* cellEditText.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = cellEditText.xib; sourceTree = "<group>"; };
-		7D748D0C25E29764000AC02C /* KeyboardLayoutGuide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardLayoutGuide.swift; sourceTree = "<group>"; };
 		7D78DD9E25CF1D45006FCBE6 /* cellChatMessageUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cellChatMessageUser.swift; sourceTree = "<group>"; };
 		7D78DD9F25CF1D45006FCBE6 /* cellChatMessageUser.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = cellChatMessageUser.xib; sourceTree = "<group>"; };
 		7D78DDA225CF1D6A006FCBE6 /* cellChatMessageMe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cellChatMessageMe.swift; sourceTree = "<group>"; };
@@ -218,7 +216,6 @@
 		7DB29A012521EAE000AFDEE2 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				7D748D0C25E29764000AC02C /* KeyboardLayoutGuide.swift */,
 				7DB29A062522236100AFDEE2 /* MasterViewController.swift */,
 				7DB29A022521EAE000AFDEE2 /* tvcBLEDevices.swift */,
 				7D937732251A60AD005F0669 /* tbcDeviceDetails.swift */,
@@ -344,7 +341,6 @@
 				7DB29A052521ECD200AFDEE2 /* BLEController.swift in Sources */,
 				7D0338EB258F868200C09EB0 /* portnums.pb.swift in Sources */,
 				7D72B784252CEC8E0033F613 /* cellEditText.swift in Sources */,
-				7D748D0D25E29764000AC02C /* KeyboardLayoutGuide.swift in Sources */,
 				7DD21F4E25BC450B00CB1E4F /* ChatMessage_DO.swift in Sources */,
 				7D9FF0CE256CFD0F0089F37E /* vcLoRaModulationConfig.swift in Sources */,
 				7D937733251A60AD005F0669 /* tbcDeviceDetails.swift in Sources */,

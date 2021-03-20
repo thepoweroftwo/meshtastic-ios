@@ -115,7 +115,7 @@ class vcChat: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
         MasterViewController.shared.vcChat = self
         
         // Set constraint to move content up when keyboard appears
-        self.svInput.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor, constant: -10).isActive = true
+//        self.svInput.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor, constant: -10).isActive = true
 
         // Set adaptive row height
         tableView.rowHeight = UITableView.automaticDimension
