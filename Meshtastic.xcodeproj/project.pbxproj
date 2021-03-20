@@ -36,6 +36,7 @@
 		7D78DDA525CF1D6A006FCBE6 /* cellChatMessageMe.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D78DDA325CF1D6A006FCBE6 /* cellChatMessageMe.xib */; };
 		7D82961C25C6CF2B00C904B6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D82961B25C6CF2B00C904B6 /* Extensions.swift */; };
 		7D937733251A60AD005F0669 /* tbcDeviceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D937732251A60AD005F0669 /* tbcDeviceDetails.swift */; };
+		7D98BDAC26064129008A487E /* KeyboardLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D98BDAB26064129008A487E /* KeyboardLayoutGuide.swift */; };
 		7D9A4A6C252A6C2500CE4AD2 /* tvcConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A4A6B252A6C2500CE4AD2 /* tvcConfig.swift */; };
 		7D9FF0CE256CFD0F0089F37E /* vcLoRaModulationConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9FF0CD256CFD0F0089F37E /* vcLoRaModulationConfig.swift */; };
 		7DB299F9251E708500AFDEE2 /* mesh.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB299F8251E708500AFDEE2 /* mesh.pb.swift */; };
@@ -101,6 +102,7 @@
 		7D78DDA325CF1D6A006FCBE6 /* cellChatMessageMe.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = cellChatMessageMe.xib; sourceTree = "<group>"; };
 		7D82961B25C6CF2B00C904B6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		7D937732251A60AD005F0669 /* tbcDeviceDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tbcDeviceDetails.swift; sourceTree = "<group>"; };
+		7D98BDAB26064129008A487E /* KeyboardLayoutGuide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardLayoutGuide.swift; sourceTree = "<group>"; };
 		7D9A4A6B252A6C2500CE4AD2 /* tvcConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tvcConfig.swift; sourceTree = "<group>"; };
 		7D9FF0CD256CFD0F0089F37E /* vcLoRaModulationConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vcLoRaModulationConfig.swift; sourceTree = "<group>"; };
 		7DB299F4251E6F0E00AFDEE2 /* SwiftProtobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftProtobuf.framework; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 		7DB29A012521EAE000AFDEE2 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				7D98BDAB26064129008A487E /* KeyboardLayoutGuide.swift */,
 				7DB29A062522236100AFDEE2 /* MasterViewController.swift */,
 				7DB29A022521EAE000AFDEE2 /* tvcBLEDevices.swift */,
 				7D937732251A60AD005F0669 /* tbcDeviceDetails.swift */,
@@ -324,6 +327,7 @@
 				7DF4882625E1DCDF00187E23 /* avChatTextInput.swift in Sources */,
 				7DFDE9E8252650E300B4BBF2 /* User_DO.swift in Sources */,
 				7D57968F254F3B7400769E7C /* vcEditText.swift in Sources */,
+				7D98BDAC26064129008A487E /* KeyboardLayoutGuide.swift in Sources */,
 				7DF1B3C125D044D600900923 /* vcChat.swift in Sources */,
 				7DFDE9F025276BF700B4BBF2 /* Enumerations.swift in Sources */,
 				7D5A423A25C952C000A147B3 /* ChatMessage_DP.swift in Sources */,
@@ -506,7 +510,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 5HQQDDZ3GR;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -533,7 +537,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Distribution: Thomas Huttinger (5HQQDDZ3GR)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 5HQQDDZ3GR;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
