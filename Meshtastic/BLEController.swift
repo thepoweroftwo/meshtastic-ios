@@ -23,6 +23,7 @@ class BLEConroller : NSObject
     var peripheralArray = [CBPeripheral]()
     var connectedDevice: CBPeripheral!
     var isBLEConnected = false
+    var isDisconnectedByUser = false
     var timeoutTimer: Timer?
     
     var masterDataProcessor: MasterDataProcessor
@@ -95,6 +96,7 @@ class BLEConroller : NSObject
     ///
     public func disconnectFromDevice(peripheral: CBPeripheral)
     {
+        self.isDisconnectedByUser = true
         centralManager.cancelPeripheralConnection(peripheral)
     }
     
@@ -296,6 +298,13 @@ extension BLEConroller: CBCentralManagerDelegate
         //connectedDevice = nil
         print("Disconnected: " + peripheral.name!)
         MasterViewController.shared.DebugPrint2View(text: "!!! Disconnected: " + peripheral.name! + "\n\r")
+        
+        // We only need to show a message when the disconnect was not initiated by the user
+        if (!isDisconnectedByUser)
+        {
+            MasterViewController.shared.bleDisconnected()
+        }
+        self.isDisconnectedByUser = false
         centralManager.scanForPeripherals(withServices: nil)
     }
     

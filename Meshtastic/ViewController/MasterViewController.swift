@@ -107,7 +107,24 @@ class MasterViewController
         let keyWindow = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
 
         keyWindow?.rootViewController?.present(dialogMessage, animated: true, completion: nil)
-
+    }
+    
+    
+    /// Called by BLEController after a disconnect occured that was not initiated by the user
+    ///
+    public func bleDisconnected()
+    {
+        let navigator: UINavigationController = tvcBLEDevices.navigationController!
+        navigator.popToRootViewController(animated: true)
+        tvcBLEDevices.dataChangedHandler(nil)
+        // Create new Alert
+        self.dialogMessage = UIAlertController(title: "Connection lost", message: "Please reconnect your device.", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        //Add OK button to a dialog message
+        dialogMessage.addAction(ok)
+        
+        let keyWindow = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+        keyWindow?.rootViewController?.present(dialogMessage, animated: true, completion: nil)
     }
     
     
