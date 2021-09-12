@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C8042F326EDB1B1000548C1 /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = 4C8042F226EDB1B1000548C1 /* SwiftProtobuf */; };
+		4C8042F426EDB3FC000548C1 /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DB299F4251E6F0E00AFDEE2 /* SwiftProtobuf.framework */; };
+		4C8042F526EDB3FC000548C1 /* SwiftProtobuf.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7DB299F4251E6F0E00AFDEE2 /* SwiftProtobuf.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7D0338EB258F868200C09EB0 /* portnums.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0338EA258F868200C09EB0 /* portnums.pb.swift */; };
 		7D1334932544B23D009E32FE /* mesh_icon_180.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D1334912544B23D009E32FE /* mesh_icon_180.png */; };
 		7D1334942544B23D009E32FE /* mesh_icon_120.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D1334922544B23D009E32FE /* mesh_icon_120.png */; };
@@ -16,8 +19,6 @@
 		7D1F7F712598B5D800C9A26F /* tvcChats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F7F702598B5D800C9A26F /* tvcChats.swift */; };
 		7D1FB11E2592445F008FBAEF /* User_DP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1FB11D2592445F008FBAEF /* User_DP.swift */; };
 		7D3D5370251BAC8500A603D7 /* tabVcDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3D536F251BAC8500A603D7 /* tabVcDebug.swift */; };
-		7D3E760E253F6C6F0016F3EB /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DB299F4251E6F0E00AFDEE2 /* SwiftProtobuf.framework */; };
-		7D3E760F253F6C6F0016F3EB /* SwiftProtobuf.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7DB299F4251E6F0E00AFDEE2 /* SwiftProtobuf.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7D447339258E42730063ACBC /* MyNodeInfo_DP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D447338258E42730063ACBC /* MyNodeInfo_DP.swift */; };
 		7D44733B258E74BB0063ACBC /* DataMessage_DO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D44733A258E74BB0063ACBC /* DataMessage_DO.swift */; };
 		7D5710E725A8C80100A6D83E /* vcMyUserConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5710E625A8C80100A6D83E /* vcMyUserConfig.swift */; };
@@ -65,7 +66,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				7D3E760F253F6C6F0016F3EB /* SwiftProtobuf.framework in Embed Frameworks */,
+				4C8042F526EDB3FC000548C1 /* SwiftProtobuf.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -130,7 +131,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D3E760E253F6C6F0016F3EB /* SwiftProtobuf.framework in Frameworks */,
+				4C8042F326EDB1B1000548C1 /* SwiftProtobuf in Frameworks */,
+				4C8042F426EDB3FC000548C1 /* SwiftProtobuf.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +260,9 @@
 			dependencies = (
 			);
 			name = Meshtastic;
+			packageProductDependencies = (
+				4C8042F226EDB1B1000548C1 /* SwiftProtobuf */,
+			);
 			productName = Meshtastic;
 			productReference = 7D6F2FAC25176A2C00403A2F /* Meshtastic.app */;
 			productType = "com.apple.product-type.application";
@@ -285,6 +290,9 @@
 				Base,
 			);
 			mainGroup = 7D6F2FA325176A2C00403A2F;
+			packageReferences = (
+				4C8042F126EDB1B1000548C1 /* XCRemoteSwiftPackageReference "swift-protobuf" */,
+			);
 			productRefGroup = 7D6F2FAD25176A2C00403A2F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -508,10 +516,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 5;
-				DEVELOPMENT_TEAM = 5HQQDDZ3GR;
+				DEVELOPMENT_TEAM = 49FU9E98SQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -522,9 +530,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.87;
-				PRODUCT_BUNDLE_IDENTIFIER = "de.huttinger-home.meshtastic";
+				PRODUCT_BUNDLE_IDENTIFIER = meshtastic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = Meshtastic_dev;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -535,10 +543,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Distribution: Thomas Huttinger (5HQQDDZ3GR)";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 5;
-				DEVELOPMENT_TEAM = 5HQQDDZ3GR;
+				DEVELOPMENT_TEAM = 49FU9E98SQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -549,9 +557,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.87;
-				PRODUCT_BUNDLE_IDENTIFIER = "de.huttinger-home.meshtastic";
+				PRODUCT_BUNDLE_IDENTIFIER = meshtastic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = Meshtastic_dist;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -579,6 +587,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4C8042F126EDB1B1000548C1 /* XCRemoteSwiftPackageReference "swift-protobuf" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-protobuf.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.17.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4C8042F226EDB1B1000548C1 /* SwiftProtobuf */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4C8042F126EDB1B1000548C1 /* XCRemoteSwiftPackageReference "swift-protobuf" */;
+			productName = SwiftProtobuf;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7D6F2FA425176A2C00403A2F /* Project object */;
 }
