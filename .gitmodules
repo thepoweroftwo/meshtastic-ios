@@ -1,0 +1,3 @@
+[submodule "swift-protobuf"]
+	path = swift-protobuf
+	url = https://github.com/apple/swift-protobuf.git
